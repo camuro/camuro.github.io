@@ -1,0 +1,26 @@
+---
+layout: post
+title: ! 'リモートインターン12日目 ｜ Bufferにポストを予約'
+published: true
+date: 2012-12-04 00:01
+comments: true
+categories:
+- リモートインターン
+- 作業
+- 怖話
+tags: []
+keywords:
+- リモートインターン
+- 作業
+- 怖話
+---
+<p style="text-align:center;">
+<a href="/images/2012/12/skitch_121203.png"><img class="aligncenter size-full wp-image-393" title="Buffer" src="/images/2012/12/skitch_121203.png" alt="" width="547" height="319" /></a>
+</p>
+
+今回は[Buffer](http://bufferapp.com/ "Buffer")を使って怖話のtwitterアカウントとfacebookアカウントにポストを予約する作業をやっていきました。
+[Buffer](http://bufferapp.com/ "Buffer")は予め追加したツイート等のポストを予約した時間に分散してtwitterやfacebook、LinkdInなどのSNSに投稿してくれるサービスです。
+今のうちに[怖話のtwtterアカウント](https://twitter.com/kowabanajp "怖話のtwtterアカウント")のフォローやf[acebookアカウント](http://www.facebook.com/kowabana "acebookアカウント")をいいね！しておくと、明日以降には私の投稿したエントリーもあなたのタイムラインに流れてきますよ！
+自分で怖いと思った内容のものをエントリーしたので、ぜひよろしくお願いします(●ↀωↀ●)✧
+
+残った時間で次の作業に移りましたが、それはまた次回に…！

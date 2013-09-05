@@ -1,0 +1,37 @@
+---
+layout: post
+title: ! 'エクセルに記述されているハイパーリンク先のURLをマクロで抽出する方法'
+published: true
+date: 2012-05-24 09:41
+comments: true
+categories:
+- 未分類
+tags: []
+keywords:
+- 未分類
+---
+・マクロはALT＋F11でVBE画面を開く。  
+・左上のVBA Projectでシート名を右クリックし「挿入」→「標準モジュール」で表示される画面に貼り付ける。  
+・マクロの実行。  
+・元のエクセルに新規シートでURLが書き出される。  
+
+```
+Sub Macro1()
+Dim idx As Integer
+Dim ws As Worksheet
+Dim trg As Range
+Set ws = ActiveSheet
+If ws.Hyperlinks.Count &gt; 0 Then
+Worksheets.Add after:=ws
+Set trg = ActiveSheet.Range(&quot;A1&quot;)
+For idx = 1 To ws.Hyperlinks.Count
+If Left(ws.Hyperlinks(idx).Address, 1) = &quot;=&quot; Then
+trg.Value = &quot;'&quot; &amp; ws.Hyperlinks(idx).Address
+Else
+trg.Value = ws.Hyperlinks(idx).Address
+End If
+trg.Offset(0, 1).Value = ws.Hyperlinks(idx).Parent.Address
+Set trg = trg.Offset(1)
+Next idx
+End If
+```

@@ -1,0 +1,46 @@
+---
+layout: post
+title: ! 'リモートインターン ｜ 怖話コミックのバナーを作る'
+published: true
+date: 2013-02-27 22:43
+comments: true
+categories:
+- git
+- リモートインターン
+- 作業
+- 怖話
+tags: []
+keywords:
+- git
+- リモートインターン
+- 作業
+- 怖話
+---
+作業週の記録です。
+今回は怖話に新しく漫画投稿の機能がつく予定なので、投稿募集のバナーを4点作りました。
+
+以下、手順（@machidaさんに書いていただいたものコピペ…）
+
+```
+$ git branch XXXX でブランチを作成
+$ git checkout XXXX そのブランチに移動
+作業が完了したら
+$ git add . 新しく作ったファイルをバージョン管理に追加
+$ git commit -a -m"バナー追加" 作業をコミット
+$ git push origin XXXX githubにブランチをアップ
+github から Pull Request を送る
+```
+
+初プルリク…！
+無事マージされて@komagataさんからミサワコメントをいただきました。
+
+
+<a href="/images/2013/02/skitch.png"><img class="alignnone size-medium" alt="ミサワ" src="/images/2013/02/skitch.png" /></a>
+
+リリースが楽しみです。
+
+&nbsp;
+
+2013.03.07追記：こんな感じになりました。
+
+<a href="/images/2013/02/IMG_1808.jpg"><img class="alignnone size-medium wp-image-538" alt="IMG_1808" src="/images/2013/02/IMG_1808-224x300.jpg" width="224" height="300" /></a>
