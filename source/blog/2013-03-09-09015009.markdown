@@ -1,0 +1,70 @@
+---
+layout: post
+title: ! 'リモートインターン ｜ MIddleman 実践（1）'
+published: true
+date: 2013-03-09 01:50
+comments: true
+categories:
+- Middleman
+- sass
+- リモートインターン
+tags: []
+keywords:
+- Middleman
+- sass
+- リモートインターン
+---
+引き続きMiddlemanの学習です。
+リファレンスを読んでるだけだと頭に入ってこないので、実際にレイアウト組みながら学習することにしました。
+今回作るサイトのテーマはチートシートです。
+ざっくりphotoshopでデザインしたもの
+
+<a href="/images/2013/03/0f9d88346a601c859d5154d515fff876.png" target="_blank"><img class="alignnone size-medium wp-image-543" alt="スクリーンショット 2013-03-09 0.12.09" src="/images/2013/03/0f9d88346a601c859d5154d515fff876-300x146.png" width="300" height="146" /></a>
+
+今日できるところまでコーディングしたもの
+
+<a href="/images/2013/03/3072465c3bdb1f2fc4e8336ecfe2e0be.png" target="_blank"><img class="alignnone size-medium wp-image-542" alt="スクリーンショット 2013-03-09 0.10.46" src="/images/2013/03/3072465c3bdb1f2fc4e8336ecfe2e0be-300x176.png" width="300" height="176" /></a>
+
+ブログ機能を使ってタグをグローバルナビにしてタグ毎の記事一覧をサイドナビに表示したい。
+
+**前回躓いたけど解決した問題**
+sassを書いてもbuildしない限りはコンパイルされないのでcssの表示確認が面倒だな…と思ってたけど[アセットヘルパ](http://middleman-guides.e2esound.com/helpers/ "アセットヘルパ")で解決した。（躓いた理由は、リファレンス読書不足。）
+例えばstyle.css.sassの場合、普通のhtmlだとstylesheetのリンクは下記のように書くけど
+
+```html
+<link rel="stylesheet" href="stylesheets/style.css">
+```
+
+アセットヘルパを使う場合は下記のような記述で良い。
+
+```erb
+<%= stylesheet_link_tag 'style' %>
+```
+
+これならbuildせずともリロードでcssが反映されるので、LiveReloadの力も借りてsassファイル保存→即ブラウザ反映の確認ができる。とても捗る。
+
+**パーシャル**
+ヘッダーのグローバルナビとサイドナビとフッターと記事の整形をして、パーシャルというのを使ってみた。
+普段phpを触っているので、これがincludeにあたるところか…と思った。
+_header.erb、_side.erb、_footer.erbのようにファイルを命名する。
+例えば下記のようなコードを_footer.erbとして保存。
+
+```html
+<footer>
+  Copyright 2013 hoge
+</footer>
+```
+
+layout.erbで該当箇所に下記のように記述する。
+
+```erb
+<%= partial "footer" %>
+```
+
+ファイルの接頭にアンダースコアを入れるのは、sassで他のsassファイルをimportして結合したいときと似ていてしっくりきた。
+
+この記事書いてるうちにまた少し調整した。
+
+<a href="/images/2013/03/4dfc72382e6c74ec3a1755a4946fb661.png" target="_blank"><img class="alignnone size-medium wp-image-563" alt="スクリーンショット 2013-03-09 1.46.48" src="/images/2013/03/4dfc72382e6c74ec3a1755a4946fb661-300x142.png" width="300" height="142" /></a>
+
+タグの記事一覧はどうやってやろう…。見た目は詰まってる感じがあるので追々微調整する。

@@ -1,0 +1,56 @@
+---
+layout: post
+title: ! 'XAMPPを使ってローカル環境に構築したWordPressのデータをサーバーにアップする方法'
+published: false
+date: 2012-06-04 22:22
+comments: true
+categories:
+- 未分類
+tags: []
+keywords:
+- 未分類
+---
+## 1.XAMPPでローカル環境にWordPressを構築する。
+
+今回、ローカルにWordPressを構築した手順は下記の通り。（XAMPPは既にインストール済み）
+
+- xampp/htdocs/hogehoge/にWordPressをダウンロード
+- wordpress/wp-config.phpをテキストエディタで開き、WordPress のデータベース名(DB_NAME)/MySQL のユーザー名(DB_USER)/MySQL のパスワード(DB_PASSWORD)/MySQL のホスト名(DB_HOST)を入力、保存
+- Fwでページのデザイン
+- 画像をスライス
+- xampp/htdocs/hogehoge/にDwでページのコーディング（html）
+- 3.のhtmlをheader/loop/footerに別けてphp化
+- index.phpにheader.php/loop.php/footer.phpを読み込む記述を書く
+- xampp/htdocs/hogehoge/wordpress/wp-content/themes/下に名前を付けたディレクトリを置いて、そこにコーディングしたcssやphpのデータを突っ込む。
+- XAMPPのphpMyAdminのページにいって、wordpress用のデータベースを作成
+- localhost/hogehoge/wordpress/wp-config.phpにアクセス
+- host name/user name/DB_name/DB_pass/を入力し、WordPressをインストール
+- xampp/htdocs/hogehoge/index.phpにwordpress/index.phpを読み込むコードを記述*
+
+これでローカル環境にWordPressの環境を構築出来ました。後はテスト記事を書くなり、デザインの修正をするなり。
+さて、次はローカルである程度記事等を書いて、そこからレンタルサーバーなどに記事ごとアップする方法を書きます。
+
+&nbsp;
+# 2.ローカル環境のWordPressデータをダンプする。
+&nbsp;
+
+&nbsp;
+
+手っ取り早く言えば、記事のデータをsql化しバックアップを取ること。以下、手順です。
+
+- phpMyAdminへ行き、wordpressのデータベースのページに飛ぶ
+- 全ての項目にチェックを入れ、エクスポートを選択
+- エクスポートの詳細のページへ飛んで、各項目のチェックを入れたり外したり。チェックの項目については後述します。
+- sql化
+- sql化したデータをテキストエディタで開いて、記事がきちんと保存されているか確認する。
+
+&nbsp;
+# 3.ローカル環境のWordPressデータをサーバーにアップする。
+&nbsp;
+
+&nbsp;
+
+今回はサーバーをロリポでレンタルしているので、そこでのやり方で書いていきます。
+
+- ロリポのユーザー専用ページで新規データベースを作成し、host name/user name/DB_name/DB_pass/をメモ
+- ロリポのユーザー専用ページからphpMyAdminのページに飛び、作成した

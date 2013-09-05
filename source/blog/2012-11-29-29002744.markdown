@@ -1,0 +1,29 @@
+---
+layout: post
+title: ! 'リモートインターン10日目 ｜ Webの基本 – フォーム系・インタラクティブ系要素'
+published: true
+date: 2012-11-29 00:27
+comments: true
+categories:
+- HTML5
+- リモートインターン
+tags: []
+keywords:
+- HTML5
+- リモートインターン
+---
+引き続きHTMLの学習です。
+
+今日は [HTML要素のリファレンス](http://www.html5.jp/tag/elements/ "HTML要素のリファレンス")のフォーム系・インタラクティブ系要素に目を通していきました。
+フォーム系は業務で携わる部分が少なく苦手でしたが、HTML5から規定された要素や属性が沢山あるので目から鱗が落ちまくって楽しく学習できました。
+## フォーム系
+
+- autofocus/placefolder/required要素あたりは直近の業務で使う機会があったのでおさらい。
+- datalist/keygen/output/input要素のtype属性でHTML5から追加になったものはtelとemailしか使ったことなかったのでデモ作りながら確認。
+
+## インタラクティブ系
+
+- css等で弄らなくてもsummary要素内の内容をクリックしてdetails要素の表示を開閉できるの便利。
+
+HTML要素のリファレンス読書は今回で終わりです。
+次回はいよいよHTML課題をやっていきます！

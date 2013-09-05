@@ -1,0 +1,53 @@
+---
+layout: post
+title: ! 'リモートインターン ｜ CSS課題に取り組む'
+published: true
+date: 2013-01-30 15:27
+comments: true
+categories:
+- compass
+- css
+- sass
+- リモートインターン
+tags: []
+keywords:
+- compass
+- css
+- sass
+- リモートインターン
+---
+年末年始としばらくインターンの方お休みしていて、いったい何日目なのかわからなくなったので日数のカウント諦めました(´・ω・｀)
+今回はCSS課題に取り組んでいった結果の報告です。
+
+[お手本](http://camuro.org/fjord/sample/ "お手本")
+[css](http://camuro.org/fjord/sample/style.css "css")
+
+上のサンプルを見ながらcompass使いながらsass記法でコーディングしていきました。
+
+[作ったもの](http://camuro.org/fjord/practice/ "作ったもの")
+[sass](http://camuro.org/fjord/practice/sass/screen.sass "sass") | [css](http://camuro.org/fjord/practice/css/screen.css "css")
+
+つまづいたこと
+
+- sublime textでの文字コードの変換が分からずしばらく文字化けに苦しんだ。sassで@charset "UTF-8"を宣言してもコンパイルされたcssがUTF-8として認識されない。 
+メニューバーから　File > Set File Encording to > ... で変換して解決。超絶初歩なところで躓いてた。
+<a href="/images/2013/01/73746eb523f28c3e7c3e29f184a8b6ef.png"><img src="/images/2013/01/73746eb523f28c3e7c3e29f184a8b6ef-300x179.png" alt="スクリーンショット 2013-01-30 15.05.05" width="300" height="179" class="aligncenter size-medium wp-image-446" /></a>
+- データ定義リスト dl の dt /dd のfloatのやり方で躓いた。display:inline;で解決。
+
+
+注力したこと
+
+- ズルいデザインのmixinを使う（ボックスシャドウ・テキストシャドウ・ズルい線・角丸・グラデーション…大体使ってみた）
+- 変数を使う
+- @mixinを=、@includeを=で記述する
+
+
+今後の課題
+
+- extendを使いこなす
+- もっと短いコーディングでスタイリングできるようにする
+
+
+ひと通りやって思うことは、写経は大事だな…ということ。
+業務で併せてsassでコーディングをするようになったので、extendの使い所は少し理解してきた。
+基礎を抑えたら、習うより慣れろ。

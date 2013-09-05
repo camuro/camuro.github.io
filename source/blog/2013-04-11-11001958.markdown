@@ -1,0 +1,33 @@
+---
+layout: post
+title: ! 'リモートインターン | 「怖いボタン」の押された状態の見た目を作る'
+published: true
+date: 2013-04-11 00:19
+comments: true
+categories:
+- sass
+- リモートインターン
+- 作業
+- 怖話
+tags: []
+keywords:
+- sass
+- リモートインターン
+- 作業
+- 怖話
+---
+今日は怖話の怖いボタンについて「怖いを押してある場合はそれとわかる見た目が欲しい」の作業をしました。
+
+これを
+
+<a href="/images/2013/04/8fa25729ceea79e94a296bf30a2557a2.png"><img class="alignnone size-medium wp-image-582" alt="8fa25729ceea79e94a296bf30a2557a2" src="/images/2013/04/8fa25729ceea79e94a296bf30a2557a2-300x37.png" width="300" height="37" /></a>
+
+こんな感じで。
+
+<a href="/images/2013/04/9927d89925864bc9d0e04a3e0770e880.png"><img class="alignnone size-medium wp-image-583" alt="9927d89925864bc9d0e04a3e0770e880" src="/images/2013/04/9927d89925864bc9d0e04a3e0770e880-300x68.png" width="300" height="68" /></a>
+
+mixin用の_mixin.css.sassに書かれていたボタンのスタイルにvisitedの擬似クラスに押された感じのスタイルを追加。
+
+既に押したかどうかの動きは他のhelper?（stories_helperかな。）かなんか触らないとつけられなさそうだったので
+とりあえず今日はここまで。
+動きは誰にお願いすればよいのだろうか…。

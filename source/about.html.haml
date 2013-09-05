@@ -1,0 +1,38 @@
+---
+title:     ABOUT | CAMURO
+bodyclass: about
+---
+.pure-g-r
+  %section.pure-u-1-2
+    %h2.content-subhead About
+    %p
+      %img{ src: "http://2.gravatar.com/avatar/c73e6a2ce410efe45b5fd1ac5b21da4b?d=https%3A%2F%2Fidenticons.github.com%2Fdfc83c714c65579f58b1d7a2eeba47c2.png&s=420", alt: 'Ayumi Kumano image', class: "about-image" }
+    %p Ayumi Kumano
+    %p @ayumiko
+    %p Designer
+    %p カレーと猫が大好きです。
+    %ul.social-list
+      %li.social-list-item
+        = link_to "https://www.facebook.com/ayumi.kumano7", :target => "_blank" do
+          %i.icon-facebook-sign
+            facebook
+      %li.social-list-item
+        = link_to "http://twitter.com/ayumiko", :target => "_blank" do
+          %i.icon-twitter-sign
+            twitter
+      %li.social-list-item
+        = link_to "https://github.com/kumanoayumi", :target => "_blank" do
+          %i.icon-github-sign
+            github
+
+  %section.pure-u-1-2
+    %h2.content-subhead Skill Set
+    %ul.skill-list
+      - data.skill.each do |member|
+        %li
+          .checkbox
+            %i.icon-check-empty
+            %i.icon-ok
+          %span
+            = member.skill
+

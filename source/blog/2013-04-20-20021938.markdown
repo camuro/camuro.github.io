@@ -1,0 +1,95 @@
+---
+layout: post
+title: ! 'リモートインターン ｜ MIddleman 実践（4）- Githubページへデプロイする方法'
+published: false
+date: 2013-04-20 02:19
+comments: true
+categories:
+- Middleman
+- リモートインターン
+tags: []
+keywords:
+- Middleman
+- リモートインターン
+---
+
+静的サイトジェネレータの良いところって色々あるとは思うのですが、[Github Pages](http://pages.github.com/ "Github Pages")で無料で静的ページを公開できる点が良いです。
+Middlemanの他にもjekyll,Octopressなど今は静的にブログを作成できるものがあるので、それぞれ試してみたい…。
+
+試してみたMiddlemanをGithubページへデプロイする方法
+### 方法１．Middleman Deployを使う
+[日本語ガイド](http://middleman-guides.e2esound.com/community/deployment-solutions/ "日本語ガイド")
+[Middleman Deploy](https://github.com/tvaughan/middleman-deploy "Middleman Deploy")
+Gitでデプロイする方法をやってみました。
+<!--more-->
+
+**手順**
+１．gemをインストール
+
+```
+$ gem install middleman-deploy
+```
+
+２．bundle  
+Gemfileに下記を記述する。
+
+```ruby
+gem "middleman-deploy", "~&gt; 0.0.11"
+```
+
+bundleインストール
+
+```
+$ bundle install
+```
+
+３．config.rbに下記を記述
+
+```ruby
+activate :deploy do |deploy|
+  deploy.method = :git
+end
+```
+
+オプションを記述しなければデプロイした時に、リモート名はoriginでgh-pagesという名前のブランチがリモートリポジトリへデフォルトで作られる。
+オプションを書く場合は下記の通り。
+
+```ruby
+activate :deploy do |deploy|
+  deploy.method = :git
+  deploy.remote = "some-other-remote-name"
+  deploy.branch = "some-other-branch-name"
+end
+```
+
+４．ビルド
+
+```
+$ middleman build
+```
+
+５．デプロイ
+
+```
+$ middleman deploy
+```
+
+上記の方法で[MIddleman 実践（3）で作ったやつ](http://camuro.org/wordpress/?p=601 "MIddleman 実践（3）で作ったやつ")もデプロイしてみた。→[デザインは入ってないので真っさら…。](http://kumanoayumi.github.io/middleman-blog/ "デザインは入ってないので真っさら…。")
+
+### 方法２．カスタムドメインを割り当てる
+gh-pagesブランチを作ってCNAMEのファイルを作ってドメインを適用する方法です。
+CNAMEの配置を間違ってデプロイしてもトップページが404になってしまって超詰んだやつでした。
+参照 - [Setting up a custom domain with Pages](https://help.github.com/articles/setting-up-a-custom-domain-with-pages "Setting up a custom domain with Pages")
+[Tech Blog始めました&ブログの始め方](http://tech.riywo.com/blog/2013/04/16/test-entry/ "Tech Blog始めました&ブログの始め方")
+
+
+<blockquote>githubにはpagesという静的コンテンツ配信をしてくれる仕組みがあります。これを利用してかつカスタムドメインで自分のドメインを使います(github.com=>github.ioに勝手にドメインが変えられたりするので、パーマリンク厨的には自分のドメインで配信したいのです)。
+
+ところが、github pagesのカスタムドメインは1ユーザにつき1つしか設定できないので、プロジェクト毎のページのリンクはusername.github.io/projectになってしまいます。僕は既に別のサイトを自分のgithub pagesで配信してるのでさて困った。
+
+というわけでorganizationを使います。organizationのメインgithub pagesにもカスタムドメインが設定できるからですね。publicなレポジトリであればorganizationを作るのは無料なのでこのブログ専用のorganizationを作りました。</blockquote>
+→organizationアカウントを作ってみた。
+
+
+**手順**
+１．ドメインのCNAMEを

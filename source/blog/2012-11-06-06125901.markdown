@@ -1,0 +1,51 @@
+---
+layout: post
+title: ! 'ルートパスのサイトデータをローカルサーバーでプレビューする方法'
+published: false
+date: 2012-11-06 12:59
+comments: true
+categories:
+- 未分類
+tags: []
+keywords:
+- 未分類
+---
+業務でCMS用のデザインをコーディングする場合は、htmlのリンク部分やヘッダー・フッター・グローバルナビやサイドナビなんかを分割してphp化してindex.phpにincludeさせていた。
+phpのプレビューはXAMPPで行っている。
+当方ではhtmlのコーディングはDreamweaver、php化は秀丸エディタでやっている。
+今まではC直下にXAMPPをインストールしており、デフォルトの設定だとC:\xampp\htdocs\の中にサイトデータを構築してhttp://localhost/hogehoge/でブラウザプレビューしていた。
+（元同僚に教えてもらった方法で、一般的にこのやり方が合っているのかも調べず今までずっとこうやってきた。）
+
+しかしこの方法ではC:\xampp\htdocs\の中がどんどん肥大化していくし、そもそもCに増大していくサイトデータを保存しておくのは気持ち悪かった。
+十分なスペックのPCというわけではなく、同時にFireworks、Photoshopを動かすのにメモリが足りなくなることも頻繁であった。
+できればC以外で保存されたサイトデータをXAMPPでプレビューする方法はないものか…
+
+そんな折、ルートパスで構築されたサイトデータを触る機会があり、 ぐぐってたらついでにC:の下でなくともプレビューできる方法があったのでメモに残しておく。
+
+- C:\xampp\apache\conf\extra\httpd-vhosts.conf をテキストエディタで開く。  
+- 下記のコードをhttpd-vhosts.conf の下部に記述して保存。  
+D:/works/site/内に保存しているhogehogeをプレビューしたい場合の書き方です。
+
+```conf
+<VirtualHost *:80>
+  ServerName localhost
+</VirtualHost>
+
+<VirtualHost *:80>
+  ServerAdmin webmaster@sitename
+  DocumentRoot D:/works/site
+  ServerName hogehoge
+
+  <Directory "D:/works/site">
+    Options Indexes FollowSymLinks Includes ExecCGI
+    Order deny,allow
+    Deny from All
+    Allow from localhost 127.0.0.1
+  </Directory>
+  
+</VirtualHost>
+```
+
+「DocumentRootD:/works/site」や「&lt;Directory "D:/works/site"&gt;」の「/works/site」は適当な名前です。プレビューしたいサイトデータの保存しているディレクトリ名を書く。
+「ServerName hogehoge」の「hogehoge」は、プレビューしたいサイトデータのディレクトリ名を書く。
+- ブラウザのURLバーに「」

@@ -1,0 +1,42 @@
+---
+layout: post
+title: ! 'RubyHiroba 2013 のサイトデザインしました'
+published: true
+date: 2013-05-14 01:16
+comments: true
+categories:
+- compass
+- Middleman
+- sass
+- Susy
+- イベント
+- リモートインターン
+tags: []
+keywords:
+- compass
+- Middleman
+- sass
+- Susy
+- イベント
+- リモートインターン
+---
+
+<p style="text-align: center;"><a href="http://rubyhiroba.org/2013/" target="_blank"><img class="size-full wp-image-667 aligncenter" alt="rubyhiroba2013" src="/images/2013/05/rubyhiroba20131.png" width="500" height="244" /></a></p>  
+
+2013年6月2日（日）に日本マイクロソフト株式会社 品川本社で開催される、[RubyHiroba 2013](http://rubyhiroba.org/2013/ "RubyHiroba 2013")というイベントのサイトデザインなどに携わらせていただきました。  
+
+LTthon(Lightning Talk Hackathon)や、p4d(Programming for Designer)・dRuby（ハンズオン）・RailsGirls, More!のワークショップ、地域コミュニティなどのブース出展などを実施いたします。
+[doorkeeperから参加登録できます！](http://rubykaigi.doorkeeper.jp/events/3509 "doorkeeperから参加登録できます！")
+LTthonやブースの事前公募も開始いたしました。
+ご興味のある方は是非ポチリとしていただきたいです。
+
+サイトの他にも、LTthonのTシャツとノベルティのステッカーもデザインさせていただきました。
+p4dがきっかけでこのような機会に恵まれて、とても感謝しております。
+
+フィヨルドでのインターンでMiddlemanを学習したのを踏まえて、Middleman + Amicus(HTML5 Boilerplate, Haml, Sass, Compass, Susy grid system)でgithub-pages上にサイトを構築しました。Amicusについては<a title="リモートインターン ｜ MIddleman 実践（2）" href="http://camuro.org/wordpress/?p=573">こちらの記事</a>で少し触れています。
+
+SusyでResponsive gridのコーディングするのはとてもとても楽しいです。
+普段の業務ではカンプからコーディング、というフローで作業してますが、今回はイラストとロゴだけ作って後はブラウザでLiveReloadしながらコーディングするフローをとりました。
+grid systemを使うと、イチからmedia queryなどで調整しながらレスポンシブにする場合よりも余計な事考えないで済むので、格段に捗ります。
+またこういう機会があれば、やりたいなー。
+そんな感じで、よろしくお願いします！

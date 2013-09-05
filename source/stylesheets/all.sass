@@ -1,0 +1,71 @@
+//= require 'pure-min'
+//= require 'font-awesome'
+$small: "only screen and (max-width:940px)"
+
+@charset "utf-8"
+@import "_font"
+@import "compass"
+@import "_color"
+@import "_monokai"
+@import "_menu"
+@import "_about"
+@import "_works"
+@import "_blog"
+
+body
+  background: #160A00
+  color: $text
+  text-align: center
+  font-family: MuseoSans,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif
+
+#layout
+  padding-left: 25%
+  position: relative
+  @media #{$small}
+    padding-left: 0
+
+.pure-g > div
+  box-sizing: border-box
+
+.sidebar
+  position: fixed
+  top: 0
+  bottom: 0
+  width: 25%
+  margin-left: -25%
+  z-index: 10
+  @media #{$small}
+    width: 100% 
+    position: relative
+    margin-left: 0
+    padding: 1.5em 0
+
+body.index
+  .main
+    min-height: 700px
+    padding: 2em 4em
+    background-color: $white
+    text-align: left
+    line-height: 1.8em 
+    background: url(../images/index-bg.png) top right no-repeat
+    -webkit-background-size: 100% 
+    -o-background-size: 100% 
+    background-size: 100% 
+    @media #{$small}
+      padding: 1em 1.2em
+
+.main
+  min-height: 700px
+  padding: 2em 4em
+  background-color: $white
+  text-align: left
+  line-height: 1.8em 
+  background: $white
+  @media #{$small}
+    padding: 1em 1.2em
+  a
+    color: $accent-color
+    text-decoration: none
+    &:hover
+      color: $accent-color
+      text-decoration: underline
