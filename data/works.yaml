@@ -1,0 +1,23 @@
+- image: codoiq-dorayaki.png
+  alt: "Dorayaki mold : CodeIQ"
+  client: CodeIQ
+  info: "Dorayaki mold : Design"
+  url: http://codeiq.hatenablog.com/entry/2013/08/07/170851
+
+- image: codoiq-infocard.jpg
+  alt: "Information Card : CodeIQ"
+  client: CodeIQ
+  info: "Information Card : Design"
+  url: https://codeiq.jp/
+
+- image: rubyhiroba2013.png
+  alt: "RubyHiroba 2013"
+  client: RubyHiroba 2013
+  info: "Web Design / Code / Logo Design / Novelty Design"
+  url: http://rubyhiroba.org/2013/
+
+- image: trk10-badge.jpg
+  alt: "Tokyo Ruby Kaigi 2013"
+  client: Tokyo Ruby Kaigi 2013
+  info: "Novelty Badge Design"
+  url: http://tokyo10.rubykaigi.info/

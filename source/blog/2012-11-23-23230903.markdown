@@ -1,0 +1,32 @@
+---
+layout: post
+title: ! 'リモートインターン7-8日目 ｜ 怖話を使ってみた'
+published: true
+date: 2012-11-23 23:09
+comments: true
+categories:
+- リモートインターン
+- 怖話
+tags: []
+keywords:
+- リモートインターン
+- 怖話
+---
+<p style="text-align: center;">
+<a href="/images/2012/11/skitch_121123.png"><img class="aligncenter size-full wp-image-324" title="怖話 こわばな" src="/images/2012/11/skitch_121123.png" alt="怖話 こわばな" width="561" height="233" /></a></p>
+
+今回はインターン始めてから初の作業記事です。
+[FJORD, LLC](http://fjord.jp/ "FJORD, LLC")さんのインターンでは、隔週ごとに学習週と作業週に分かれており、インターン開始の最初の週は強制的に学習週が振られます。
+記念すべき最初の作業は、プログラマー・デザイナー共通で[作業週最初の課題](https://github.com/fjordllc/tutorial/wiki/%E4%BD%9C%E6%A5%AD%E9%80%B1%E6%9C%80%E5%88%9D%E3%81%AE%E8%AA%B2%E9%A1%8C "作業週最初の課題")「[怖話](http://kowabana.jp/ "怖話")を一通り使って改善点と自分がやりたいこと（もしあれば出来ること）をブログに書く」です。
+
+[怖話](http://kowabana.jp/ "怖話")とは、[FJORD, LLC](http://fjord.jp/ "FJORD, LLC")さんのキラーコンテンツであるスマホで読める怖い話投稿サイトです。[iphoneアプリ](https://itunes.apple.com/jp/app/bu-hua/id564486792?ls=1&amp;mt=8 "iphoneアプリ")と[Androidアプリ](https://play.google.com/store/apps/details?id=jp.fjord.kowabana&amp;reviewId=04629181913889814718 "Androidアプリ")もあります。怖い話が得意な方は一度お試しください。夜眠れなくなります。怖い漫画もあるのでオススメです。
+
+以下、iphoneとPCで怖話を使ってみて考えた改善案など。
+
+改善案
+
+- ログインはメールアドレス以外にtwitterとfacebookログインに対応した方が、「怖い（いいね！の怖話版です）」をつけたりコメントや投稿のハードルが下がってサイトの滞在時間が長くなるのでは。
+- アプリ版のUIがweb版と差がないので簡素化してみてはどうか。スクロール無しでアイキャッチ画像・投稿・ランキング・特選の怖い話・新着の怖い話…くらいのカテゴリを表示できるようにして、他はメニューアイコンに忍ばせてみては。
+- サウンドノベル調モードで怖い話を読む時、タップやクリックで進めていった後、少し戻りたい時に戻れないの辛い。
+
+1・3は自分はプログラミングできないので貢献できませんが、2ならできるかもしれません。あと貢献できそうな作業って、怖い漫画描くくらいですかね…。

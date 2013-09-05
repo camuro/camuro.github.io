@@ -1,0 +1,50 @@
+---
+layout: post
+title: ! 'リモートインターン2日目 ｜ Sublime Text 2 & PC性能を知る'
+published: true
+date: 2012-11-05 23:46
+comments: true
+categories:
+- リモートインターン
+tags: []
+keywords:
+- リモートインターン
+---
+今回はSublime Text 2のPackageインストールとショートカット、PC性能について学習。
+### Sublime Text 2 | Package install
+[チュートリアル](http://goo.gl/PVx6Y "チュートリアル")の[Sublime Text 2 の設定・カスタマイズなど](http://mnemoniqs.com/web/sublimetext2/ "Sublime Text 2 の設定・カスタマイズなど")を参照して進めるなど。
+
+あまりにもインストールが簡単でうっかり目的ではないPackageを入れてしまったので、メモ。
+Packageをのアンインストールは、Package Control から Remove Package でOK。
+
+アプリの全画面表示の切り替えショートカットと似ているので⌘F関連のショートカットをタイポしまくりで開いてしまった検索窓のしまい方がわからない。
+
+ショートカットは実際コーディングしながらさらっていく。
+ざっと触った感じでST2で慣れたら鬼速で書けそう。
+### PC性能を知る
+
+- [CPUが分かる](http://homepage2.nifty.com/kamurai/CPU.htm "CPUが分かる")
+- [メモリが分かる](http://homepage2.nifty.com/kamurai/MEMORY.htm "メモリが分かる")
+- [HDDが分かる](http://homepage2.nifty.com/kamurai/HDD.htm "HDDが分かる")
+
+自分のMacのシステム情報と照らし合わせながら読むなど。
+MacBook Air 2012 mid使用しています。
+CPU : Intel Core i7 / メモリ:DDR3 4G×2 / <del>HDD:</del>シリアルATAから確認してSSD 256GB
+
+他、Keynote インストールして触ったり。
+学生の頃からppt一辺倒だったので、これも使いながら慣れてくしかなさげ。
+
+次回からはWEBの基本をやっていきます。
+実務で触ってない部分の見落としがかなりある筈。
+
+2012/11/06追記
+
+windows 7を入れてるPCにもsublime text2をインストールしてみたのでpackage installでmacに入れたのと同じpackageを入れてみた。
+css combでsortできないエラーが出たのでメモ。
+
+Ctrl + Shift + C でsortさせると以下のエラーを吐く。
+
+[sourcecode language="plain"]Sorter Error: attempt to sort non-existent file[/sourcecode]
+
+windowsのpluginのバグらしい。[https://github.com/miripiruni/CSScomb/issues/115](https://github.com/miripiruni/CSScomb/issues/115 "https://github.com/miripiruni/CSScomb/issues/115")
+大人しくmacで作業する。

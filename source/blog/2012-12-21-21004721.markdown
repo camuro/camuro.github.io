@@ -1,0 +1,144 @@
+---
+layout: post
+title: ! 'リモートインターン15-17日目 ｜ CSS & Sass & Compass ( &SCOUT )の学習'
+published: true
+date: 2012-12-21 00:47
+comments: true
+categories:
+- compass
+- css
+- sass
+- Sublime Text 2
+- リモートインターン
+- 未分類
+tags: []
+keywords:
+- compass
+- css
+- sass
+- Sublime Text 2
+- リモートインターン
+- 未分類
+---
+先週、学習週だったのにブログ書くの溜めてしまった。
+今回はcssの学習と一緒にSassの学習も併せて進めていきました。まとめてダダっと書いていきます。
+# 
+# やったこと
+## CSS
+
+- [ドットインストール CSSの基礎](http://dotinstall.com/lessons/basic_css "ドットインストール CSSの基礎")をすべて見た
+- [ドットインストール CSS3の基礎](http://dotinstall.com/lessons/basic_css3 "ドットインストール CSS3の基礎")をすべて見た
+- Reset CSS の記事を読んだ
+
+- [HTML初心者が知っておくべきリセットCSS と3つのポイント](http://blog.3streamer.net/html-css-beginner/reset-css-1/ "HTML初心者が知っておくべきリセットCSS と3つのポイント")
+- [Reset CSSについてのまとめ：リセットするべき?しないべき？](http://parashuto.com/rriver/development/to-reset-or-no-to-reset-css "Reset CSSについてのまとめ：リセットするべき?しないべき？")
+- [Eric Meyer's Reset CSS](http://meyerweb.com/eric/tools/css/reset/ "Eric Meyer's Reset CSS")
+- [CSS Reset - YUI Library](http://yuilibrary.com/yui/docs/cssreset/ "CSS Reset - YUI Library")Yahoo!製JS/CSS libraryのYUI
+
+
+- clearfix の記事を読んだ
+
+- [floatボックスが親ボックスを突き破る問題](http://archiva.jp/web/html-css/clearfix.html "floatボックスが親ボックスを突き破る問題")
+- [clearfix](http://webpad.felicyle.com/coding/css/clearfix/ "clearfix")の使い方
+
+
+- その他、読んだ記事
+
+- [10分くらいで分かるXHTML+CSS](http://stocker.jp/diary/xhtml-css/ "10分くらいで分かるXHTML+CSS")
+- [色彩センスのいらない配色講座](http://www.slideshare.net/marippe/ss-9003317 "色彩センスのいらない配色講座")
+- [ズルいデザインテクニック](https://speakerdeck.com/ken_c_lo/zurui-design "ズルいデザインテクニック")
+- [ノンデザイナーのための配色理論](http://www.slideshare.net/saucerjp/ss-14902681 "ノンデザイナーのための配色理論")
+
+
+
+## Sass
+<p style="text-align: center;"><a href="http://camuro.org/wordpress/?attachment_id=417" rel="attachment wp-att-417"><img class="wp-image-417 aligncenter" alt="skitch2" src="/images/2012/12/skitch2.png" width="279" height="266" /></a></p>
+
+
+- [ドットインストール Sassの基礎](http://dotinstall.com/lessons/basic_sass "ドットインストール Sassの基礎")をすべて見た
+- [公式サイト](http://sass-lang.com/ "公式サイト")
+
+## Compass
+<p style="text-align: center;">
+<a href="http://camuro.org/wordpress/?attachment_id=418" rel="attachment wp-att-418"><img class="aligncenter size-full wp-image-418" alt="skitch3" src="/images/2012/12/skitch3.png" width="522" height="146" /></a>
+</p>
+
+- [ドットインストール Compassの基礎](http://dotinstall.com/lessons/basic_compass "ドットインストール Compassの基礎")をすべて見た
+- [公式サイト](http://compass-style.org/ "公式サイト")
+- Rubyは既に入れていたので、ターミナルからCompassをインストール
+
+ターミナルでgemのアップデートしてcompassをインストール
+
+```
+gem update --system
+gem install compass
+```
+
+同様にターミナルで、sassやcssのディレクトリを作成したいプロジェクトのディレクトリまで移動して、compassをcreate
+
+```
+cd hogehoge
+compass create
+```
+
+デフォルトだとstylesheets、javascripts、imagesなどのディレクトリ名で作成されるので、config.rbで任意のディレクトリ名に変更する。
+compass createする際に下記のコマンドをターミナルで打っても同じ。
+
+```
+compass create --sass-dir "sass" --css-dir "css" --javascripts-dir "js" --images-dir "img"
+```
+
+また、sassからcssにコンパイルされるときにline commentsが書き出されるのが嫌な場合、config.rbの下記の箇所の#を消して有効化しておく。
+
+```ruby
+# line_comments = false
+```
+
+デフォルトだとscssのシンタックスなので、sassのシンタックスを使う場合はターミナル下記のコマンドを打つ。
+
+```
+compass create --syntax sass
+```
+
+
+<h2>SCOUT</h2>
+<p style="text-align: center;">
+<a href="http://camuro.org/wordpress/?attachment_id=416" rel="attachment wp-att-416"><img class="aligncenter size-medium wp-image-416" alt="skitch" src="/images/2012/12/skitch-300x132.png" width="300" height="132" /></a>
+</p>
+
+- [SCOUT（GUIアプリ）](http://mhs.github.com/scout-app/ "SCOUT（GUIアプリ）")をインストールした。
+- Sassのデザイナー向けのGUIツール。
+プロジェクトのsassディレクトリをInput Folderに、cssディレクトリをOutput Folderに登録して再生すると、ターミナルでコマンドいちいち打たんでもコンパイルされるので便利。エディタでsassファイル保存したら即ブラウザチェックができる。エラーログも監視できるので、ブラウザチェックする前にエラー確認できるのが便利。
+
+## CSS課題
+
+- 上記内容を踏まえて、CSS課題をCompass + SCOUTでやってみている。変数、nest、mixin、extendやsassの[function](http://sass-lang.com/docs/yardoc/Sass/Script/Functions.html "function")を見ながら試しながらやっているので恐ろしく時間がかかる…。でも慣れたら天国と思ってやってみるのみ。
+
+## つまづいたこと
+
+- エディタはSublime Text 2(以下、略称ST2)を使用しているが、sassファイルのシンタックスが反映されてなかった。
+ST2の右下に判別されたファイル形式が表示される箇所があるが、そこを確認すると"Ruby Haml"の文字が。Hamlとして判別されたらしい。
+
+<a href="http://camuro.org/wordpress/?attachment_id=420" rel="attachment wp-att-420"><img class="aligncenter size-full wp-image-420" alt="skitch4" src="/images/2012/12/skitch41.png" width="400" height="361" /></a>
+
+該当箇所をクリックするとファイル形式を選択できるので、sassに変更するとsassのシンタックスが反映された。
+ST2を再起動してsassファイルを開くと、再びHamlとして判別された…。
+元々Hamlから派生して開発されたものなので、Hamlのパッケージがあると干渉してダメっぽい。
+Package ControlからHamlをremove packageしてST2再起動。やっとsassファイルがsassとして判別され、メデタシメデタシ。
+remove packageでなく、enable packageでもいけたかも。検証はしていない。
+Hamlの作業する際はHamlのパッケージまた入れると思うので、そこは地道にファイル形式をsassに選択し直していこうと思う。
+
+## これからやること
+
+- CSS課題をやりながらsass記法に慣れる
+
+2013.02.26 追記
+cssからsass へのコンバートをよくやるので追記。
+ターミナルで下記コマンドでコンバート可能。
+
+```
+# Convert CSSto SASS
+$ sass-convert style.css style.sass
+```
+
+&nbsp;

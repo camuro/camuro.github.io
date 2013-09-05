@@ -1,0 +1,67 @@
+.blog
+  .post
+    padding-bottom: 2em
+  .post-head
+    margin-bottom: 2em 
+    h2
+      padding: 0.4em 0
+      margin-bottom: 0.4em
+      color: $dark-base-color
+      font-size: 100%
+      border-bottom: 1px solid tint($dark-base-color,70)
+      letter-spacing: 0.1em
+      a
+        color: $black
+        text-decoration: none
+        &:hover
+          text-decoration: underline
+  .date
+    display: inline-block
+    margin: 0 
+    color: tint($dark-base-color,70)
+    font-size: 80%
+    letter-spacing: 0.1em
+  pre
+    -webkit-border-radius: 5px
+    border-radius: 5px
+    padding: 10px
+    background: $text
+    color: $white
+  pre, code, tt
+    font-size: 1em
+    font-family: "andale mono","lucida console",monospace
+    line-height: 1.5
+  table
+    tr
+      border: 1px solid #cbcbcb
+    th
+      padding: 10px 
+      background: tint($base-color,50)
+      color: $white 
+    td
+      padding: 10px 
+  img
+    margin: 10px
+  .post-list
+    margin: 0
+    padding: 2em 0 0
+    border-top: 1px solid tint($dark-base-color,70)
+    list-style-type: none
+    h3
+      color: $dark-base-color
+      font-size: 100%
+      letter-spacing: 0.1em
+      margin-bottom: 0.4em
+  .post-list-item
+    margin: 0 0 1em 0
+    padding: 0
+    list-style-type: none
+    font-size: 93%
+    letter-spacing: 0.1em
+.paging-module
+  padding-top: 2em 
+  border-top: 1px solid tint($dark-base-color,70)
+  text-align: center
+  a
+    &:hover
+      text-decoration: none
