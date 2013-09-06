@@ -15,7 +15,7 @@ keywords:
 - 怖話
 ---
 <p style="text-align:center;">
-<a href="/images/2012/12/skitch_121203.png"><img class="aligncenter size-full wp-image-393" title="Buffer" src="/images/2012/12/skitch_121203.png" alt="" width="547" height="319" /></a>
+<a href="/images/2012/12/skitch_121203.png"><img class="aligncenter size-full wp-image-393" title="Buffer" src="/images/2012/12/skitch_121203.png" alt="" width="547" /></a>
 </p>
 
 今回は[Buffer](http://bufferapp.com/ "Buffer")を使って怖話のtwitterアカウントとfacebookアカウントにポストを予約する作業をやっていきました。

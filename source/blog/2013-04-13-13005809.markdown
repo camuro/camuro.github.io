@@ -23,6 +23,6 @@ keywords:
 
 作ったものがコレです。
 
-<a href="/images/2013/04/amazon-gift-image.png"><img class="alignnone size-medium wp-image-590" alt="amazon-gift-image" src="/images/2013/04/amazon-gift-image-300x112.png" width="300" height="112" /></a>
+<a href="/images/2013/04/amazon-gift-image.png"><img class="alignnone size-medium wp-image-590" alt="amazon-gift-image" src="/images/2013/04/amazon-gift-image-300x112.png" width="300" /></a>
 
 グランジ系のブラシは重宝しそうです。

@@ -43,4 +43,4 @@ github から Pull Request を送る
 
 2013.03.07追記：こんな感じになりました。
 
-<a href="/images/2013/02/IMG_1808.jpg"><img class="alignnone size-medium wp-image-538" alt="IMG_1808" src="/images/2013/02/IMG_1808-224x300.jpg" width="224" height="300" /></a>
+<a href="/images/2013/02/IMG_1808.jpg"><img class="alignnone size-medium wp-image-538" alt="IMG_1808" src="/images/2013/02/IMG_1808-224x300.jpg" width="224" /></a>

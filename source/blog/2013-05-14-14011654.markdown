@@ -21,7 +21,7 @@ keywords:
 - リモートインターン
 ---
 
-<p style="text-align: center;"><a href="http://rubyhiroba.org/2013/" target="_blank"><img class="size-full wp-image-667 aligncenter" alt="rubyhiroba2013" src="/images/2013/05/rubyhiroba20131.png" width="500" height="244" /></a></p>  
+<p style="text-align: center;"><a href="http://rubyhiroba.org/2013/" target="_blank"><img class="size-full wp-image-667 aligncenter" alt="rubyhiroba2013" src="/images/2013/05/rubyhiroba20131.png" width="500" /></a></p>  
 
 2013年6月2日（日）に日本マイクロソフト株式会社 品川本社で開催される、[RubyHiroba 2013](http://rubyhiroba.org/2013/ "RubyHiroba 2013")というイベントのサイトデザインなどに携わらせていただきました。  
 

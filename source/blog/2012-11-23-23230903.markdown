@@ -13,7 +13,7 @@ keywords:
 - 怖話
 ---
 <p style="text-align: center;">
-<a href="/images/2012/11/skitch_121123.png"><img class="aligncenter size-full wp-image-324" title="怖話 こわばな" src="/images/2012/11/skitch_121123.png" alt="怖話 こわばな" width="561" height="233" /></a></p>
+<a href="/images/2012/11/skitch_121123.png"><img class="aligncenter size-full wp-image-324" title="怖話 こわばな" src="/images/2012/11/skitch_121123.png" alt="怖話 こわばな" width="561" /></a></p>
 
 今回はインターン始めてから初の作業記事です。
 [FJORD, LLC](http://fjord.jp/ "FJORD, LLC")さんのインターンでは、隔週ごとに学習週と作業週に分かれており、インターン開始の最初の週は強制的に学習週が振られます。

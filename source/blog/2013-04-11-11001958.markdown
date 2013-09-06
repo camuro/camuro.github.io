@@ -20,7 +20,7 @@ keywords:
 
 これを
 
-<a href="/images/2013/04/8fa25729ceea79e94a296bf30a2557a2.png"><img class="alignnone size-medium wp-image-582" alt="8fa25729ceea79e94a296bf30a2557a2" src="/images/2013/04/8fa25729ceea79e94a296bf30a2557a2-300x37.png" width="300" height="37" /></a>
+<a href="/images/2013/04/8fa25729ceea79e94a296bf30a2557a2.png"><img class="alignnone size-medium wp-image-582" alt="8fa25729ceea79e94a296bf30a2557a2" src="/images/2013/04/8fa25729ceea79e94a296bf30a2557a2-300x37.png" width="300" /></a>
 
 こんな感じで。
 

@@ -78,7 +78,7 @@ $ middleman
 ```
 
 4.ブラウザで[http://0.0.0.0:4567](http://0.0.0.0:4567/ "http://0.0.0.0:4567")へアクセス  
-<a href="/images/2013/03/middleman.png"><img class="alignnone size-medium wp-image-526" alt="middleman" src="/images/2013/03/middleman-300x167.png" width="300" height="167" /></a>  
+<a href="/images/2013/03/middleman.png"><img class="alignnone size-medium wp-image-526" alt="middleman" src="/images/2013/03/middleman-300x167.png" width="300" /></a>  
 こんな感じに表示される。
 
 5.ビルド
@@ -160,7 +160,7 @@ $ middleman init [project-name] --template=blog
 
 生成されるブログはこんな感じ。
 
-<a href="/images/2013/03/0.0.0.04567.png"><img class="alignnone size-medium wp-image-530" alt="" src="/images/2013/03/0.0.0.04567-300x165.png" width="300" height="165" /></a>
+<a href="/images/2013/03/0.0.0.04567.png"><img class="alignnone size-medium wp-image-530" alt="" src="/images/2013/03/0.0.0.04567-300x165.png" width="300" /></a>
 
 **ブログの記事について**
 source直下に、下記のような名前でマークダウン形式のファイルが生成される。

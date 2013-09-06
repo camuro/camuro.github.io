@@ -11,7 +11,7 @@ keywords:
 - イベント
 ---
 <p>
-<a href="http://camuro.org/wordpress/?attachment_id=429" rel="attachment wp-att-429"><img class="size-medium wp-image-429 alignleft" alt="badge" src="/images/2013/01/badge-225x300.jpg" width="225" height="300" /></a><a href="http://camuro.org/wordpress/?attachment_id=430" rel="attachment wp-att-430"><img class=" wp-image-430 alignleft" alt="badge&amp;bag" src="/images/2013/01/badgebag-298x300.jpg" width="298" height="300" /></a>
+<a href="http://camuro.org/wordpress/?attachment_id=429" rel="attachment wp-att-429"><img class="size-medium wp-image-429 alignleft" alt="badge" src="/images/2013/01/badge-225x300.jpg" width="225" /></a><a href="http://camuro.org/wordpress/?attachment_id=430" rel="attachment wp-att-430"><img class=" wp-image-430 alignleft" alt="badge&amp;bag" src="/images/2013/01/badgebag-298x300.jpg" width="298" /></a>
 </p>
 <div style="overflow:hidden;width:100%">
 ノベルティバッジのデザイン公募で採用していただき、イベントのチケットプレゼントしていただいたので、[東京Ruby会議10](http://tokyo10.rubykaigi.info/ "東京Ruby会議10")へ行ってきた。

@@ -19,11 +19,11 @@ keywords:
 今回作るサイトのテーマはチートシートです。
 ざっくりphotoshopでデザインしたもの
 
-<a href="/images/2013/03/0f9d88346a601c859d5154d515fff876.png" target="_blank"><img class="alignnone size-medium wp-image-543" alt="スクリーンショット 2013-03-09 0.12.09" src="/images/2013/03/0f9d88346a601c859d5154d515fff876-300x146.png" width="300" height="146" /></a>
+<a href="/images/2013/03/0f9d88346a601c859d5154d515fff876.png" target="_blank"><img class="alignnone size-medium wp-image-543" alt="スクリーンショット 2013-03-09 0.12.09" src="/images/2013/03/0f9d88346a601c859d5154d515fff876-300x146.png" width="300" /></a>
 
 今日できるところまでコーディングしたもの
 
-<a href="/images/2013/03/3072465c3bdb1f2fc4e8336ecfe2e0be.png" target="_blank"><img class="alignnone size-medium wp-image-542" alt="スクリーンショット 2013-03-09 0.10.46" src="/images/2013/03/3072465c3bdb1f2fc4e8336ecfe2e0be-300x176.png" width="300" height="176" /></a>
+<a href="/images/2013/03/3072465c3bdb1f2fc4e8336ecfe2e0be.png" target="_blank"><img class="alignnone size-medium wp-image-542" alt="スクリーンショット 2013-03-09 0.10.46" src="/images/2013/03/3072465c3bdb1f2fc4e8336ecfe2e0be-300x176.png" width="300" /></a>
 
 ブログ機能を使ってタグをグローバルナビにしてタグ毎の記事一覧をサイドナビに表示したい。
 
@@ -65,6 +65,6 @@ layout.erbで該当箇所に下記のように記述する。
 
 この記事書いてるうちにまた少し調整した。
 
-<a href="/images/2013/03/4dfc72382e6c74ec3a1755a4946fb661.png" target="_blank"><img class="alignnone size-medium wp-image-563" alt="スクリーンショット 2013-03-09 1.46.48" src="/images/2013/03/4dfc72382e6c74ec3a1755a4946fb661-300x142.png" width="300" height="142" /></a>
+<a href="/images/2013/03/4dfc72382e6c74ec3a1755a4946fb661.png" target="_blank"><img class="alignnone size-medium wp-image-563" alt="スクリーンショット 2013-03-09 1.46.48" src="/images/2013/03/4dfc72382e6c74ec3a1755a4946fb661-300x142.png" width="300" /></a>
 
 タグの記事一覧はどうやってやろう…。見た目は詰まってる感じがあるので追々微調整する。

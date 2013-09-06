@@ -52,7 +52,7 @@ keywords:
 
 
 ## Sass
-<p style="text-align: center;"><a href="http://camuro.org/wordpress/?attachment_id=417" rel="attachment wp-att-417"><img class="wp-image-417 aligncenter" alt="skitch2" src="/images/2012/12/skitch2.png" width="279" height="266" /></a></p>
+<p style="text-align: center;"><a href="http://camuro.org/wordpress/?attachment_id=417" rel="attachment wp-att-417"><img class="wp-image-417 aligncenter" alt="skitch2" src="/images/2012/12/skitch2.png" width="279" /></a></p>
 
 
 - [ドットインストール Sassの基礎](http://dotinstall.com/lessons/basic_sass "ドットインストール Sassの基礎")をすべて見た
@@ -60,7 +60,7 @@ keywords:
 
 ## Compass
 <p style="text-align: center;">
-<a href="http://camuro.org/wordpress/?attachment_id=418" rel="attachment wp-att-418"><img class="aligncenter size-full wp-image-418" alt="skitch3" src="/images/2012/12/skitch3.png" width="522" height="146" /></a>
+<a href="http://camuro.org/wordpress/?attachment_id=418" rel="attachment wp-att-418"><img class="aligncenter size-full wp-image-418" alt="skitch3" src="/images/2012/12/skitch3.png" width="522" /></a>
 </p>
 
 - [ドットインストール Compassの基礎](http://dotinstall.com/lessons/basic_compass "ドットインストール Compassの基礎")をすべて見た
@@ -103,7 +103,7 @@ compass create --syntax sass
 
 <h2>SCOUT</h2>
 <p style="text-align: center;">
-<a href="http://camuro.org/wordpress/?attachment_id=416" rel="attachment wp-att-416"><img class="aligncenter size-medium wp-image-416" alt="skitch" src="/images/2012/12/skitch-300x132.png" width="300" height="132" /></a>
+<a href="http://camuro.org/wordpress/?attachment_id=416" rel="attachment wp-att-416"><img class="aligncenter size-medium wp-image-416" alt="skitch" src="/images/2012/12/skitch-300x132.png" width="300" /></a>
 </p>
 
 - [SCOUT（GUIアプリ）](http://mhs.github.com/scout-app/ "SCOUT（GUIアプリ）")をインストールした。
@@ -119,7 +119,7 @@ compass create --syntax sass
 - エディタはSublime Text 2(以下、略称ST2)を使用しているが、sassファイルのシンタックスが反映されてなかった。
 ST2の右下に判別されたファイル形式が表示される箇所があるが、そこを確認すると"Ruby Haml"の文字が。Hamlとして判別されたらしい。
 
-<a href="http://camuro.org/wordpress/?attachment_id=420" rel="attachment wp-att-420"><img class="aligncenter size-full wp-image-420" alt="skitch4" src="/images/2012/12/skitch41.png" width="400" height="361" /></a>
+<a href="http://camuro.org/wordpress/?attachment_id=420" rel="attachment wp-att-420"><img class="aligncenter size-full wp-image-420" alt="skitch4" src="/images/2012/12/skitch41.png" width="400" /></a>
 
 該当箇所をクリックするとファイル形式を選択できるので、sassに変更するとsassのシンタックスが反映された。
 ST2を再起動してsassファイルを開くと、再びHamlとして判別された…。

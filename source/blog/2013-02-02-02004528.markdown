@@ -134,7 +134,7 @@ $ rails s
 ```
 
 ブラウザでhttp://localhost:3000/にアクセスして、ローカルで起動しているのを確認。
-<p style="text-align: center;"><a href="/images/2013/02/kowabana_local.png"><img class="aligncenter  wp-image-463" alt="kowabana_local" src="/images/2013/02/kowabana_local-1024x730.png" width="614" height="438"></a>
+<p style="text-align: center;"><a href="/images/2013/02/kowabana_local.png"><img class="aligncenter  wp-image-463" alt="kowabana_local" src="/images/2013/02/kowabana_local-1024x730.png" width="614"></a>
 
 できた！
 以上です。

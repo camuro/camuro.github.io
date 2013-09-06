@@ -31,7 +31,7 @@ keywords:
 
 - sublime textでの文字コードの変換が分からずしばらく文字化けに苦しんだ。sassで@charset "UTF-8"を宣言してもコンパイルされたcssがUTF-8として認識されない。 
 メニューバーから　File > Set File Encording to > ... で変換して解決。超絶初歩なところで躓いてた。
-<a href="/images/2013/01/73746eb523f28c3e7c3e29f184a8b6ef.png"><img src="/images/2013/01/73746eb523f28c3e7c3e29f184a8b6ef-300x179.png" alt="スクリーンショット 2013-01-30 15.05.05" width="300" height="179" class="aligncenter size-medium wp-image-446" /></a>
+<a href="/images/2013/01/73746eb523f28c3e7c3e29f184a8b6ef.png"><img src="/images/2013/01/73746eb523f28c3e7c3e29f184a8b6ef-300x179.png" alt="スクリーンショット 2013-01-30 15.05.05" width="300" class="aligncenter size-medium wp-image-446" /></a>
 - データ定義リスト dl の dt /dd のfloatのやり方で躓いた。display:inline;で解決。
 
 
