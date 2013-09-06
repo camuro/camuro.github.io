@@ -129,4 +129,5 @@ line_comments = false
 
 activate :deploy do |deploy|
   deploy.method = :git
+  deploy.branch = 'master'
 end
