@@ -13,23 +13,22 @@
         = partial "menu"
       .pure-u-1
         .main#blog
-          - blog.articles[0...1].each do |article|
-            %article.post
-              .post-head
-                %h2
-                  = article.title
-                .date
-                  %time= article.date.strftime('%b %e %Y')
-              .post-body
-                = yield
-              .post-comment
-                = disqus
-            %ul.post-list
-              - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
-                %li
-                  %h3= year
-                  %ul.post-list-item
-                    - articles[0...5].each do |article|
-                      %li
-                        %a{:href => article.url}= article.title
+          %article.post
+            .post-head
+              %h2
+                = current_page.title
+              .date
+                %time= current_page.date.strftime('%b %e %Y')
+            .post-body
+              = yield
+            .post-comment
+              = disqus
+          %ul.post-list
+            - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+              %li
+                %h3= year
+                %ul.post-list-item
+                  - articles[0...5].each do |article|
+                    %li
+                      %a{:href => article.url}= article.title
     = javascript_include_tag  "mylibs/google"
