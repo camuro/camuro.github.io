@@ -78,6 +78,8 @@ GEM
     middleman-favicon-maker (3.3)
       favicon_maker (~> 0.2.3)
       middleman-core (>= 3.0.0)
+    middleman-gh-pages (0.0.2)
+      rake (> 0.9.3)
     middleman-livereload (3.1.0)
       em-websocket (>= 0.2.0)
       middleman-core (>= 3.0.2)
@@ -153,6 +155,7 @@ DEPENDENCIES
   middleman-deploy (~> 0.0.11)
   middleman-disqus
   middleman-favicon-maker
+  middleman-gh-pages
   middleman-livereload (~> 3.1.0)
   middleman-pure!
   middleman-rouge
