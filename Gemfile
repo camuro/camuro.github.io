@@ -22,8 +22,5 @@ gem 'nokogiri'
 gem 'middleman-rouge'
 gem "redcarpet"
 
-gem "middleman-smusher"
 gem "middleman-deploy", "~> 0.0.11"
 gem "middleman-favicon-maker"
-
-gem 'middleman-gh-pages'
