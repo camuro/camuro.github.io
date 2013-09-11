@@ -35,4 +35,12 @@ bodyclass: about
             %i.icon-ok
           %span
             = member.skill
+    %h3.content-subhead now studying
+    %ul.study-list
+      - data.study.each do |member|
+        %li
+          .checkbox
+            %i.icon-check-empty
+          %span
+            = member.skill
 
