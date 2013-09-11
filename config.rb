@@ -77,11 +77,10 @@ page "/feed.xml", :layout => false
 #   end
 # end
 
-set :css_dir, '/stylesheets'
-
-set :js_dir, '/javascripts'
-
-set :images_dir, '/images'
+set :css_dir, 'stylesheets'
+set :js_dir, 'javascripts'
+set :images_dir, 'images'
+set :images_dir, 'font'
 
 # Build-specific configuration
 configure :build do
