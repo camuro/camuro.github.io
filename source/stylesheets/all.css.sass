@@ -7,68 +7,8 @@ $small: "only screen and (max-width:940px)"
 @import "compass"
 @import "color"
 @import "monokai"
+@import "layout"
 @import "menu"
 @import "about"
 @import "works"
 @import "blog"
-
-body
-  background: $white
-  font-family: MuseoSans,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro","メイリオ",Meiryo,"ＭＳ Ｐゴシック",sans-serif
-  color: $text
-  font-size: 14px 
-  text-align: center
-
-#layout
-  padding-left: 25%
-  position: relative
-  @media #{$small}
-    padding-left: 0
-
-.pure-g-r > div
-  box-sizing: border-box
-
-.pure-g-r img
-  max-width: 100%
-
-.sidebar
-  position: fixed
-  top: 0
-  bottom: 0
-  width: 25%
-  margin-left: -25%
-  z-index: 10
-  background: #160A00 
-  @media #{$small}
-    width: 100% 
-    position: relative
-    margin-left: 0
-    padding: 1.5em 0
-
-body.index
-  overflow: hidden
-  background: #160A00
-  .main
-    max-width: 1000px
-    min-height: 780px
-    text-align: left
-    line-height: 1.8em 
-    background: url(../images/index-bg.png) left top no-repeat
-    -webkit-background-size: contain
-    -o-background-size: contain
-    background-size: contain
-
-.main
-  padding: 2em 4em
-  background-color: $white
-  text-align: left
-  line-height: 1.8em 
-  background: $white
-  @media #{$small}
-    padding: 1em 1.2em
-  a
-    color: $accent-color
-    text-decoration: none
-    &:hover
-      color: $accent-color
-      text-decoration: underline
