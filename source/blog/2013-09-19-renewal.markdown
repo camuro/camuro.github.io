@@ -1,6 +1,6 @@
 ---
 layout: post
-title: ! 'WordPressからmiddlemanに移行する方法'
+title: ! 'WordPressからmiddlemanに移行してGithub Pagesで運用する方法'
 published: true
 date: 2013-09-19
 comments: true
