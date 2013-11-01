@@ -1,0 +1,41 @@
+---
+layout: post
+title: ! 'Adventarのリニューアルデザインをお手伝いしたお話'
+published: true
+date: 2013-11-01
+comments: true
+tags:
+- Adventar
+- Rails
+---
+
+<a href="http://www.adventar.org/" target="_blank"><img src="/images/2013/11/20131101_cover.png"></a>
+
+2013年11月1日、本年度の[Adventar](http://www.adventar.org/)(Advent Calendar)のリニューアル版がリリースされました。  
+Advent Calendarは本来、12月1日から24日までクリスマスを待つまでに1日に1つ、穴が空けられるようになっているカレンダーです。
+Adventarでは、その風習に習い、12月1日から25日まで1日づつみんなで記事を投稿して、web上でAdvent　Calendarを体験できます。
+
+今回、自分はデザイン面でお手伝いさせていただきました。  
+もともとAdventarは2012年11月1日に[@hokaccha](https://twitter.com/hokaccha)さんがお一人でリリースされたサービスです。  
+今年は[Blabo!](http://bla.bo/)のお仕事でもご一緒している[@june29](https://twitter.com/june29)さんに「You、Adventarのデザインやってみない？」とお声をかけていただいたことがきかっけでした（若干脚色有り）。
+
+2012版との大きな変更点は、今年らしくフラットデザインに。  
+各カレンダーに固有の色を持たせて賑やかな感じに。  
+カレンダーページには参加が登録しやすいようなUIに。  
+
+トップページ BEFORE  
+<a href="/images/2013/11/20131101_02.png"><img src="/images/2013/11/20131101_02.png"></a>
+
+トップページ　AFTER  
+<a href="/images/2013/11/20131101_01.png"><img src="/images/2013/11/20131101_01.png"></a>
+
+カレンダーページ BEFORE  
+<a href="/images/2013/11/20131101_04.png"><img src="/images/2013/11/20131101_04.png"></a>
+
+カレンダーページ AFTER  
+<a href="/images/2013/11/20131101_03.png"><img src="/images/2013/11/20131101_03.png"></a>
+
+[@adventar](https://twitter.com/adventar)  
+twitterの公式アカウントもあります。  
+
+興味をお持ちになった方、ぜひ参加してみてださいね！
