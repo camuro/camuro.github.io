@@ -111,7 +111,7 @@ activate :disqus do |d|
   d.shortname = "camuro"
 end
 
-activate :livereload
+# activate :livereload
 
 ###
 # Markdown

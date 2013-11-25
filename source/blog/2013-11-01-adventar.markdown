@@ -13,7 +13,7 @@ tags:
 
 2013年11月1日、本年度の[Adventar](http://www.adventar.org/)(Advent Calendar)のリニューアル版がリリースされました。  
 Advent Calendarは本来、12月1日から24日までクリスマスを待つまでに1日に1つ、穴が空けられるようになっているカレンダーです。
-Adventarでは、その風習に習い、12月1日から25日まで1日づつみんなで記事を投稿して、web上でAdvent　Calendarを体験できます。
+Adventarでは、その風習に習い、12月1日から25日まで1日づつみんなで記事を投稿して、web上でAdvent Calendarを体験できます。
 
 今回、自分はデザイン面でお手伝いさせていただきました。  
 もともとAdventarは2012年11月1日に[@hokaccha](https://twitter.com/hokaccha)さんがお一人でリリースされたサービスです。  
