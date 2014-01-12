@@ -20,7 +20,7 @@
               .date
                 %time= current_page.date.strftime('%b %e %Y')
                 %ul.tags
-                  - article.data.tags.each do |f|
+                  - current_page.data.tags.each do |f|
                     %li
                       = link_to f, "blog/tags/#{f.downcase}.html"
             .post-body
