@@ -17,8 +17,8 @@ tags:
 
 [MIDDLEMAN MEETS SUSY by kumano ayumi](https://speakerdeck.com/kumanoayumi/middleman-meets-susy)
 
-スライドに出ているgridのサンプルはこちら。  
-[Middleman Meets Susy - DEMO](http://kumanoayumi.github.io/mms/)  
+スライドに出ているgridのサンプルはこちら。
+[Middleman Meets Susy - DEMO](http://kumanoayumi.github.io/mms/)
 [(Source on github)](https://github.com/kumanoayumi/mms)
 
 当日の様子はこんな感じでした。([@machida](https://twitter.com/machida)さんのtweet引用しまくります)
@@ -35,16 +35,16 @@ tags:
 <blockquote class="twitter-tweet" lang="ja"><p>susy、英語で説明読むの面倒だなぁ、と思ってたので、細かく説明してくれて得した。 <a href="http://t.co/n2F3IMqFBH">pic.twitter.com/n2F3IMqFBH</a></p>&mdash; machida (@machida) <a href="https://twitter.com/machida/statuses/403849474297982976">2013, 11月 22</a></blockquote>
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-興味が湧いた方は、[Susy](http://susy.oddbird.net/)公式のReferenceを見ながら試されると良いと思います。  
-日本語のリファレンスが少ないので、本番ではお話しきれなかった他のmixinなんかについても（PaddingやMarginのmixinなどなど）いずれどこかでまとめる予定です。  
+興味が湧いた方は、[Susy](http://susy.oddbird.net/)公式のReferenceを見ながら試されると良いと思います。
+日本語のリファレンスが少ないので、本番ではお話しきれなかった他のmixinなんかについても（PaddingやMarginのmixinなどなど）いずれどこかでまとめる予定です。
 併せてBurbon x Burbon NEATもやりたいなーとも思っているところ。
 
-Middleman エヴェンジェリスト(?)であるところの[@yterajima](https://twitter.com/yterajima)さんによる[Middleman Guides & How to Lean](http://www.slideshare.net/e2esound.com/middleman-guideshowtolean)、  
-[@kkotaro0111](https://twitter.com/kkotaro0111)さんの[Middleman Usecase](http://www.slideshare.net/kkotaro0111/tokyoumiddlemanmeetup1)、  
-[@hokaccha](https://twitter.com/hokaccha)さんの middleman + rack-reverse-proxy でフロントエンドのアプリ開発などなど、  
+Middleman エヴェンジェリスト(?)であるところの[@yterajima](https://twitter.com/yterajima)さんによる[Middleman Guides & How to Lean](http://www.slideshare.net/e2esound.com/middleman-guideshowtolean)、
+[@kkotaro0111](https://twitter.com/kkotaro0111)さんの[Middleman Usecase](http://www.slideshare.net/kkotaro0111/tokyoumiddlemanmeetup1)、
+[@hokaccha](https://twitter.com/hokaccha)さんの middleman + rack-reverse-proxy でフロントエンドのアプリ開発などなど、
 皆さんのお話から更にmiddlemanに関する知見を得ることが出来たの、本当に良かったです。
 
-自分の発表に関しては、LTもやったことなくていきなり30分も喋られるのか自信ないままお話して、終わった後の敗北感が凄かったですが、  
+自分の発表に関しては、LTもやったことなくていきなり30分も喋られるのか自信ないままお話して、終わった後の敗北感が凄かったですが、
 これに懲りずまた機会があったら挑戦したいなと思っています。
 開催にまつわる関係者の皆様、大変ありがとうございました！
 
