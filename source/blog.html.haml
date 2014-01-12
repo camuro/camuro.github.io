@@ -12,6 +12,10 @@ per_page: 5
         = link_to article.title, article
       .date
         %time= article.date.strftime('%b %e %Y')
+        %ul.tags
+          - article.data.tags.each do |f|
+            %li
+              = link_to f, "blog/tags/#{f.downcase}.html"
     .post-body
       = article.body
 - if paginate
