@@ -19,3 +19,5 @@
 
 # Ignore .lock
 *.lock
+
+/.travis.yml
