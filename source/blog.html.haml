@@ -15,7 +15,7 @@ per_page: 5
         %ul.tags
           - article.data.tags.each do |f|
             %li
-              = link_to f, "blog/tags/#{f.downcase}.html"
+              = link_to f, "/blog/tags/#{f.downcase}.html"
     .post-body
       = article.body
 - if paginate

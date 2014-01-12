@@ -22,7 +22,7 @@
                 %ul.tags
                   - current_page.data.tags.each do |f|
                     %li
-                      = link_to f, "blog/tags/#{f.downcase}.html"
+                      = link_to f, "/blog/tags/#{f.downcase}.html"
             .post-body
               = yield
             .post-comment
