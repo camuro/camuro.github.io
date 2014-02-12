@@ -1,3 +1,15 @@
+- image: rubymotionjp.png
+  alt: "RubyMotion JP : Design / Code"
+  client: RubyMotion JP
+  info: "RubyMotion JP : Design / Code"
+  url: http://rubymotion.jp/
+
+- image: adventar.png
+  alt: "Adventar : Design"
+  client: Adventar
+  info: "Adventar : Design"
+  url: http://www.adventar.org/
+
 - image: codoiq-dorayaki.png
   alt: "Dorayaki mold : CodeIQ"
   client: CodeIQ

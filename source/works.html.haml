@@ -6,8 +6,8 @@ bodyclass: works
 %h2.content-subhead Recent Works
 %ul.works-list.pure-g-r
   - data.works.each do |member|
-    %a{:href => member.url} 
-      %li.pure-u-1-4.member<>
+    %li.pure-u-1-4.member<>
+      %a{:href => member.url}
         .works-item
           .image
             %img{ src: "images/works/#{member.image}", alt: '#{member.alt}' }
