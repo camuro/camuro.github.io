@@ -5,57 +5,48 @@
   padding: 0
   line-height: 1.8em
   a
-    +link-colors($ligh-base-color, $white, $ligh-base-color, $ligh-base-color, $ligh-base-color)
+    +link-colors($ligh-base-color, $dark-base-color, $ligh-base-color, $ligh-base-color, $ligh-base-color)
     .client
       color: $dark-base-color
     &:hover
+      text-decoration: none
       .text
-        background-color: $base-color
       .client
-        color: $white
-        border-bottom: 1px solid rgba(255, 255, 255, .5) 
+        color: $accent-color
       .info
-        color: rgba(255, 255, 255, .5) 
+        color: $accent-color
+      .image
+        img
+          opacity: 0.7
   p
     padding: 0
     margin: 0
     text-decoration: none
   .works-item
     margin: 5%
-    margin-bottom: 20px
+    margin-bottom: 40px
   .pure-u-1-4
     @media #{$small}
-      width: 50% 
+      width: 50%
   .image
     text-align: center
     line-height: 0
     img
-      border-top: 1px solid $gray
-      border-right: 1px solid $gray
-      border-left: 1px solid $gray
-      -webkit-border-top-right-radius: 5px
-      border-top-right-radius: 5px
-      -webkit-border-top-left-radius: 5px
-      border-top-left-radius: 5px
+      -webkit-border-radius: 5px
+      border-radius: 5px
       box-sizing: border-box
   .text
-    width: 100% 
-    border: 1px solid $gray
-    padding: 10px 0 5px
-    -webkit-border-bottom-right-radius: 5px
-    border-bottom-right-radius: 5px
-    -webkit-border-bottom-left-radius: 5px
-    border-bottom-left-radius: 5px
+    width: 100%
+    padding: 20px 0 5px
     box-sizing: border-box
   .client
     font-weight: bold
-    margin: 0 0 2% 0 
+    margin: 0 0 2% 0
     padding: 0 5px 2%
-    border-bottom: 1px solid $gray
-    letter-spacing: 0.1em
-    text-align: center 
+    letter-spacing: 0.07em
+    text-align: center
   .info
     padding: 0 5px
     font-size: 85%
-    letter-spacing: 0.1em
+    letter-spacing: 0.07em
     text-align: center

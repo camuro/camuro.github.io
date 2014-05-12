@@ -1,3 +1,27 @@
+- image: github-kaigi.png
+  alt: "GitHub Kaigi : Design"
+  client: "GitHub Kaigi"
+  info: "Web Design / Code / Logo Design / Novelty Design"
+  url: http://githubkaigi.org/
+
+- image: rubyhiroba2014.png
+  alt: "RubyHiroba 2014"
+  client: RubyHiroba 2014
+  info: "Web Design / Code / Logo Design"
+  url: http://rubyhiroba.org/2014/
+
+- image: oshinagaki/oshinagaki-cover.jpg
+  alt: "CodeIQ Goods : Design"
+  client: "おしながき"
+  info: "意識の高い寿司 : Design / Code"
+  url: http://anaguma.org/sushi
+
+- image: codeiq-goods/tote-01.jpg
+  alt: "CodeIQ Goods : Design"
+  client: CodeIQ
+  info: "Goods : Design"
+  url: /works/codeiq-goods.html
+
 - image: rubymotionjp.png
   alt: "RubyMotion JP : Design / Code"
   client: RubyMotion JP
