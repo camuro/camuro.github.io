@@ -1,3 +1,9 @@
+- image: makershub-card/close-up-front.jpg
+  alt: "MakersHub : Card Design"
+  client: "MakersHub"
+  info: "Card Design"
+  url: /works/makershub-card.html
+
 - image: github-kaigi.png
   alt: "GitHub Kaigi : Design"
   client: "GitHub Kaigi"
