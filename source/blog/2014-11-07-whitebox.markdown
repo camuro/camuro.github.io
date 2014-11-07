@@ -1,0 +1,24 @@
+---
+layout: post
+title: ! '石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。'
+published: true
+date: 2014-11-07
+comments: true
+tags:
+- Design
+---
+
+<img src="/images/2014/11/whitebox.png" alt="石橋秀美の解剖図展「しろいはこ」">
+
+既にtwitterやfacebookではご紹介していたのですが、まもなく開催ということで改めてご報告です。
+
+[石橋秀美](http://ringomushi.jimdo.com/)さんの個展が11/10（月）より東京・銀座のspan art galleryにて開催されます。
+このたび展示会のサイト制作に携わらせていただきました。
+石橋さんは現在大阪を拠点にイラストレーター、写真のディレクターとして活動されています。
+ストイックでエロティックでグロテスクな素晴らしい絵を描いておられます。
+
+個展の情報はサイトの他、10/27発売のアトリエサードの雑誌にて掲載されています（11/7現在、amazon在庫切れしてる…）。
+
+<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&bc1=FFFFFF&IS2=1&bg1=FFFFFF&fc1=000000&lc1=CDAD63&t=ayumiko-22&o=9&p=8&l=as1&m=amazon&f=ifr&ref=qf_sp_asin_til&asins=4883751813" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+[石橋秀美の解剖図展「しろいはこ」](http://demilpibot.github.io/)にご興味のある方、ぜひ展示会へ足をお運びくださると嬉しいです。
