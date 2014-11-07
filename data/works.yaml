@@ -1,3 +1,9 @@
+- image: whitebox/whitebox-small.png
+  alt: "石橋秀美の解剖図展「しろいはこ」 : Web Design"
+  client: "Demil Pibot"
+  info: "Web Design"
+  url: http://demilpibot.github.io/
+
 - image: makershub-card/close-up-front.jpg
   alt: "MakersHub : Card Design"
   client: "MakersHub"
