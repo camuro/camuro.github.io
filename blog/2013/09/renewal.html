@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' name='viewport'>
+<title>WordPressからmiddlemanに移行してGithub Pagesで運用する方法</title>
+<link href="../../../stylesheets/normalize.css" rel="stylesheet" /><link href="../../../stylesheets/all.css" rel="stylesheet" /><link href="http://yui.yahooapis.com/pure/0.2.1/menu-min.css" rel="stylesheet" />
+<script src="../../../javascripts/all.js"></script>
+</head>
+<body class='blog blog_2013 blog_2013_09 blog_2013_09_renewal'>
+<div class='pure-g-r' id='layout'>
+<div class='sidebar pure-u'>
+<div class='menu-box'>
+<a class='heading' href='/'>
+camuro
+</a>
+<nav>
+<ul class='menu cl-effect-5'>
+<li class='menu-item'>
+<a href='/'>
+<span data-hover='Home'>Home</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/about.html'>
+<span data-hover='About'>About</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/works.html'>
+<span data-hover='Works'>Works</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/blog.html'>
+<span data-hover='Blog'>Blog</span>
+</a>
+</li>
+</ul>
+</nav>
+<form>
+<input class='st-search-input' id='st-search-input' type='text'>
+</form>
+<script>
+  var Swiftype = window.Swiftype || {};
+    (function() {
+      Swiftype.key = 'gGZQLNj5d36eyibDuysX';
+  
+      /** DO NOT EDIT BELOW THIS LINE **/
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = "//s.swiftypecdn.com/embed.js";
+      var entry = document.getElementsByTagName('script')[0];
+      entry.parentNode.insertBefore(script, entry);
+    }());
+</script>
+</div>
+
+</div>
+<div class='pure-u-1'>
+<div class='main' id='blog'>
+<article class='post'>
+<div class='post-head'>
+<h2>
+WordPressからmiddlemanに移行してGithub Pagesで運用する方法
+</h2>
+<div class='date'>
+<time>Sep 19 2013</time>
+<ul class='tags'>
+<li>
+<a href="/blog/tags/middleman.html">Middleman</a>
+</li>
+<li>
+<a href="/blog/tags/github.html">github</a>
+</li>
+<li>
+<a href="/blog/tags/blog.html">blog</a>
+</li>
+<li>
+<a href="/blog/tags/pure.html">Pure</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p><a href="../../../images/2013/09/20130919_1202.png"><img src="../../../images/2013/09/20130919_1202.png" /></a></p>
+
+<p>サイトをリニューアルしていました。
+WordPressからmiddleman-blogに乗り換えました。
+ホスティングもロリポップからgithub-pagesに乗り換え。
+理由は普段使っているエディタでmarkdownでブログを書いてgitでデプロイする流れがやりたかったから。
+static site generatorは数あれど、慣れたmiddlemanでやってしまおうと思っていました。
+haml と sassでコーディングしています。コードはここに置いてあります→<a href="https://github.com/camuro/camuro.github.io">camuro.github.io</a></p>
+
+<p>今回リニューアルするのにとった流れか下記の通りです。</p>
+
+<ol>
+  <li>WordPressからデータをmarkdown形式でブッコ抜く</li>
+  <li>Pureを少し使ってmiddleman-blogでコーディング</li>
+  <li>githubにorganizationアカウントを作る</li>
+  <li>middleman-deployでdeploy</li>
+  <li>トップレベルドメイン(TLD)でDNSの変更</li>
+</ol>
+
+<h3 id="wordpressmarkdown">1. WordPressからデータをmarkdown形式でブッコ抜く</h3>
+
+<p>WordPressからxmlをexportしておく。
+<a href="http://www.mk-mode.com/octopress/2012/12/20/octopress-migration-from-wordpress/">Octopress - WordPress から投稿データを移行！</a> の記事を参考にWpXml2Mdを使ってxmlからmarkdownにコンバートする。
+<code>wp-content/uploads/</code>の画像を<code>source/images/</code>にコピーする。
+表示おかしいところなどを確認して直す。</p>
+
+<p>正直、syntax-hilighterの調整で戸惑ったので、もっといい方法があるはず。
+jekyllとかoctpressの記事を調べてもっと良い方法探した方がいいかも。</p>
+
+<h3 id="puremiddleman-blog">2. Pureを少し使ってmiddleman-blogでコーディング</h3>
+
+<p>グリッドとページングのところに<a href="http://purecss.io/">Pure</a>を使いました。<a href="https://github.com/yterajima/middleman-pure">@yterajimaさんのgem</a>が便利です。
+markdownは<a href="https://github.com/middleman/middleman-syntax">middleman-syntax</a>でredcarpet、Syntax-Hilightは<a href="https://github.com/Linuus/middleman-rouge">middleman-rouge</a>、コメントは<a href="https://github.com/simonrice/middleman-disqus">middleman-disqus</a>のgemを使いました。</p>
+
+<h3 id="githuborganization">3. githubにorganizationアカウントを作る</h3>
+
+<p>ドメインを割り当てたい場合の対策です。
+ユーザーアカウントにプロジェクトリポジトリを作成した場合は、masterブランチをdeployするとgh-pagesブランチが生成されてそこにbuildしたファイルがdeployされます。
+<code>http://username.github.io/projectname</code>でgh-pagesブランチのファイルが表示されるはずです。
+ドメインを割り当てる場合は、<code>username.github.io</code>という名前でリポジトリを作成してそこにドメインを書いたCNAMEファイルを置きます。（置き場所は<code>source/</code>の下です。）
+github pagesのカスタムドメインは1ユーザにつき1つしか設定できないので、自分の場合はcamuro.org用にcamuroというorganizationアカウントを作りました。
+そしてorganizationアカウントで新しいリポジトリを<code>camuro.github.io</code>という名前で作成します。
+<code>camuro/camuro.github.io</code>という感じですね。</p>
+
+<h3 id="middleman-deploydeploy">4. middleman-deployでdeploy</h3>
+<p>（deployする前に、<code>$ middleman build</code>しておいてくださいね。）
+以前書いていたのですが、公開してなかった記事があったのでついでに公開します。
+<a href="http://camuro.org/blog/2013/04/20021938.html">Middleman 実践（4）- Githubページへデプロイする方法</a>
+上記の記事の方法は<code>deploy.branch</code>を指定しないと自動的に<code>gh-pages</code>というブランチで生成されますが、ドメインを割り当てたい場合にはgh-pagesにCNAMEを置いても反映されず、あくまで<code>master</code>ブランチでないと反映されません。
+なので、<code>config.rb</code>に次のように設定しておきます。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">activate</span> <span class="ss">:deploy</span> <span class="k">do</span> <span class="o">|</span><span class="n">deploy</span><span class="o">|</span>
+  <span class="n">deploy</span><span class="p">.</span><span class="nf">method</span> <span class="o">=</span> <span class="ss">:git</span>
+  <span class="n">deploy</span><span class="p">.</span><span class="nf">branch</span> <span class="o">=</span> <span class="s1">'master'</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>これで、<code>$ middleman deploy</code>してあげるとmasterブランチにdeployされます。
+まぎらわしいので本来のmasterブランチ的な役割は<code>develop</code>というブランチ名で作りました。
+<a href="http://blog.coiney.com/">Coiney開発者ブログ</a>を参考にしました。（<a href="https://github.com/Coiney/coiney.github.io">coiney.github.io</a>）。</p>
+
+<h3 id="tlddns">トップレベルドメイン(TLD)でDNSの変更</h3>
+
+<p>独自ドメインの取得先で DNS を設定します。
+DNS で camuro.org の Aレコードを 204.232.175.78 にセットします。
+セットした後にターミナルで確認します。</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig camuro.org +nostats +nocomments +nocmd
+</code></pre></div></div>
+
+<p>反映されていたらこんな感じで表示されるはずです。</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">;</span> &lt;&lt;<span class="o">&gt;&gt;</span> DiG 9.8.5-P1 &lt;&lt;<span class="o">&gt;&gt;</span> camuro.org +nostats +nocomments +nocmd
+<span class="p">;;</span> global options: +cmd
+<span class="p">;</span>camuro.org.      IN  A
+camuro.org.   3600  IN  A 204.232.175.78
+</code></pre></div></div>
+<p>これで、<code>camuro.org</code>にアクセスしたらGithub Pagesに飛ぶようになります。
+以上です！</p>
+
+</div>
+<div class='post-comment'>
+<div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'camuro';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+
+</div>
+</article>
+<ul class='post-list'>
+<li>
+<h3>2014</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2014/11/whitebox.html'>石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。</a>
+</li>
+<li>
+<a href='/blog/2014/10/makershub.html'>MakersHubの名刺をデザインしました。</a>
+</li>
+<li>
+<a href='/blog/2014/01/pplog.html'>pplogのAlfred Workflowを作った</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2013</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2013/11/tmm.html'>Tokyo Middleman Meetup #1でSusyのお話をしてきた</a>
+</li>
+<li>
+<a href='/blog/2013/11/adventar.html'>Adventarのリニューアルデザインをお手伝いしたお話</a>
+</li>
+<li>
+<a href='/blog/2013/09/renewal.html'>WordPressからmiddlemanに移行してGithub Pagesで運用する方法</a>
+</li>
+<li>
+<a href='/blog/2013/05/14011654.html'>RubyHiroba 2013 のサイトデザインしました</a>
+</li>
+<li>
+<a href='/blog/2013/04/20021938.html'>リモートインターン ｜ Middleman 実践（4）- Githubページへデプロイする方法</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2012</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2012/12/21004721.html'>リモートインターン15-17日目 ｜ CSS & Sass & Compass ( &SCOUT )の学習</a>
+</li>
+<li>
+<a href='/blog/2012/12/08010025.html'>リモートインターン13-14日目 ｜ 怖話コミックの漫画を依頼する人を探す</a>
+</li>
+<li>
+<a href='/blog/2012/12/04000102.html'>リモートインターン12日目 ｜ Bufferにポストを予約</a>
+</li>
+<li>
+<a href='/blog/2012/12/03120008.html'>ルートパスでローカルサーバーの構築をする場合の手順</a>
+</li>
+<li>
+<a href='/blog/2012/11/30235317.html'>リモートインターン11日目 ｜ Webの基本 – HTML課題 / CSSの基礎</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<script src="../../../javascripts/mylibs/google.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2014-11-07T09:00:00+09:00</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。</title>
+    <link rel="alternate" href="/blog/2014/11/whitebox.html"/>
+    <id>/blog/2014/11/whitebox.html</id>
+    <published>2014-11-07T09:00:00+09:00</published>
+    <updated>2014-11-07T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;img src="/images/2014/11/whitebox.png" alt="石橋秀美の解剖図展「しろいはこ」" /&gt;&lt;/p&gt;
+
+&lt;p&gt;既にtwitterやfacebookではご紹介していたのですが、まもなく開催ということで改めてご報告です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://ringomushi.jimdo.com/"&gt;石橋秀美&lt;/a&gt;さんの個展が11/10（月）より東京・銀座のspan art galleryにて開催されます。
+このたび展示会のサイト制作に携わらせていただきました。
+石橋さんは現在大阪を拠点にイラストレーター、写真のディレクターとして活動されています。
+ストイックでエロティックでグロテスクな素晴らしい絵を描いておられます。&lt;/p&gt;
+
+&lt;p&gt;個展の情報はサイトの他、10/27発売のアトリエサードの雑誌にて掲載されています（11/7現在、amazon在庫切れしてる…）。&lt;/p&gt;
+
+&lt;iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;amp;bc1=FFFFFF&amp;amp;IS2=1&amp;amp;bg1=FFFFFF&amp;amp;fc1=000000&amp;amp;lc1=CDAD63&amp;amp;t=ayumiko-22&amp;amp;o=9&amp;amp;p=8&amp;amp;l=as1&amp;amp;m=amazon&amp;amp;f=ifr&amp;amp;ref=qf_sp_asin_til&amp;amp;asins=4883751813" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="http://demilpibot.github.io/"&gt;石橋秀美の解剖図展「しろいはこ」&lt;/a&gt;にご興味のある方、ぜひ展示会へ足をお運びくださると嬉しいです。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>MakersHubの名刺をデザインしました。</title>
+    <link rel="alternate" href="/blog/2014/10/makershub.html"/>
+    <id>/blog/2014/10/makershub.html</id>
+    <published>2014-10-24T09:00:00+09:00</published>
+    <updated>2014-10-24T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;img src="/images/works/makershub-card/wide-angle.jpg" alt="Wide Angle" /&gt;&lt;/p&gt;
+
+&lt;p&gt;ご縁があって &lt;a href="https://makershub.jp/"&gt;MakersHub&lt;/a&gt;さんの名刺デザインを制作させていただきました。&lt;br /&gt;
+&lt;a href="https://makershub.jp/"&gt;MakersHub&lt;/a&gt;は、電子工作好きな方におすすめしたいニッチな面白いサービスです。&lt;br /&gt;
+登録すると個人のページ（ユニークURL）が生成され、作品を投稿することで、
+自然と自分のものづくりポートフォリオができていきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/works/makershub-card/close-up-front.jpg" alt="Close Up Front" /&gt;&lt;/p&gt;
+
+&lt;p&gt;表面はサービスのロゴ等の他、電子工作をイメージできるよう、背景にサービスのツールアイコンをモチーフにしたモノグラムのパターンを配置しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/works/makershub-card/close-up-back.jpg" alt="Close Up Back" /&gt;&lt;/p&gt;
+
+&lt;p&gt;ユニークURLをプライベート名刺などに書いてもらえるようになりたいという夢があるということで、&lt;br /&gt;
+裏面にはメールアドレス欄や電話番号と共に、&lt;br /&gt;
+サービスのメインモチーフであるひらめきアイコンとともにURLの欄を設けています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://makershub.jp/"&gt;MakersHub&lt;/a&gt;に興味が出た方、ぜひ&lt;a href="https://makershub.jp/"&gt;'https://makershub.jp/'&lt;/a&gt;にアクセスしてみてくださいね！&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>pplogのAlfred Workflowを作った</title>
+    <link rel="alternate" href="/blog/2014/01/pplog.html"/>
+    <id>/blog/2014/01/pplog.html</id>
+    <published>2014-01-09T09:00:00+09:00</published>
+    <updated>2014-01-09T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Alfredからpplogに飛ぶWorkflowを作ってみた。&lt;/p&gt;
+
+&lt;p&gt;お昼休みを使ってサクっと作ってみた。
+ただのOpen URLだから大したもんではないけど自分の為に。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/kumanoayumi/open-pplog/blob/master/open-pplog-v2.alfredworkflow?raw=true"&gt;↓ ダウンロードはこちらから。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/kumanoayumi/open-pplog/blob/master/open-pplog-v2.alfredworkflow?raw=true"&gt;&lt;img src="/images/2014/01/alfred-workflow.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;アイコン使わせていただいたのですが事後報告ですみません…。&lt;/p&gt;
+
+&lt;p&gt;追記：簡単に動かす為に、ホットキーを割り当ててv2になりました。option+command+pでいけます。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Tokyo Middleman Meetup #1でSusyのお話をしてきた</title>
+    <link rel="alternate" href="/blog/2013/11/tmm.html"/>
+    <id>/blog/2013/11/tmm.html</id>
+    <published>2013-11-25T09:00:00+09:00</published>
+    <updated>2013-11-25T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;2013年11月22日、今をときめく静的サイトジェネレータ "Middleman" について語る会こと&lt;a href="http://connpass.com/event/3851/"&gt;Tokyo Middleman Meetup #1&lt;/a&gt;が&lt;a href="http://www.genuineblue.jp/"&gt;株式会社ジェニュインブルー様&lt;/a&gt;で開催されました。&lt;/p&gt;
+
+&lt;p&gt;せっかくの機会だったので、自分もお気に入りのcss frameworkであるところの&lt;a href="http://susy.oddbird.net/"&gt;Susy&lt;/a&gt;についてお話させていただきました。&lt;/p&gt;
+
+&lt;div style="width: 60%;"&gt;&lt;script async="" class="speakerdeck-embed" data-id="9eab1810366601313c751aaf8e3c2217" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="https://speakerdeck.com/kumanoayumi/middleman-meets-susy"&gt;MIDDLEMAN MEETS SUSY by kumano ayumi&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;スライドに出ているgridのサンプルはこちら。
+&lt;a href="http://kumanoayumi.github.io/mms/"&gt;Middleman Meets Susy - DEMO&lt;/a&gt;
+&lt;a href="https://github.com/kumanoayumi/mms"&gt;(Source on github)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;当日の様子はこんな感じでした。(&lt;a href="https://twitter.com/machida"&gt;@machida&lt;/a&gt;さんのtweet引用しまくります)&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;ayumikoさんの発表。 (at SonicGarden Inc.) [pic] — &lt;a href="https://t.co/awdzESOV68"&gt;https://t.co/awdzESOV68&lt;/a&gt;&lt;/p&gt;&amp;mdash; machida (@machida) &lt;a href="https://twitter.com/machida/statuses/403847288759394304"&gt;2013, 11月 22&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;middlemanでhamlとsassに慣れてたからrailsの仕事で役に立った、という話 (at SonicGarden Inc.) [pic] — &lt;a href="https://t.co/zLGYs3cTll"&gt;https://t.co/zLGYs3cTll&lt;/a&gt;&lt;/p&gt;&amp;mdash; machida (@machida) &lt;a href="https://twitter.com/machida/statuses/403847935076483072"&gt;2013, 11月 22&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;middlemanとsusyの話。susyはcompassを使ったグリッドシステムを簡単に実装できるプラグイン。ブレイクポイントの指定をmixinをimportするだけで出来るので便利。 &lt;a href="http://t.co/5XIWObV6IB"&gt;pic.twitter.com/5XIWObV6IB&lt;/a&gt;&lt;/p&gt;&amp;mdash; machida (@machida) &lt;a href="https://twitter.com/machida/statuses/403848914291286016"&gt;2013, 11月 22&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;susy、英語で説明読むの面倒だなぁ、と思ってたので、細かく説明してくれて得した。 &lt;a href="http://t.co/n2F3IMqFBH"&gt;pic.twitter.com/n2F3IMqFBH&lt;/a&gt;&lt;/p&gt;&amp;mdash; machida (@machida) &lt;a href="https://twitter.com/machida/statuses/403849474297982976"&gt;2013, 11月 22&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;興味が湧いた方は、&lt;a href="http://susy.oddbird.net/"&gt;Susy&lt;/a&gt;公式のReferenceを見ながら試されると良いと思います。
+日本語のリファレンスが少ないので、本番ではお話しきれなかった他のmixinなんかについても（PaddingやMarginのmixinなどなど）いずれどこかでまとめる予定です。
+併せてBurbon x Burbon NEATもやりたいなーとも思っているところ。&lt;/p&gt;
+
+&lt;p&gt;Middleman エヴェンジェリスト(?)であるところの&lt;a href="https://twitter.com/yterajima"&gt;@yterajima&lt;/a&gt;さんによる&lt;a href="http://www.slideshare.net/e2esound.com/middleman-guideshowtolean"&gt;Middleman Guides &amp;amp; How to Lean&lt;/a&gt;、
+&lt;a href="https://twitter.com/kkotaro0111"&gt;@kkotaro0111&lt;/a&gt;さんの&lt;a href="http://www.slideshare.net/kkotaro0111/tokyoumiddlemanmeetup1"&gt;Middleman Usecase&lt;/a&gt;、
+&lt;a href="https://twitter.com/hokaccha"&gt;@hokaccha&lt;/a&gt;さんの middleman + rack-reverse-proxy でフロントエンドのアプリ開発などなど、
+皆さんのお話から更にmiddlemanに関する知見を得ることが出来たの、本当に良かったです。&lt;/p&gt;
+
+&lt;p&gt;自分の発表に関しては、LTもやったことなくていきなり30分も喋られるのか自信ないままお話して、終わった後の敗北感が凄かったですが、
+これに懲りずまた機会があったら挑戦したいなと思っています。
+開催にまつわる関係者の皆様、大変ありがとうございました！&lt;/p&gt;
+
+&lt;p&gt;以上です！&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Adventarのリニューアルデザインをお手伝いしたお話</title>
+    <link rel="alternate" href="/blog/2013/11/adventar.html"/>
+    <id>/blog/2013/11/adventar.html</id>
+    <published>2013-11-01T09:00:00+09:00</published>
+    <updated>2013-11-01T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href="http://www.adventar.org/" target="_blank"&gt;&lt;img src="/images/2013/11/20131101_cover.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;2013年11月1日、本年度の&lt;a href="http://www.adventar.org/"&gt;Adventar&lt;/a&gt;(Advent Calendar)のリニューアル版がリリースされました。&lt;br /&gt;
+Advent Calendarは本来、12月1日から24日までクリスマスを待つまでに1日に1つ、穴が空けられるようになっているカレンダーです。
+Adventarでは、その風習に習い、12月1日から25日まで1日づつみんなで記事を投稿して、web上でAdvent Calendarを体験できます。&lt;/p&gt;
+
+&lt;p&gt;今回、自分はデザイン面でお手伝いさせていただきました。&lt;br /&gt;
+もともとAdventarは2012年11月1日に&lt;a href="https://twitter.com/hokaccha"&gt;@hokaccha&lt;/a&gt;さんがお一人でリリースされたサービスです。&lt;br /&gt;
+今年は&lt;a href="http://bla.bo/"&gt;Blabo!&lt;/a&gt;のお仕事でもご一緒している&lt;a href="https://twitter.com/june29"&gt;@june29&lt;/a&gt;さんに「You、Adventarのデザインやってみない？」とお声をかけていただいたことがきかっけでした（若干脚色有り）。&lt;/p&gt;
+
+&lt;p&gt;2012版との大きな変更点は、今年らしくフラットデザインに。&lt;br /&gt;
+各カレンダーに固有の色を持たせて賑やかな感じに。&lt;br /&gt;
+カレンダーページには参加が登録しやすいようなUIに。&lt;/p&gt;
+
+&lt;p&gt;トップページ BEFORE&lt;br /&gt;
+&lt;a href="/images/2013/11/20131101_02.png"&gt;&lt;img src="/images/2013/11/20131101_02.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;トップページ　AFTER&lt;br /&gt;
+&lt;a href="/images/2013/11/20131101_01.png"&gt;&lt;img src="/images/2013/11/20131101_01.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;カレンダーページ BEFORE&lt;br /&gt;
+&lt;a href="/images/2013/11/20131101_04.png"&gt;&lt;img src="/images/2013/11/20131101_04.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;カレンダーページ AFTER&lt;br /&gt;
+&lt;a href="/images/2013/11/20131101_03.png"&gt;&lt;img src="/images/2013/11/20131101_03.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://twitter.com/adventar"&gt;@adventar&lt;/a&gt;&lt;br /&gt;
+twitterの公式アカウントもあります。&lt;/p&gt;
+
+&lt;p&gt;興味をお持ちになった方、ぜひ参加してみてださいね！&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>WordPressからmiddlemanに移行してGithub Pagesで運用する方法</title>
+    <link rel="alternate" href="/blog/2013/09/renewal.html"/>
+    <id>/blog/2013/09/renewal.html</id>
+    <published>2013-09-19T09:00:00+09:00</published>
+    <updated>2013-09-19T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;a href="/images/2013/09/20130919_1202.png"&gt;&lt;img src="/images/2013/09/20130919_1202.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;サイトをリニューアルしていました。
+WordPressからmiddleman-blogに乗り換えました。
+ホスティングもロリポップからgithub-pagesに乗り換え。
+理由は普段使っているエディタでmarkdownでブログを書いてgitでデプロイする流れがやりたかったから。
+static site generatorは数あれど、慣れたmiddlemanでやってしまおうと思っていました。
+haml と sassでコーディングしています。コードはここに置いてあります→&lt;a href="https://github.com/camuro/camuro.github.io"&gt;camuro.github.io&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;今回リニューアルするのにとった流れか下記の通りです。&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;WordPressからデータをmarkdown形式でブッコ抜く&lt;/li&gt;
+  &lt;li&gt;Pureを少し使ってmiddleman-blogでコーディング&lt;/li&gt;
+  &lt;li&gt;githubにorganizationアカウントを作る&lt;/li&gt;
+  &lt;li&gt;middleman-deployでdeploy&lt;/li&gt;
+  &lt;li&gt;トップレベルドメイン(TLD)でDNSの変更&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id="wordpressmarkdown"&gt;1. WordPressからデータをmarkdown形式でブッコ抜く&lt;/h3&gt;
+
+&lt;p&gt;WordPressからxmlをexportしておく。
+&lt;a href="http://www.mk-mode.com/octopress/2012/12/20/octopress-migration-from-wordpress/"&gt;Octopress - WordPress から投稿データを移行！&lt;/a&gt; の記事を参考にWpXml2Mdを使ってxmlからmarkdownにコンバートする。
+&lt;code&gt;wp-content/uploads/&lt;/code&gt;の画像を&lt;code&gt;source/images/&lt;/code&gt;にコピーする。
+表示おかしいところなどを確認して直す。&lt;/p&gt;
+
+&lt;p&gt;正直、syntax-hilighterの調整で戸惑ったので、もっといい方法があるはず。
+jekyllとかoctpressの記事を調べてもっと良い方法探した方がいいかも。&lt;/p&gt;
+
+&lt;h3 id="puremiddleman-blog"&gt;2. Pureを少し使ってmiddleman-blogでコーディング&lt;/h3&gt;
+
+&lt;p&gt;グリッドとページングのところに&lt;a href="http://purecss.io/"&gt;Pure&lt;/a&gt;を使いました。&lt;a href="https://github.com/yterajima/middleman-pure"&gt;@yterajimaさんのgem&lt;/a&gt;が便利です。
+markdownは&lt;a href="https://github.com/middleman/middleman-syntax"&gt;middleman-syntax&lt;/a&gt;でredcarpet、Syntax-Hilightは&lt;a href="https://github.com/Linuus/middleman-rouge"&gt;middleman-rouge&lt;/a&gt;、コメントは&lt;a href="https://github.com/simonrice/middleman-disqus"&gt;middleman-disqus&lt;/a&gt;のgemを使いました。&lt;/p&gt;
+
+&lt;h3 id="githuborganization"&gt;3. githubにorganizationアカウントを作る&lt;/h3&gt;
+
+&lt;p&gt;ドメインを割り当てたい場合の対策です。
+ユーザーアカウントにプロジェクトリポジトリを作成した場合は、masterブランチをdeployするとgh-pagesブランチが生成されてそこにbuildしたファイルがdeployされます。
+&lt;code&gt;http://username.github.io/projectname&lt;/code&gt;でgh-pagesブランチのファイルが表示されるはずです。
+ドメインを割り当てる場合は、&lt;code&gt;username.github.io&lt;/code&gt;という名前でリポジトリを作成してそこにドメインを書いたCNAMEファイルを置きます。（置き場所は&lt;code&gt;source/&lt;/code&gt;の下です。）
+github pagesのカスタムドメインは1ユーザにつき1つしか設定できないので、自分の場合はcamuro.org用にcamuroというorganizationアカウントを作りました。
+そしてorganizationアカウントで新しいリポジトリを&lt;code&gt;camuro.github.io&lt;/code&gt;という名前で作成します。
+&lt;code&gt;camuro/camuro.github.io&lt;/code&gt;という感じですね。&lt;/p&gt;
+
+&lt;h3 id="middleman-deploydeploy"&gt;4. middleman-deployでdeploy&lt;/h3&gt;
+&lt;p&gt;（deployする前に、&lt;code&gt;$ middleman build&lt;/code&gt;しておいてくださいね。）
+以前書いていたのですが、公開してなかった記事があったのでついでに公開します。
+&lt;a href="http://camuro.org/blog/2013/04/20021938.html"&gt;Middleman 実践（4）- Githubページへデプロイする方法&lt;/a&gt;
+上記の記事の方法は&lt;code&gt;deploy.branch&lt;/code&gt;を指定しないと自動的に&lt;code&gt;gh-pages&lt;/code&gt;というブランチで生成されますが、ドメインを割り当てたい場合にはgh-pagesにCNAMEを置いても反映されず、あくまで&lt;code&gt;master&lt;/code&gt;ブランチでないと反映されません。
+なので、&lt;code&gt;config.rb&lt;/code&gt;に次のように設定しておきます。&lt;/p&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="n"&gt;activate&lt;/span&gt; &lt;span class="ss"&gt;:deploy&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
+  &lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;method&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:git&lt;/span&gt;
+  &lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'master'&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;これで、&lt;code&gt;$ middleman deploy&lt;/code&gt;してあげるとmasterブランチにdeployされます。
+まぎらわしいので本来のmasterブランチ的な役割は&lt;code&gt;develop&lt;/code&gt;というブランチ名で作りました。
+&lt;a href="http://blog.coiney.com/"&gt;Coiney開発者ブログ&lt;/a&gt;を参考にしました。（&lt;a href="https://github.com/Coiney/coiney.github.io"&gt;coiney.github.io&lt;/a&gt;）。&lt;/p&gt;
+
+&lt;h3 id="tlddns"&gt;トップレベルドメイン(TLD)でDNSの変更&lt;/h3&gt;
+
+&lt;p&gt;独自ドメインの取得先で DNS を設定します。
+DNS で camuro.org の Aレコードを 204.232.175.78 にセットします。
+セットした後にターミナルで確認します。&lt;/p&gt;
+
+&lt;div class="language-sh highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;dig camuro.org +nostats +nocomments +nocmd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;反映されていたらこんな感じで表示されるはずです。&lt;/p&gt;
+
+&lt;div class="language-sh highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="p"&gt;;&lt;/span&gt; &amp;lt;&amp;lt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; DiG 9.8.5-P1 &amp;lt;&amp;lt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; camuro.org +nostats +nocomments +nocmd
+&lt;span class="p"&gt;;;&lt;/span&gt; global options: +cmd
+&lt;span class="p"&gt;;&lt;/span&gt;camuro.org.      IN  A
+camuro.org.   3600  IN  A 204.232.175.78
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;これで、&lt;code&gt;camuro.org&lt;/code&gt;にアクセスしたらGithub Pagesに飛ぶようになります。
+以上です！&lt;/p&gt;
+</content>
+  </entry>
+</feed>
