@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' name='viewport'>
+<title>リモートインターン ｜ Terminalの操作</title>
+<link href="../../../stylesheets/normalize.css" rel="stylesheet" /><link href="../../../stylesheets/all.css" rel="stylesheet" /><link href="http://yui.yahooapis.com/pure/0.2.1/menu-min.css" rel="stylesheet" />
+<script src="../../../javascripts/all.js"></script>
+</head>
+<body class='blog blog_2013 blog_2013_02 blog_2013_02_04234240'>
+<div class='pure-g-r' id='layout'>
+<div class='sidebar pure-u'>
+<div class='menu-box'>
+<a class='heading' href='/'>
+camuro
+</a>
+<nav>
+<ul class='menu cl-effect-5'>
+<li class='menu-item'>
+<a href='/'>
+<span data-hover='Home'>Home</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/about.html'>
+<span data-hover='About'>About</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/works.html'>
+<span data-hover='Works'>Works</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/blog.html'>
+<span data-hover='Blog'>Blog</span>
+</a>
+</li>
+</ul>
+</nav>
+<form>
+<input class='st-search-input' id='st-search-input' type='text'>
+</form>
+<script>
+  var Swiftype = window.Swiftype || {};
+    (function() {
+      Swiftype.key = 'gGZQLNj5d36eyibDuysX';
+  
+      /** DO NOT EDIT BELOW THIS LINE **/
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = "//s.swiftypecdn.com/embed.js";
+      var entry = document.getElementsByTagName('script')[0];
+      entry.parentNode.insertBefore(script, entry);
+    }());
+</script>
+</div>
+
+</div>
+<div class='pure-u-1'>
+<div class='main' id='blog'>
+<article class='post'>
+<div class='post-head'>
+<h2>
+リモートインターン ｜ Terminalの操作
+</h2>
+<div class='date'>
+<time>Feb  4 2013</time>
+<ul class='tags'>
+<li>
+<a href="/blog/tags/黒い画面.html">黒い画面</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>今週は学習週で、今日はTerminalの操作について学習していきました。
+FJORD,LLCの<a href="http://fjord.jp/tag/dont-be-afraid-kuroigamen" title="『Webデザイナーの為の「本当は怖くない」”黒い画面”入門シリーズ』">『Webデザイナーの為の「本当は怖くない」”黒い画面”入門シリーズ』</a>の記事を見ながら実際にターミナルで手を動かしていきました。</p>
+
+<p><strong>以下、今更知らなかったこと</strong>
+$ (prompt) : promptは”促すもの”という意味。「ここに入力してください！」と促す為のマーク。
+bin : binはbinary(バイナリー)の略。binaryには”対になった物”という意味。コンピューターのCPUが実際に実行するプログラムの中身は0と1だけになり、そこから、実行できるプログラムのことをbinaryファイルと言う。
+$ : 変数。あ、そういえばsassやjsでも$付けていた。ターミナルで$を使うと別物のような恐怖を感じていた。
+env : 環境変数。“黒い画面”で最初から設定されている変数のこと。変数名と中身が=(イコール)を挟んだ形で表示される。</p>
+
+<p><strong>Macのディレクトリ構造</strong>
+bin/ : 最低限必要なコマンド置き場
+sbin/ : システム管理者が使うコマンド置き場
+usr/bin : システムの起動に必要でないコマンド置き場
+usr/sbin : システムの起動に必要でない管理者用コマンド置き場</p>
+
+<p><strong>オプションについて</strong>
+ls -a のように、-（ハイフン）ではじまっているものをオプションという。
+複数指定可。
+-(ハイフン)のあとアルファベット一文字がオプション。
+ハイフン一つのものをショートネームオプション(short name option)、ハイフン二つのものをロングネームオプション(long name option)と呼ぶ。
+ロングネームオプションに文字を渡す場合=(イコール)を付ける。
+ショートネームオプションとロングネームオプションは混在させることができる。</p>
+
+<p>Homebrew : Package Manager
+HomebrewとXcodeはインストール済みなので概要を復習。</p>
+
+<p>`(バッククォート)で文字を囲うとその文字をコマンドとして実行して、出力結果に置き換える。</p>
+
+<p>touch : touchコマンドは空のファイルを作成する。本来既にあるファイルに触って(touchして)最終更新日を更新するだけのコマンド。空ファイルを作るのにも使われる。</p>
+
+<p>
+#! : sharp bang。shebang。スクリプトを単体で実行。”黒い画面”で実行しようとしたファイルの1行目の最初の二文字が#!だったら、その後に書いてあるコマンドに2行目以降の全てを渡す。
+</p>
+<p>自分独自のスクリプトはホームディレクトリにbinというディレクトリを作ってそこに置く人が多い。</p>
+
+<p>export : 環境変数を設定するコマンド。</p>
+
+<p>sh : shell。Bourne Shell。ターミナルに$を表示するソフト。shにスクリプトを渡して実行すればターミナルで$以降にコマンド打ったのと同じ結果となる。
+bash : Bourne-Again Shell。shの強化版。
+zsh : 最後のshellを目指して作られたshell。</p>
+
+<p>以上。とても丁寧に書かれていたので、不明点はなかった。
+基本のコマンドはいろいろやっているうちに簡単なものは使えるようになっていたけど、概要をひと通りやったおかげで今度躓いた時にすぐ起き上がれそうな気が、する。</p>
+
+</div>
+<div class='post-comment'>
+<div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'camuro';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+
+</div>
+</article>
+<ul class='post-list'>
+<li>
+<h3>2014</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2014/11/whitebox.html'>石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。</a>
+</li>
+<li>
+<a href='/blog/2014/10/makershub.html'>MakersHubの名刺をデザインしました。</a>
+</li>
+<li>
+<a href='/blog/2014/01/pplog.html'>pplogのAlfred Workflowを作った</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2013</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2013/11/tmm.html'>Tokyo Middleman Meetup #1でSusyのお話をしてきた</a>
+</li>
+<li>
+<a href='/blog/2013/11/adventar.html'>Adventarのリニューアルデザインをお手伝いしたお話</a>
+</li>
+<li>
+<a href='/blog/2013/09/renewal.html'>WordPressからmiddlemanに移行してGithub Pagesで運用する方法</a>
+</li>
+<li>
+<a href='/blog/2013/05/14011654.html'>RubyHiroba 2013 のサイトデザインしました</a>
+</li>
+<li>
+<a href='/blog/2013/04/20021938.html'>リモートインターン ｜ Middleman 実践（4）- Githubページへデプロイする方法</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2012</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2012/12/21004721.html'>リモートインターン15-17日目 ｜ CSS & Sass & Compass ( &SCOUT )の学習</a>
+</li>
+<li>
+<a href='/blog/2012/12/08010025.html'>リモートインターン13-14日目 ｜ 怖話コミックの漫画を依頼する人を探す</a>
+</li>
+<li>
+<a href='/blog/2012/12/04000102.html'>リモートインターン12日目 ｜ Bufferにポストを予約</a>
+</li>
+<li>
+<a href='/blog/2012/12/03120008.html'>ルートパスでローカルサーバーの構築をする場合の手順</a>
+</li>
+<li>
+<a href='/blog/2012/11/30235317.html'>リモートインターン11日目 ｜ Webの基本 – HTML課題 / CSSの基礎</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<script src="../../../javascripts/mylibs/google.js"></script>
+</body>
+</html>
