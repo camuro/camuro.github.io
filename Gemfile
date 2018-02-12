@@ -23,5 +23,5 @@ gem 'nokogiri'
 gem 'middleman-rouge'
 gem "redcarpet"
 
-# gem "middleman-deploy"
+gem 'middleman-deploy', '~> 2.0.0.pre.alpha'
 gem "middleman-favicon-maker"
