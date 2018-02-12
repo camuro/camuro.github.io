@@ -118,16 +118,17 @@ end
 # Markdown
 ###
 
-set :markdown, :layout_engine => :haml, :tables => true, :autolink => true, :gh_blockcode => true, :fenced_code_blocks => true, :with_toc_data => true, :smartypants => true
-set :markdown_engine, :redcarpet
+set :haml, { :format => :html5 }
 
-set :haml, { ugly: true }
-
-activate :rouge_syntax
+set :markdown_engine, :kramdown
+set :markdown, 'syntax_highlighter' => 'rouge',
+    'syntax_highlighter_opts' => {
+      'span' => {'disable' => true}
+    }
 
 line_comments = false
 
-activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.branch = 'master'
-end
+# activate :deploy do |deploy|
+#   deploy.method = :git
+#   deploy.branch = 'master'
+# end
