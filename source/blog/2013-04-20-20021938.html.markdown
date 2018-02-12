@@ -26,52 +26,52 @@ Gitでデプロイする方法をやってみました。
 **手順**
 １．gemをインストール
 
-```
+~~~
 $ gem install middleman-deploy
-```
+~~~
 
-２．bundle  
+２．bundle
 Gemfileに下記を記述する。
 
-```ruby
+~~~ruby
 gem "middleman-deploy", "~> 0.0.11"
-```
+~~~
 
 bundleインストール
 
-```
+~~~
 $ bundle install
-```
+~~~
 
 ３．config.rbに下記を記述
 
-```ruby
+~~~ruby
 activate :deploy do |deploy|
   deploy.method = :git
 end
-```
+~~~
 
 オプションを記述しなければデプロイした時に、リモート名はoriginでgh-pagesという名前のブランチがリモートリポジトリへデフォルトで作られる。
 オプションを書く場合は下記の通り。
 
-```ruby
+~~~ruby
 activate :deploy do |deploy|
   deploy.method = :git
   deploy.remote = "some-other-remote-name"
   deploy.branch = "some-other-branch-name"
 end
-```
+~~~
 
 ４．ビルド
 
-```
+~~~
 $ middleman build
-```
+~~~
 
 ５．デプロイ
 
-```
+~~~
 $ middleman deploy
-```
+~~~
 
 上記の方法で[Middleman 実践（3）で作ったやつ](http://camuro.org/blog/2013/04/19233343.html "Middleman 実践（3）で作ったやつ")もデプロイしてみた。→[デザインは入ってないので真っさら…。](http://kumanoayumi.github.io/middleman-blog/ "デザインは入ってないので真っさら…。")

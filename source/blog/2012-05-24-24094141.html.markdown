@@ -10,12 +10,13 @@ tags: []
 keywords:
 - 未分類
 ---
-・マクロはALT＋F11でVBE画面を開く。  
-・左上のVBA Projectでシート名を右クリックし「挿入」→「標準モジュール」で表示される画面に貼り付ける。  
-・マクロの実行。  
-・元のエクセルに新規シートでURLが書き出される。  
 
-```
+- マクロはALT＋F11でVBE画面を開く。
+- 左上のVBA Projectでシート名を右クリックし「挿入」→「標準モジュール」で表示される画面に貼り付ける。
+- マクロの実行。
+- 元のエクセルに新規シートでURLが書き出される。
+
+~~~
 Sub Macro1()
 Dim idx As Integer
 Dim ws As Worksheet
@@ -34,4 +35,4 @@ trg.Offset(0, 1).Value = ws.Hyperlinks(idx).Parent.Address
 Set trg = trg.Offset(1)
 Next idx
 End If
-```
+~~~

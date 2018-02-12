@@ -12,15 +12,15 @@ keywords:
 ---
 ini.phpに記述
 
-```php
+~~~php
 <?php $_httppath="http://hogehoge/"; ?>
-```
+~~~
 
 includeするphpファイルに記述
 
-```php
-<?php include(&quot;../hoge/ini.php&quot;); ?>
-```
+~~~php
+<?php include(<../hoge/ini.php>); ?>
+~~~
 
 相対パスを記述する箇所に&lt;?=$_httppath?&gt;/と記載。
 この記述方法がディレクトリの違うページに対しての対処となる。

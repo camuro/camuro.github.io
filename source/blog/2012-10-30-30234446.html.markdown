@@ -25,9 +25,9 @@ Asset Pipeline（hogehoge/app/assets/）内のapplication.cssをcompileしない
 - hogehoge/app/assets/application.cssをapplication.css.erbにリネームする。
 - ターミナルで
 
-```
+~~~
 bundle exec rake assets:precompile
-```
+~~~
 
 でcompile完了。
 

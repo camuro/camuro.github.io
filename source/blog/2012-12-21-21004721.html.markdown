@@ -22,8 +22,9 @@ keywords:
 ---
 先週、学習週だったのにブログ書くの溜めてしまった。
 今回はcssの学習と一緒にSassの学習も併せて進めていきました。まとめてダダっと書いていきます。
-# 
+
 # やったこと
+
 ## CSS
 
 - [ドットインストール CSSの基礎](http://dotinstall.com/lessons/basic_css "ドットインストール CSSの基礎")をすべて見た
@@ -69,36 +70,36 @@ keywords:
 
 ターミナルでgemのアップデートしてcompassをインストール
 
-```
+~~~
 gem update --system
 gem install compass
-```
+~~~
 
 同様にターミナルで、sassやcssのディレクトリを作成したいプロジェクトのディレクトリまで移動して、compassをcreate
 
-```
+~~~
 cd hogehoge
 compass create
-```
+~~~
 
 デフォルトだとstylesheets、javascripts、imagesなどのディレクトリ名で作成されるので、config.rbで任意のディレクトリ名に変更する。
 compass createする際に下記のコマンドをターミナルで打っても同じ。
 
-```
+~~~
 compass create --sass-dir "sass" --css-dir "css" --javascripts-dir "js" --images-dir "img"
-```
+~~~
 
 また、sassからcssにコンパイルされるときにline commentsが書き出されるのが嫌な場合、config.rbの下記の箇所の#を消して有効化しておく。
 
-```ruby
+~~~ruby
 # line_comments = false
-```
+~~~
 
 デフォルトだとscssのシンタックスなので、sassのシンタックスを使う場合はターミナル下記のコマンドを打つ。
 
-```
+~~~
 compass create --syntax sass
-```
+~~~
 
 
 <h2>SCOUT</h2>
@@ -136,9 +137,7 @@ Hamlの作業する際はHamlのパッケージまた入れると思うので、
 cssからsass へのコンバートをよくやるので追記。
 ターミナルで下記コマンドでコンバート可能。
 
-```
+~~~
 # Convert CSSto SASS
 $ sass-convert style.css style.sass
-```
-
-&nbsp;
+~~~

@@ -21,7 +21,7 @@ keywords:
 
 以下、手順（@machidaさんに書いていただいたものコピペ…）
 
-```
+~~~
 $ git branch XXXX でブランチを作成
 $ git checkout XXXX そのブランチに移動
 作業が完了したら
@@ -29,7 +29,7 @@ $ git add . 新しく作ったファイルをバージョン管理に追加
 $ git commit -a -m"バナー追加" 作業をコミット
 $ git push origin XXXX githubにブランチをアップ
 github から Pull Request を送る
-```
+~~~
 
 初プルリク…！
 無事マージされて@komagataさんからミサワコメントをいただきました。

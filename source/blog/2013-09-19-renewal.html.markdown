@@ -1,0 +1,93 @@
+---
+layout: post
+title: ! 'WordPressからmiddlemanに移行してGithub Pagesで運用する方法'
+published: true
+date: 2013-09-19
+comments: true
+tags:
+- Middleman
+- github
+- blog
+- Pure
+---
+
+<a href="/images/2013/09/20130919_1202.png"><img src="/images/2013/09/20130919_1202.png"></a>
+
+サイトをリニューアルしていました。
+WordPressからmiddleman-blogに乗り換えました。
+ホスティングもロリポップからgithub-pagesに乗り換え。
+理由は普段使っているエディタでmarkdownでブログを書いてgitでデプロイする流れがやりたかったから。
+static site generatorは数あれど、慣れたmiddlemanでやってしまおうと思っていました。
+haml と sassでコーディングしています。コードはここに置いてあります→[camuro.github.io](https://github.com/camuro/camuro.github.io)
+
+今回リニューアルするのにとった流れか下記の通りです。
+
+1. WordPressからデータをmarkdown形式でブッコ抜く
+2. Pureを少し使ってmiddleman-blogでコーディング
+3. githubにorganizationアカウントを作る
+4. middleman-deployでdeploy
+5. トップレベルドメイン(TLD)でDNSの変更
+
+### 1. WordPressからデータをmarkdown形式でブッコ抜く
+
+WordPressからxmlをexportしておく。
+[Octopress - WordPress から投稿データを移行！](http://www.mk-mode.com/octopress/2012/12/20/octopress-migration-from-wordpress/) の記事を参考にWpXml2Mdを使ってxmlからmarkdownにコンバートする。
+``wp-content/uploads/``の画像を``source/images/``にコピーする。
+表示おかしいところなどを確認して直す。
+
+正直、syntax-hilighterの調整で戸惑ったので、もっといい方法があるはず。
+jekyllとかoctpressの記事を調べてもっと良い方法探した方がいいかも。
+
+### 2. Pureを少し使ってmiddleman-blogでコーディング
+
+グリッドとページングのところに[Pure](http://purecss.io/)を使いました。[@yterajimaさんのgem](https://github.com/yterajima/middleman-pure)が便利です。
+markdownは[middleman-syntax](https://github.com/middleman/middleman-syntax)でredcarpet、Syntax-Hilightは[middleman-rouge](https://github.com/Linuus/middleman-rouge)、コメントは[middleman-disqus](https://github.com/simonrice/middleman-disqus)のgemを使いました。
+
+### 3. githubにorganizationアカウントを作る
+
+ドメインを割り当てたい場合の対策です。
+ユーザーアカウントにプロジェクトリポジトリを作成した場合は、masterブランチをdeployするとgh-pagesブランチが生成されてそこにbuildしたファイルがdeployされます。
+``http://username.github.io/projectname``でgh-pagesブランチのファイルが表示されるはずです。
+ドメインを割り当てる場合は、``username.github.io``という名前でリポジトリを作成してそこにドメインを書いたCNAMEファイルを置きます。（置き場所は``source/``の下です。）
+github pagesのカスタムドメインは1ユーザにつき1つしか設定できないので、自分の場合はcamuro.org用にcamuroというorganizationアカウントを作りました。
+そしてorganizationアカウントで新しいリポジトリを``camuro.github.io``という名前で作成します。
+``camuro/camuro.github.io``という感じですね。
+
+### 4. middleman-deployでdeploy
+（deployする前に、``$ middleman build``しておいてくださいね。）
+以前書いていたのですが、公開してなかった記事があったのでついでに公開します。
+[Middleman 実践（4）- Githubページへデプロイする方法](http://camuro.org/blog/2013/04/20021938.html)
+上記の記事の方法は``deploy.branch``を指定しないと自動的に``gh-pages``というブランチで生成されますが、ドメインを割り当てたい場合にはgh-pagesにCNAMEを置いても反映されず、あくまで``master``ブランチでないと反映されません。
+なので、``config.rb``に次のように設定しておきます。
+
+~~~ruby
+activate :deploy do |deploy|
+  deploy.method = :git
+  deploy.branch = 'master'
+end
+~~~
+
+これで、``$ middleman deploy``してあげるとmasterブランチにdeployされます。
+まぎらわしいので本来のmasterブランチ的な役割は``develop``というブランチ名で作りました。
+[Coiney開発者ブログ](http://blog.coiney.com/)を参考にしました。（[coiney.github.io](https://github.com/Coiney/coiney.github.io)）。
+
+### トップレベルドメイン(TLD)でDNSの変更
+
+独自ドメインの取得先で DNS を設定します。
+DNS で camuro.org の Aレコードを 204.232.175.78 にセットします。
+セットした後にターミナルで確認します。
+
+~~~sh
+dig camuro.org +nostats +nocomments +nocmd
+~~~
+
+反映されていたらこんな感じで表示されるはずです。
+
+~~~sh
+; <<>> DiG 9.8.5-P1 <<>> camuro.org +nostats +nocomments +nocmd
+;; global options: +cmd
+;camuro.org.      IN  A
+camuro.org.   3600  IN  A 204.232.175.78
+~~~
+これで、``camuro.org``にアクセスしたらGithub Pagesに飛ぶようになります。
+以上です！

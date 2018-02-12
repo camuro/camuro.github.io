@@ -16,7 +16,7 @@ keywords:
 - リモートインターン
 - 黒い画面
 ---
-今回はGitやGitHubなどのバージョン管理について学習していきました。  
+今回はGitやGitHubなどのバージョン管理について学習していきました。
 
 ## Git
 ゴール：Gitの基本を理解する。
@@ -29,14 +29,14 @@ keywords:
 
 ## git order
 
-```
+~~~
 $ mkdir hoge
 $ cd hoge
 $ git init
 $ git commit -m 'first commit'
 $ git remote add origin git@github.com:username/hoge.git
 $ git push origin master<
-```
+~~~
 
 ## git command
 <table class="pure-table pure-table-bordered">

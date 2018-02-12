@@ -11,6 +11,7 @@ keywords:
 - リモートインターン
 ---
 今回はSublime Text 2のPackageインストールとショートカット、PC性能について学習。
+
 ### Sublime Text 2 | Package install
 [チュートリアル](http://goo.gl/PVx6Y "チュートリアル")の[Sublime Text 2 の設定・カスタマイズなど](http://mnemoniqs.com/web/sublimetext2/ "Sublime Text 2 の設定・カスタマイズなど")を参照して進めるなど。
 
@@ -21,6 +22,7 @@ Packageをのアンインストールは、Package Control から Remove Package
 
 ショートカットは実際コーディングしながらさらっていく。
 ざっと触った感じでST2で慣れたら鬼速で書けそう。
+
 ### PC性能を知る
 
 - [CPUが分かる](http://homepage2.nifty.com/kamurai/CPU.htm "CPUが分かる")

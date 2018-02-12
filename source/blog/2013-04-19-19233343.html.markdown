@@ -17,7 +17,7 @@ keywords:
 
 config.rbにブログ機能のオプションを色々と書くことができる。
 
-```ruby
+~~~ruby
 # blog
 activate :blog do |blog|
   # ブログ機能のオプションを設定
@@ -28,23 +28,23 @@ activate :blog do |blog|
   blog.paginate = true # ページネーションを有効化する場合には true を設定
   blog.layout = &quot;layouts/blog_layout&quot; # 全ての記事に使用される特定のレイアウトを設定
 end
-```
+~~~
 
 <!--more-->
 **ブログレイアウトの指定方法**
 
 方法１．ブログ用のレイアウトをlayoutsディレクトリ作ってその配下にarticle_layout.hamlという名前などで作る。(元のerbでもいいけどhamlでやってます。)
 
-```ruby
+~~~ruby
 blog.layout = "layouts/article_layout"
-```
+~~~
 
 方法２．ブログレイアウトの指定は[入れ子レイアウト](http://middleman-guides.e2esound.com/templates/#toc_4 "入れ子レイアウト")も使えるらしい。
 同様にconfig.rbのブログオプションの箇所でレイアウトの指定を下記のように書き換える。
 
-```ruby
+~~~ruby
 page "blog/*", :layout => :article_layout
-```
+~~~
 
 ここで問題。
 layoutsディレクトリを作る、ということで私はここで勝手に元のlayout.hamlもlayoutsディレクトリに入れてしまった。

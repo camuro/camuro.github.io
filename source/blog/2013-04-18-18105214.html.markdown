@@ -11,9 +11,9 @@ keywords:
 - 未分類
 ---
 
-```
+~~~
 $ brew update ImageMagick
-```
+~~~
 
 http://www.iwazer.com/~iwazawa/diary/2013/03/install-multiple-versions-of-package-with-Homebrew.html
 

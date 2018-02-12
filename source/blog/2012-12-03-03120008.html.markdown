@@ -19,29 +19,29 @@ keywords:
 
 - C:\xampp\apache\conf\extra\httpd-vhosts.confの最後に下記を追記。
 
-```conf
+~~~conf
 <VirtualHost *:80>
  DocumentRoot "D:/hogehoge/test"
  ServerName test-server
 </VirtualHost>
-```
+~~~
 
 - C:\xampp\apache\conf\httpd.confの最後に下記を追記。
 
-```conf
+~~~conf
 <Directory "D:/hogehoge/test">
  Options Indexes FollowSymLinks Includes ExecCGI
  AllowOverride All
  Order allow,deny
  Allow from all
 </Directory>
-```
+~~~
 
 - C:\Windows\System32\drivers\etc\hostsの最後に下記を追記。
 
-```
+~~~
 127.0.0.1 test-server
-```
+~~~
 
 127.0.0.1の横に、1.でServerName の隣に書いたサーバー名を書けば良いです。
 - xamppのapache起動。

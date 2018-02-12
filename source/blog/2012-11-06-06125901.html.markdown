@@ -22,11 +22,11 @@ phpのプレビューはXAMPPで行っている。
 
 そんな折、ルートパスで構築されたサイトデータを触る機会があり、 ぐぐってたらついでにC:の下でなくともプレビューできる方法があったのでメモに残しておく。
 
-- C:\xampp\apache\conf\extra\httpd-vhosts.conf をテキストエディタで開く。  
-- 下記のコードをhttpd-vhosts.conf の下部に記述して保存。  
+- C:\xampp\apache\conf\extra\httpd-vhosts.conf をテキストエディタで開く。
+- 下記のコードをhttpd-vhosts.conf の下部に記述して保存。
 D:/works/site/内に保存しているhogehogeをプレビューしたい場合の書き方です。
 
-```conf
+~~~conf
 <VirtualHost *:80>
   ServerName localhost
 </VirtualHost>
@@ -42,9 +42,9 @@ D:/works/site/内に保存しているhogehogeをプレビューしたい場合�
     Deny from All
     Allow from localhost 127.0.0.1
   </Directory>
-  
+
 </VirtualHost>
-```
+~~~
 
 「DocumentRootD:/works/site」や「&lt;Directory "D:/works/site"&gt;」の「/works/site」は適当な名前です。プレビューしたいサイトデータの保存しているディレクトリ名を書く。
 「ServerName hogehoge」の「hogehoge」は、プレビューしたいサイトデータのディレクトリ名を書く。

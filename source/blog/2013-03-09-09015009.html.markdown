@@ -31,15 +31,15 @@ keywords:
 sassを書いてもbuildしない限りはコンパイルされないのでcssの表示確認が面倒だな…と思ってたけど[アセットヘルパ](http://middleman-guides.e2esound.com/helpers/ "アセットヘルパ")で解決した。（躓いた理由は、リファレンス読書不足。）
 例えばstyle.css.sassの場合、普通のhtmlだとstylesheetのリンクは下記のように書くけど
 
-```html
+~~~html
 <link rel="stylesheet" href="stylesheets/style.css">
-```
+~~~
 
 アセットヘルパを使う場合は下記のような記述で良い。
 
-```erb
+~~~erb
 <%= stylesheet_link_tag 'style' %>
-```
+~~~
 
 これならbuildせずともリロードでcssが反映されるので、LiveReloadの力も借りてsassファイル保存→即ブラウザ反映の確認ができる。とても捗る。
 
@@ -49,17 +49,17 @@ sassを書いてもbuildしない限りはコンパイルされないのでcss�
 _header.erb、_side.erb、_footer.erbのようにファイルを命名する。
 例えば下記のようなコードを_footer.erbとして保存。
 
-```html
+~~~html
 <footer>
   Copyright 2013 hoge
 </footer>
-```
+~~~
 
 layout.erbで該当箇所に下記のように記述する。
 
-```erb
+~~~erb
 <%= partial "footer" %>
-```
+~~~
 
 ファイルの接頭にアンダースコアを入れるのは、sassで他のsassファイルをimportして結合したいときと似ていてしっくりきた。
 

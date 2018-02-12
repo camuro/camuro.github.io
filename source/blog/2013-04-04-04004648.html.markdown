@@ -27,21 +27,21 @@ HTML5 Boilerplate 4.0, Sass, Compass と レスポンシブレイアウト対応
 以下手順。bundlerが入ってる状態からスタート。
 ローカルにamicusをクローン
 
-```
+~~~
 $ git clone http://github.com/nathos/amicus.git my_new_project
-```
+~~~
 
 Gemfileをinstall
 
-```
+~~~
 $ bundle install
-```
+~~~
 
 サーバーを立ち上げる
 
-```
+~~~
 $ middleman
-```
+~~~
 
 グリッド表示されたレスポンシブなページが生成される。
 レイアウトに関しては[Susy](http://susy.oddbird.net/ "Susy")の公式を参考に。
@@ -51,14 +51,14 @@ AmicusはHamlで書かれていた。
 Amicusにブログ付けようとしたが、middlemanのブログテンプレートはデフォルトでERbだったので、ERbをHamlに変換したかった。
 ここで躓いて@machidaさんにhtml2hamlの[サイト](http://html2haml.heroku.com/ "サイト")と[gem](https://github.com/haml/html2haml "gem")を教えていただいた。
 
-```
+~~~
 $ html2haml [options] [INPUT] [OUTPUT]
-```
+~~~
 
 でいけるので、今回は
 
-```
+~~~
 $ html2haml -e blog.html.erb blog.html.haml
-```
+~~~
 
 でERbからHamlにめでたくコンバートできた。
