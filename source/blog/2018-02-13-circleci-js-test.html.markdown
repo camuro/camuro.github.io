@@ -46,6 +46,7 @@ jobs:
       - image: circleci/ruby:2.3.6-node-browsers
 ~~~
 
+
 > circleci/ruby:2.4.1-nodeだとchromeとかxvfb入ってない
 
 参照: [circleci/ruby:2.4.1-node-browsersって何入ってるのか知りたかった](https://qiita.com/inuscript/items/09d15ee52b1657872f80)
