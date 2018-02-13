@@ -5,7 +5,7 @@ published: true
 date: 2018-02-12
 comments: true
 tags:
-- middleman
+- Middleman
 ---
 
 久しぶりにブログ書こうとして手元でまずmiddlemanが動かせなかったので諸々改修した。
@@ -34,7 +34,7 @@ set :haml, { :format => :html5 }
 - middleman-syntaxがv4に対応してなかったようなので、markdown engineを `redcarpet` から `kramdown` に変更。
 
 ~~~ruby
-#cofig.r
+#cofig.rb
 set :markdown_engine, :kramdown
 set :markdown, 'syntax_highlighter' => 'rouge',
     'syntax_highlighter_opts' => {
