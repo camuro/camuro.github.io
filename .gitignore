@@ -21,3 +21,5 @@
 *.lock
 
 /.travis.yml
+
+/source/images/2012/09/
