@@ -4,11 +4,11 @@
 <meta charset='utf-8'>
 <meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
 <meta content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' name='viewport'>
-<title>リモートインターン ｜ MIddleman 実践（1）</title>
+<title>middlemanをv4にupdateした。</title>
 <link href="../../../stylesheets/normalize.css" rel="stylesheet" /><link href="../../../stylesheets/all.css" rel="stylesheet" /><link href="http://yui.yahooapis.com/pure/0.2.1/menu-min.css" rel="stylesheet" />
 <script src="../../../javascripts/all.js"></script>
 </head>
-<body class='blog blog_2013 blog_2013_03 blog_2013_03_09015009'>
+<body class='blog blog_2018 blog_2018_02 blog_2018_02_update-middleman-to-v4'>
 <div class='pure-g-r' id='layout'>
 <div class='sidebar pure-u'>
 <div class='menu-box'>
@@ -62,65 +62,86 @@ camuro
 <article class='post'>
 <div class='post-head'>
 <h2>
-リモートインターン ｜ MIddleman 実践（1）
+middlemanをv4にupdateした。
 </h2>
 <div class='date'>
-<time>Mar  9 2013</time>
+<time>Feb 12 2018</time>
 <ul class='tags'>
+<li>
+<a href="/blog/tags/middleman.html">Middleman</a>
+</li>
 </ul>
 </div>
 </div>
 <div class='post-body'>
-<p>引き続きMiddlemanの学習です。
-リファレンスを読んでるだけだと頭に入ってこないので、実際にレイアウト組みながら学習することにしました。
-今回作るサイトのテーマはチートシートです。
-ざっくりphotoshopでデザインしたもの</p>
+<p>久しぶりにブログ書こうとして手元でまずmiddlemanが動かせなかったので諸々改修した。</p>
 
-<p><a href="../../../images/2013/03/0f9d88346a601c859d5154d515fff876.png" target="_blank"><img class="alignnone size-medium wp-image-543" alt="スクリーンショット 2013-03-09 0.12.09" src="../../../images/2013/03/0f9d88346a601c859d5154d515fff876-300x146.png" width="300" /></a></p>
+<p>その際にぶつかった問題について記録しておく。</p>
 
-<p>今日できるところまでコーディングしたもの</p>
+<p>今回のこのブログに使用しているmiddlemanのupdateのversionは <code>3.1.4</code> から <code>4.0.0</code> へのupdate。</p>
 
-<p><a href="../../../images/2013/03/3072465c3bdb1f2fc4e8336ecfe2e0be.png" target="_blank"><img class="alignnone size-medium wp-image-542" alt="スクリーンショット 2013-03-09 0.10.46" src="../../../images/2013/03/3072465c3bdb1f2fc4e8336ecfe2e0be-300x176.png" width="300" /></a></p>
+<h3 id="section">主な改修範囲</h3>
 
-<p>ブログ機能を使ってタグをグローバルナビにしてタグ毎の記事一覧をサイドナビに表示したい。</p>
+<ul>
+  <li>middlemanは現時点で4.2.1まで出ているがとりあえず手元で安定して動かせるところまでversionを指定し直して、<code>$ bundle update</code></li>
+</ul>
 
-<p><strong>前回躓いたけど解決した問題</strong>
-sassを書いてもbuildしない限りはコンパイルされないのでcssの表示確認が面倒だな…と思ってたけど<a href="http://middleman-guides.e2esound.com/helpers/" title="アセットヘルパ">アセットヘルパ</a>で解決した。（躓いた理由は、リファレンス読書不足。）
-例えばstyle.css.sassの場合、普通のhtmlだとstylesheetのリンクは下記のように書くけど</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"stylesheets/style.css"</span><span class="nt">&gt;</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"middleman"</span><span class="p">,</span> <span class="s2">"~&gt; 4.0.0"</span>
+<span class="n">gem</span> <span class="s2">"middleman-blog"</span><span class="p">,</span> <span class="s2">"~&gt; 4.0.2"</span>
 </code></pre></div></div>
 
-<p>アセットヘルパを使う場合は下記のような記述で良い。</p>
+<ul>
+  <li>html5に対応する</li>
+</ul>
 
-<div class="language-erb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;%=</span> <span class="n">stylesheet_link_tag</span> <span class="s1">'style'</span> <span class="cp">%&gt;</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#cofig.rb</span>
+<span class="n">set</span> <span class="ss">:haml</span><span class="p">,</span> <span class="p">{</span> <span class="ss">:format</span> <span class="o">=&gt;</span> <span class="ss">:html5</span> <span class="p">}</span>
 </code></pre></div></div>
 
-<p>これならbuildせずともリロードでcssが反映されるので、LiveReloadの力も借りてsassファイル保存→即ブラウザ反映の確認ができる。とても捗る。</p>
+<ul>
+  <li>各ブログ記事の拡張子は <code>.markdown</code> だったのを <code>.html.markdown</code> に変更</li>
+  <li>middleman-syntaxがv4に対応してなかったようなので、markdown engineを <code>redcarpet</code> から <code>kramdown</code> に変更。</li>
+</ul>
 
-<p><strong>パーシャル</strong>
-ヘッダーのグローバルナビとサイドナビとフッターと記事の整形をして、パーシャルというのを使ってみた。
-普段phpを触っているので、これがincludeにあたるところか…と思った。
-_header.erb、_side.erb、_footer.erbのようにファイルを命名する。
-例えば下記のようなコードを_footer.erbとして保存。</p>
-
-<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;footer&gt;</span>
-  Copyright 2013 hoge
-<span class="nt">&lt;/footer&gt;</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#cofig.rb</span>
+<span class="n">set</span> <span class="ss">:markdown_engine</span><span class="p">,</span> <span class="ss">:kramdown</span>
+<span class="n">set</span> <span class="ss">:markdown</span><span class="p">,</span> <span class="s1">'syntax_highlighter'</span> <span class="o">=&gt;</span> <span class="s1">'rouge'</span><span class="p">,</span>
+    <span class="s1">'syntax_highlighter_opts'</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="s1">'span'</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'disable'</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">}</span>
+    <span class="p">}</span>
 </code></pre></div></div>
 
-<p>layout.erbで該当箇所に下記のように記述する。</p>
+<ul>
+  <li>
+    <p>code blockの記述について、Redcarpetのfenced_code_blocksからチルダ３つ <code>~~~</code> のLanguage of Code Blocks に変更</p>
+  </li>
+  <li>
+    <p>middleman-deployを <code>1.0.0</code> から <code>2.0.0.pre.alpha</code> へupdate</p>
+  </li>
+</ul>
 
-<div class="language-erb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;%=</span> <span class="n">partial</span> <span class="s2">"footer"</span> <span class="cp">%&gt;</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s1">'middleman-deploy'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0.0.pre.alpha'</span>
 </code></pre></div></div>
 
-<p>ファイルの接頭にアンダースコアを入れるのは、sassで他のsassファイルをimportして結合したいときと似ていてしっくりきた。</p>
+<ul>
+  <li>middleman-deployのdeploy methodの指定について、 <code>deploy</code> から <code>deploy_method</code> に変更</li>
+</ul>
 
-<p>この記事書いてるうちにまた少し調整した。</p>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#cofig.rb</span>
+<span class="n">activate</span> <span class="ss">:deploy</span> <span class="k">do</span> <span class="o">|</span><span class="n">deploy</span><span class="o">|</span>
+  <span class="n">deploy</span><span class="p">.</span><span class="nf">deploy_method</span> <span class="o">=</span> <span class="ss">:git</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
-<p><a href="../../../images/2013/03/4dfc72382e6c74ec3a1755a4946fb661.png" target="_blank"><img class="alignnone size-medium wp-image-563" alt="スクリーンショット 2013-03-09 1.46.48" src="../../../images/2013/03/4dfc72382e6c74ec3a1755a4946fb661-300x142.png" width="300" /></a></p>
+<hr />
 
-<p>タグの記事一覧はどうやってやろう…。見た目は詰まってる感じがあるので追々微調整する。</p>
+<h4 id="url">参考にしたURL:</h4>
+
+<ul>
+  <li><a href="http://3100.github.io/blog/2013/10/31/monokai-theme-to-middleman-blog.html">middleman-blogのハイライトにMonokaiテーマを使う</a></li>
+  <li><a href="https://diary.kitaitimakoto.net/2015/11/07.html">Middleman v4でシンタックスハイライト</a></li>
+  <li><a href="https://github.com/middleman-contrib/middleman-deploy/issues/93">Support for Middleman v4?</a></li>
+</ul>
 
 </div>
 <div class='post-comment'>

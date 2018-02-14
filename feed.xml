@@ -5,10 +5,89 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2014-11-07T09:00:00+09:00</updated>
+  <updated>2018-02-12T09:00:00+09:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>middlemanをv4にupdateした。</title>
+    <link rel="alternate" href="/blog/2018/02/update-middleman-to-v4.html"/>
+    <id>/blog/2018/02/update-middleman-to-v4.html</id>
+    <published>2018-02-12T09:00:00+09:00</published>
+    <updated>2018-02-12T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;久しぶりにブログ書こうとして手元でまずmiddlemanが動かせなかったので諸々改修した。&lt;/p&gt;
+
+&lt;p&gt;その際にぶつかった問題について記録しておく。&lt;/p&gt;
+
+&lt;p&gt;今回のこのブログに使用しているmiddlemanのupdateのversionは &lt;code&gt;3.1.4&lt;/code&gt; から &lt;code&gt;4.0.0&lt;/code&gt; へのupdate。&lt;/p&gt;
+
+&lt;h3 id="section"&gt;主な改修範囲&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;middlemanは現時点で4.2.1まで出ているがとりあえず手元で安定して動かせるところまでversionを指定し直して、&lt;code&gt;$ bundle update&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s2"&gt;"middleman"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"~&amp;gt; 4.0.0"&lt;/span&gt;
+&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s2"&gt;"middleman-blog"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"~&amp;gt; 4.0.2"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;html5に対応する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="c1"&gt;#cofig.rb&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="ss"&gt;:haml&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="ss"&gt;:format&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;:html5&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;各ブログ記事の拡張子は &lt;code&gt;.markdown&lt;/code&gt; だったのを &lt;code&gt;.html.markdown&lt;/code&gt; に変更&lt;/li&gt;
+  &lt;li&gt;middleman-syntaxがv4に対応してなかったようなので、markdown engineを &lt;code&gt;redcarpet&lt;/code&gt; から &lt;code&gt;kramdown&lt;/code&gt; に変更。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="c1"&gt;#cofig.rb&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="ss"&gt;:markdown_engine&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;:kramdown&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="ss"&gt;:markdown&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'syntax_highlighter'&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s1"&gt;'rouge'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;'syntax_highlighter_opts'&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s1"&gt;'span'&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;'disable'&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="kp"&gt;true&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;code blockの記述について、Redcarpetのfenced_code_blocksからチルダ３つ &lt;code&gt;~~~&lt;/code&gt; のLanguage of Code Blocks に変更&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;middleman-deployを &lt;code&gt;1.0.0&lt;/code&gt; から &lt;code&gt;2.0.0.pre.alpha&lt;/code&gt; へupdate&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s1"&gt;'middleman-deploy'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'~&amp;gt; 2.0.0.pre.alpha'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;middleman-deployのdeploy methodの指定について、 &lt;code&gt;deploy&lt;/code&gt; から &lt;code&gt;deploy_method&lt;/code&gt; に変更&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="c1"&gt;#cofig.rb&lt;/span&gt;
+&lt;span class="n"&gt;activate&lt;/span&gt; &lt;span class="ss"&gt;:deploy&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
+  &lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;deploy_method&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:git&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id="url"&gt;参考にしたURL:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://3100.github.io/blog/2013/10/31/monokai-theme-to-middleman-blog.html"&gt;middleman-blogのハイライトにMonokaiテーマを使う&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://diary.kitaitimakoto.net/2015/11/07.html"&gt;Middleman v4でシンタックスハイライト&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/middleman-contrib/middleman-deploy/issues/93"&gt;Support for Middleman v4?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。</title>
     <link rel="alternate" href="/blog/2014/11/whitebox.html"/>
@@ -176,96 +255,6 @@ Adventarでは、その風習に習い、12月1日から25日まで1日づつみ
 twitterの公式アカウントもあります。&lt;/p&gt;
 
 &lt;p&gt;興味をお持ちになった方、ぜひ参加してみてださいね！&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>WordPressからmiddlemanに移行してGithub Pagesで運用する方法</title>
-    <link rel="alternate" href="/blog/2013/09/renewal.html"/>
-    <id>/blog/2013/09/renewal.html</id>
-    <published>2013-09-19T09:00:00+09:00</published>
-    <updated>2013-09-19T09:00:00+09:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;&lt;a href="/images/2013/09/20130919_1202.png"&gt;&lt;img src="/images/2013/09/20130919_1202.png" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;サイトをリニューアルしていました。
-WordPressからmiddleman-blogに乗り換えました。
-ホスティングもロリポップからgithub-pagesに乗り換え。
-理由は普段使っているエディタでmarkdownでブログを書いてgitでデプロイする流れがやりたかったから。
-static site generatorは数あれど、慣れたmiddlemanでやってしまおうと思っていました。
-haml と sassでコーディングしています。コードはここに置いてあります→&lt;a href="https://github.com/camuro/camuro.github.io"&gt;camuro.github.io&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;今回リニューアルするのにとった流れか下記の通りです。&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;WordPressからデータをmarkdown形式でブッコ抜く&lt;/li&gt;
-  &lt;li&gt;Pureを少し使ってmiddleman-blogでコーディング&lt;/li&gt;
-  &lt;li&gt;githubにorganizationアカウントを作る&lt;/li&gt;
-  &lt;li&gt;middleman-deployでdeploy&lt;/li&gt;
-  &lt;li&gt;トップレベルドメイン(TLD)でDNSの変更&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;h3 id="wordpressmarkdown"&gt;1. WordPressからデータをmarkdown形式でブッコ抜く&lt;/h3&gt;
-
-&lt;p&gt;WordPressからxmlをexportしておく。
-&lt;a href="http://www.mk-mode.com/octopress/2012/12/20/octopress-migration-from-wordpress/"&gt;Octopress - WordPress から投稿データを移行！&lt;/a&gt; の記事を参考にWpXml2Mdを使ってxmlからmarkdownにコンバートする。
-&lt;code&gt;wp-content/uploads/&lt;/code&gt;の画像を&lt;code&gt;source/images/&lt;/code&gt;にコピーする。
-表示おかしいところなどを確認して直す。&lt;/p&gt;
-
-&lt;p&gt;正直、syntax-hilighterの調整で戸惑ったので、もっといい方法があるはず。
-jekyllとかoctpressの記事を調べてもっと良い方法探した方がいいかも。&lt;/p&gt;
-
-&lt;h3 id="puremiddleman-blog"&gt;2. Pureを少し使ってmiddleman-blogでコーディング&lt;/h3&gt;
-
-&lt;p&gt;グリッドとページングのところに&lt;a href="http://purecss.io/"&gt;Pure&lt;/a&gt;を使いました。&lt;a href="https://github.com/yterajima/middleman-pure"&gt;@yterajimaさんのgem&lt;/a&gt;が便利です。
-markdownは&lt;a href="https://github.com/middleman/middleman-syntax"&gt;middleman-syntax&lt;/a&gt;でredcarpet、Syntax-Hilightは&lt;a href="https://github.com/Linuus/middleman-rouge"&gt;middleman-rouge&lt;/a&gt;、コメントは&lt;a href="https://github.com/simonrice/middleman-disqus"&gt;middleman-disqus&lt;/a&gt;のgemを使いました。&lt;/p&gt;
-
-&lt;h3 id="githuborganization"&gt;3. githubにorganizationアカウントを作る&lt;/h3&gt;
-
-&lt;p&gt;ドメインを割り当てたい場合の対策です。
-ユーザーアカウントにプロジェクトリポジトリを作成した場合は、masterブランチをdeployするとgh-pagesブランチが生成されてそこにbuildしたファイルがdeployされます。
-&lt;code&gt;http://username.github.io/projectname&lt;/code&gt;でgh-pagesブランチのファイルが表示されるはずです。
-ドメインを割り当てる場合は、&lt;code&gt;username.github.io&lt;/code&gt;という名前でリポジトリを作成してそこにドメインを書いたCNAMEファイルを置きます。（置き場所は&lt;code&gt;source/&lt;/code&gt;の下です。）
-github pagesのカスタムドメインは1ユーザにつき1つしか設定できないので、自分の場合はcamuro.org用にcamuroというorganizationアカウントを作りました。
-そしてorganizationアカウントで新しいリポジトリを&lt;code&gt;camuro.github.io&lt;/code&gt;という名前で作成します。
-&lt;code&gt;camuro/camuro.github.io&lt;/code&gt;という感じですね。&lt;/p&gt;
-
-&lt;h3 id="middleman-deploydeploy"&gt;4. middleman-deployでdeploy&lt;/h3&gt;
-&lt;p&gt;（deployする前に、&lt;code&gt;$ middleman build&lt;/code&gt;しておいてくださいね。）
-以前書いていたのですが、公開してなかった記事があったのでついでに公開します。
-&lt;a href="http://camuro.org/blog/2013/04/20021938.html"&gt;Middleman 実践（4）- Githubページへデプロイする方法&lt;/a&gt;
-上記の記事の方法は&lt;code&gt;deploy.branch&lt;/code&gt;を指定しないと自動的に&lt;code&gt;gh-pages&lt;/code&gt;というブランチで生成されますが、ドメインを割り当てたい場合にはgh-pagesにCNAMEを置いても反映されず、あくまで&lt;code&gt;master&lt;/code&gt;ブランチでないと反映されません。
-なので、&lt;code&gt;config.rb&lt;/code&gt;に次のように設定しておきます。&lt;/p&gt;
-
-&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="n"&gt;activate&lt;/span&gt; &lt;span class="ss"&gt;:deploy&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
-  &lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;method&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:git&lt;/span&gt;
-  &lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;branch&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;'master'&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;これで、&lt;code&gt;$ middleman deploy&lt;/code&gt;してあげるとmasterブランチにdeployされます。
-まぎらわしいので本来のmasterブランチ的な役割は&lt;code&gt;develop&lt;/code&gt;というブランチ名で作りました。
-&lt;a href="http://blog.coiney.com/"&gt;Coiney開発者ブログ&lt;/a&gt;を参考にしました。（&lt;a href="https://github.com/Coiney/coiney.github.io"&gt;coiney.github.io&lt;/a&gt;）。&lt;/p&gt;
-
-&lt;h3 id="tlddns"&gt;トップレベルドメイン(TLD)でDNSの変更&lt;/h3&gt;
-
-&lt;p&gt;独自ドメインの取得先で DNS を設定します。
-DNS で camuro.org の Aレコードを 204.232.175.78 にセットします。
-セットした後にターミナルで確認します。&lt;/p&gt;
-
-&lt;div class="language-sh highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;dig camuro.org +nostats +nocomments +nocmd
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;反映されていたらこんな感じで表示されるはずです。&lt;/p&gt;
-
-&lt;div class="language-sh highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="p"&gt;;&lt;/span&gt; &amp;lt;&amp;lt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; DiG 9.8.5-P1 &amp;lt;&amp;lt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; camuro.org +nostats +nocomments +nocmd
-&lt;span class="p"&gt;;;&lt;/span&gt; global options: +cmd
-&lt;span class="p"&gt;;&lt;/span&gt;camuro.org.      IN  A
-camuro.org.   3600  IN  A 204.232.175.78
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;これで、&lt;code&gt;camuro.org&lt;/code&gt;にアクセスしたらGithub Pagesに飛ぶようになります。
-以上です！&lt;/p&gt;
 </content>
   </entry>
 </feed>

@@ -63,6 +63,92 @@ camuro
 <section class='post'>
 <div class='post-head'>
 <h2>
+<a href="/blog/2018/02/update-middleman-to-v4.html">middlemanをv4にupdateした。</a>
+</h2>
+<div class='date'>
+<time>Feb 12 2018</time>
+<ul class='tags'>
+<li>
+<a href="/blog/tags/middleman.html">Middleman</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>久しぶりにブログ書こうとして手元でまずmiddlemanが動かせなかったので諸々改修した。</p>
+
+<p>その際にぶつかった問題について記録しておく。</p>
+
+<p>今回のこのブログに使用しているmiddlemanのupdateのversionは <code>3.1.4</code> から <code>4.0.0</code> へのupdate。</p>
+
+<h3 id="section">主な改修範囲</h3>
+
+<ul>
+  <li>middlemanは現時点で4.2.1まで出ているがとりあえず手元で安定して動かせるところまでversionを指定し直して、<code>$ bundle update</code></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"middleman"</span><span class="p">,</span> <span class="s2">"~&gt; 4.0.0"</span>
+<span class="n">gem</span> <span class="s2">"middleman-blog"</span><span class="p">,</span> <span class="s2">"~&gt; 4.0.2"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>html5に対応する</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#cofig.rb</span>
+<span class="n">set</span> <span class="ss">:haml</span><span class="p">,</span> <span class="p">{</span> <span class="ss">:format</span> <span class="o">=&gt;</span> <span class="ss">:html5</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>各ブログ記事の拡張子は <code>.markdown</code> だったのを <code>.html.markdown</code> に変更</li>
+  <li>middleman-syntaxがv4に対応してなかったようなので、markdown engineを <code>redcarpet</code> から <code>kramdown</code> に変更。</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#cofig.rb</span>
+<span class="n">set</span> <span class="ss">:markdown_engine</span><span class="p">,</span> <span class="ss">:kramdown</span>
+<span class="n">set</span> <span class="ss">:markdown</span><span class="p">,</span> <span class="s1">'syntax_highlighter'</span> <span class="o">=&gt;</span> <span class="s1">'rouge'</span><span class="p">,</span>
+    <span class="s1">'syntax_highlighter_opts'</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="s1">'span'</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'disable'</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>code blockの記述について、Redcarpetのfenced_code_blocksからチルダ３つ <code>~~~</code> のLanguage of Code Blocks に変更</p>
+  </li>
+  <li>
+    <p>middleman-deployを <code>1.0.0</code> から <code>2.0.0.pre.alpha</code> へupdate</p>
+  </li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s1">'middleman-deploy'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0.0.pre.alpha'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>middleman-deployのdeploy methodの指定について、 <code>deploy</code> から <code>deploy_method</code> に変更</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#cofig.rb</span>
+<span class="n">activate</span> <span class="ss">:deploy</span> <span class="k">do</span> <span class="o">|</span><span class="n">deploy</span><span class="o">|</span>
+  <span class="n">deploy</span><span class="p">.</span><span class="nf">deploy_method</span> <span class="o">=</span> <span class="ss">:git</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="url">参考にしたURL:</h4>
+
+<ul>
+  <li><a href="http://3100.github.io/blog/2013/10/31/monokai-theme-to-middleman-blog.html">middleman-blogのハイライトにMonokaiテーマを使う</a></li>
+  <li><a href="https://diary.kitaitimakoto.net/2015/11/07.html">Middleman v4でシンタックスハイライト</a></li>
+  <li><a href="https://github.com/middleman-contrib/middleman-deploy/issues/93">Support for Middleman v4?</a></li>
+</ul>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
 <a href="/blog/2014/11/whitebox.html">石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。</a>
 </h2>
 <div class='date'>
@@ -216,57 +302,6 @@ camuro
 開催にまつわる関係者の皆様、大変ありがとうございました！</p>
 
 <p>以上です！</p>
-
-</div>
-</section>
-<section class='post'>
-<div class='post-head'>
-<h2>
-<a href="/blog/2013/11/adventar.html">Adventarのリニューアルデザインをお手伝いしたお話</a>
-</h2>
-<div class='date'>
-<time>Nov  1 2013</time>
-<ul class='tags'>
-<li>
-<a href="/blog/tags/adventar.html">Adventar</a>
-</li>
-<li>
-<a href="/blog/tags/rails.html">Rails</a>
-</li>
-</ul>
-</div>
-</div>
-<div class='post-body'>
-<p><a href="http://www.adventar.org/" target="_blank"><img src="images/2013/11/20131101_cover.png" /></a></p>
-
-<p>2013年11月1日、本年度の<a href="http://www.adventar.org/">Adventar</a>(Advent Calendar)のリニューアル版がリリースされました。<br />
-Advent Calendarは本来、12月1日から24日までクリスマスを待つまでに1日に1つ、穴が空けられるようになっているカレンダーです。
-Adventarでは、その風習に習い、12月1日から25日まで1日づつみんなで記事を投稿して、web上でAdvent Calendarを体験できます。</p>
-
-<p>今回、自分はデザイン面でお手伝いさせていただきました。<br />
-もともとAdventarは2012年11月1日に<a href="https://twitter.com/hokaccha">@hokaccha</a>さんがお一人でリリースされたサービスです。<br />
-今年は<a href="http://bla.bo/">Blabo!</a>のお仕事でもご一緒している<a href="https://twitter.com/june29">@june29</a>さんに「You、Adventarのデザインやってみない？」とお声をかけていただいたことがきかっけでした（若干脚色有り）。</p>
-
-<p>2012版との大きな変更点は、今年らしくフラットデザインに。<br />
-各カレンダーに固有の色を持たせて賑やかな感じに。<br />
-カレンダーページには参加が登録しやすいようなUIに。</p>
-
-<p>トップページ BEFORE<br />
-<a href="images/2013/11/20131101_02.png"><img src="images/2013/11/20131101_02.png" /></a></p>
-
-<p>トップページ　AFTER<br />
-<a href="images/2013/11/20131101_01.png"><img src="images/2013/11/20131101_01.png" /></a></p>
-
-<p>カレンダーページ BEFORE<br />
-<a href="images/2013/11/20131101_04.png"><img src="images/2013/11/20131101_04.png" /></a></p>
-
-<p>カレンダーページ AFTER<br />
-<a href="images/2013/11/20131101_03.png"><img src="images/2013/11/20131101_03.png" /></a></p>
-
-<p><a href="https://twitter.com/adventar">@adventar</a><br />
-twitterの公式アカウントもあります。</p>
-
-<p>興味をお持ちになった方、ぜひ参加してみてださいね！</p>
 
 </div>
 </section>

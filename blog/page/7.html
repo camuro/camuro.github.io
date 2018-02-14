@@ -63,6 +63,67 @@ camuro
 <section class='post'>
 <div class='post-head'>
 <h2>
+<a href="/blog/2012/11/12235701.html">リモートインターン3〜5日目 ｜ Webの基本 - HTML</a>
+</h2>
+<div class='date'>
+<time>Nov 12 2012</time>
+<ul class='tags'>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<ul>
+  <li>
+    <p>ゴール</p>
+  </li>
+  <li>
+    <p>HTMLの基本を理解する。</p>
+  </li>
+  <li>
+    <p>やること</p>
+  </li>
+  <li><a href="http://www.kanzaki.com/docs/htminfo.html" title="HTMLの説明を読む">HTMLの説明を読む</a> done.</li>
+  <li><a href="http://dotinstall.com/lessons/basic_html" title="ドットインストール HTMLの基礎">ドットインストール HTMLの基礎</a>をすべて見る。 done.</li>
+  <li><a href="http://www.html5.jp/tag/elements/" title="HTML要素のリファレンス">HTML要素のリファレンス</a>に一通り目を通す　→今ここ</li>
+</ul>
+
+<p>HTMLの内容に入って三日目ですが、まだHTML5.jpでHTML要素のリファレンスに目を通すところで止まってる感じです。
+長い。一気に読める感じではないので気長にやっていきます。
+# 読んでいく中で気になったタグ</p>
+
+<ul>
+  <li>optgroup要素</li>
+  <li>accesskey属性</li>
+  <li>dfn（重要語句の初出個所などは、dfn要素（definition）としてマーク付け。自動索引生成などにも威力を発揮）</li>
+  <li>abbr（HTMLなどの略語は、abbr要素（abbreviation）でマーク付けし、title属性でフルスペルを添えると初心者にも親切）</li>
+  <li>pre</li>
+  <li>code</li>
+  <li>cite（人、引用には使わない）</li>
+  <li>divの解釈（他に適切な要素がある場合は乱用しない。わかってはいたけど、今までsectionで区切る感じでない時に迷うとdivを使ってしまっていた）</li>
+  <li>a（現在のページのリンクにブランクリンクでa href="#"をつかってたけど、&lt;a&gt;&lt;/a&gt;だけでよい、hrefがない場合、他のコンテンツ属性は使わない（無意識にやっていたことが説明されてスッキリ））</li>
+  <li>フレージング・コンテンツはドキュメントのテキストのこと</li>
+</ul>
+
+<h2 id="htmlhttpwwwkanzakicomdocshtminfohtml-html"><a href="http://www.kanzaki.com/docs/htminfo.html" title="HTMLの説明を読む">HTMLの説明を読む</a>で気になった文言</h2>
+
+<ul>
+  <li>目が不自由な人で音声合成ソフトでページを「読み上げ」ている場合でも、“見出し部分は少しトーンの高い声でゆっくり読む”といった設定にすることで、文章を理解しやすくなる。</li>
+  <li>文責のない文書は怪文書、日付のない文書は役立たず</li>
+  <li>ウェブというメディアの特質
+飛ばし読みをして概要をつかもうとする傾向が強い</li>
+  <li>利用者の持っている予備知識
+組織の論理でコンテンツを分類すると、利用者は迷子になりやすい</li>
+  <li>大量の文書から情報を自動抽出する
+dfn要素をうまく使うと、索引が自動生成できる
+class="abstract"などのルールで抄録を生成する</li>
+  <li>HPR 3.01の標準設定では、見出しにさしかかるとチャイムが鳴り、少しゆっくり読み上げられて、セクションの移行が意識できる。</li>
+</ul>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
 <a href="/blog/2012/11/05234635.html">リモートインターン2日目 ｜ Sublime Text 2 & PC性能を知る</a>
 </h2>
 <div class='date'>
@@ -290,47 +351,6 @@ hogehoge/app/views/layouts/application.html.erbにassets内のjsやstyleが圧�
 <p>上記の細かいところをRublioにまとめたり、ターミナルで復習したりしてます。
 慣れたらデザインテロの方法をデザイナー向けにまとめられたらいいなぁ。
 稚拙なまとめになるかとは思いますが、そのうち公開します。</p>
-
-</div>
-</section>
-<section class='post'>
-<div class='post-head'>
-<h2>
-<a href="/blog/2012/05/24094141.html">エクセルに記述されているハイパーリンク先のURLをマクロで抽出する方法</a>
-</h2>
-<div class='date'>
-<time>May 24 2012</time>
-<ul class='tags'>
-</ul>
-</div>
-</div>
-<div class='post-body'>
-<ul>
-  <li>マクロはALT＋F11でVBE画面を開く。</li>
-  <li>左上のVBA Projectでシート名を右クリックし「挿入」→「標準モジュール」で表示される画面に貼り付ける。</li>
-  <li>マクロの実行。</li>
-  <li>元のエクセルに新規シートでURLが書き出される。</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sub Macro1()
-Dim idx As Integer
-Dim ws As Worksheet
-Dim trg As Range
-Set ws = ActiveSheet
-If ws.Hyperlinks.Count &amp;gt; 0 Then
-Worksheets.Add after:=ws
-Set trg = ActiveSheet.Range(&amp;quot;A1&amp;quot;)
-For idx = 1 To ws.Hyperlinks.Count
-If Left(ws.Hyperlinks(idx).Address, 1) = &amp;quot;=&amp;quot; Then
-trg.Value = &amp;quot;'&amp;quot; &amp;amp; ws.Hyperlinks(idx).Address
-Else
-trg.Value = ws.Hyperlinks(idx).Address
-End If
-trg.Offset(0, 1).Value = ws.Hyperlinks(idx).Parent.Address
-Set trg = trg.Offset(1)
-Next idx
-End If
-</code></pre></div></div>
 
 </div>
 </section>

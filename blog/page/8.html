@@ -63,6 +63,47 @@ camuro
 <section class='post'>
 <div class='post-head'>
 <h2>
+<a href="/blog/2012/05/24094141.html">エクセルに記述されているハイパーリンク先のURLをマクロで抽出する方法</a>
+</h2>
+<div class='date'>
+<time>May 24 2012</time>
+<ul class='tags'>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<ul>
+  <li>マクロはALT＋F11でVBE画面を開く。</li>
+  <li>左上のVBA Projectでシート名を右クリックし「挿入」→「標準モジュール」で表示される画面に貼り付ける。</li>
+  <li>マクロの実行。</li>
+  <li>元のエクセルに新規シートでURLが書き出される。</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sub Macro1()
+Dim idx As Integer
+Dim ws As Worksheet
+Dim trg As Range
+Set ws = ActiveSheet
+If ws.Hyperlinks.Count &amp;gt; 0 Then
+Worksheets.Add after:=ws
+Set trg = ActiveSheet.Range(&amp;quot;A1&amp;quot;)
+For idx = 1 To ws.Hyperlinks.Count
+If Left(ws.Hyperlinks(idx).Address, 1) = &amp;quot;=&amp;quot; Then
+trg.Value = &amp;quot;'&amp;quot; &amp;amp; ws.Hyperlinks(idx).Address
+Else
+trg.Value = ws.Hyperlinks(idx).Address
+End If
+trg.Offset(0, 1).Value = ws.Hyperlinks(idx).Parent.Address
+Set trg = trg.Offset(1)
+Next idx
+End If
+</code></pre></div></div>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
 <a href="/blog/2012/05/11114119.html">phpでディレクトリの異なるファイルを読み込む際のパスの書き方</a>
 </h2>
 <div class='date'>
