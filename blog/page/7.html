@@ -63,6 +63,49 @@ camuro
 <section class='post'>
 <div class='post-head'>
 <h2>
+<a href="/blog/2012/11/14230547.html">リモートインターン6日目 ｜ Webの基本 – 組み込みコンテンツ系</a>
+</h2>
+<div class='date'>
+<time>Nov 14 2012</time>
+<ul class='tags'>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>引き続きHTMLの学習です。</p>
+
+<p>今日は<a href="http://www.html5.jp/tag/elements/" title="HTML要素のリファレンス">HTML要素のリファレンス</a>の主に組み込みコンテンツ系に目を通していきました。
+# 気になったタグ</p>
+
+<ul>
+  <li><a href="http://www.html5.jp/tag/elements/embed.html" title="embed要素">embed要素</a>と<a href="http://www.html5.jp/tag/elements/object.html#the-object-element" target="_blank">object要素
+</a>リファレンス読んだだけではflashのswfファイルの扱いがいまいちピンとこず、Lingerで質問投げて下記の記事ご紹介いただきました。</li>
+  <li><a href="http://blog.cgfm.jp/garyu/appendix/flash_html/p1-2.html" title="1-2. &amp;lt;object&amp;gt;タグと&amp;gt;embed&amp;lt;タグ ｜ Flashとブラウザ">1-2. &lt;object&gt;タグと&gt;embed&lt;タグ ｜ Flashとブラウザ</a></li>
+  <li><a href="http://www.adworks24.co.jp/archives/1217.html" title="embed要素［HTML5］">embed要素［HTML5］</a></li>
+  <li><a href="http://www.adworks24.co.jp/archives/1220.html" title="object要素［HTML5］">object要素［HTML5］</a></li>
+</ul>
+
+<p>3.の記事の文頭にあった”&lt;object&gt;タグは、文書に外部リソースを埋め込む際に使用します。&lt;embed&gt;がプラグインを必要とするデータを埋め込むのに対して、&lt;object&gt;には外部リソース全般を指定することができます。”の文章が一番しっくりきた。
+おまけで時間軸上でJSのアニメ作れる<a href="http://tumult.com/hype/download/" title="hype">hype</a>を教えてもらった。adobe edgeの簡易版…とのことなんですが、そもそもadobe edge触ったことなかった。flashだとユーザーエージェント依存があるのでjsに切り替えるとき用にツールの扱い慣らしておきたい。キリングタイムになりそうだったので、また後日。
+- <a href="http://www.html5.jp/tag/elements/video.html" title="video要素">video要素</a> poster属性 : "ユーザーエージェントが利用可能なビデオ・データがないときに表示できる画像ファイルのアドレスを与えます。"
+- <a href="http://www.html5.jp/tag/elements/track.html" title="track要素">track要素</a> : "ウェブ制作者が<a href="http://www.html5.jp/tag/elements/media_elements.html#media-element" title="メディア要素">メディア要素</a>に対して明示的な同期<a title="text track" href="http://www.html5.jp/tag/elements/media_elements.html#text-track" target="_blank">テキスト・トラック</a>を指定できるようにします。"
+テキスト・トラック・データについて、下記の記事が参考になりました。 デモの動画がR2D2…。
+- <a href="http://d.hatena.ne.jp/sparkgene/20111216/1323988362" title="WebVTT ファイルフォーマット">WebVTT ファイルフォーマット</a></p>
+
+<ul>
+  <li>
+    <p><a href="http://www.html5.jp/tag/elements/canvas.html" title="cavas要素">cavas要素</a>のセキュリティー : 具体的な危険性が想像できなかったので、下記の記事を拝読。同記事中のフィルタの実装のところ面白そう。</p>
+  </li>
+  <li>
+    <p><a href="http://www.h2.dion.ne.jp/~defghi/canvasMemo/canvasMemo.htm#h13" title="canvas要素におけるセキュリティ : origin-cleanフラグによるセキュリティ制御">canvas要素におけるセキュリティ : origin-cleanフラグによるセキュリティ制御</a></p>
+  </li>
+</ul>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
 <a href="/blog/2012/11/12235701.html">リモートインターン3〜5日目 ｜ Webの基本 - HTML</a>
 </h2>
 <div class='date'>
@@ -268,89 +311,6 @@ hogehoge/app/views/layouts/application.html.erbにassets内のjsやstyleが圧�
 一度コンパイルするとpublic/assetsにコンパイルしたファイルが作成され、Railsがそのファイルを自動的に読み込むらしい。
 （@shu_0155さんが教えてくださいました。多謝！）
 public/assets削除したらapp/assetsをコンパイルしなくてもcssの変更が反映できた！</p>
-
-</div>
-</section>
-<section class='post'>
-<div class='post-head'>
-<h2>
-<a href="/blog/2012/10/07232003.html">P4Dに初参加してみた</a>
-</h2>
-<div class='date'>
-<time>Oct  7 2012</time>
-<ul class='tags'>
-</ul>
-</div>
-</div>
-<div class='post-body'>
-<p>2012/10/6に念願の<a href="http://prog4designer.heroku.com/" title="デザイナー向けプログラム部">デザイナー向けプログラム部</a>（P4D）の第10回に参加してきました！</p>
-
-<p>会場の<a href="http://cloudcore.jp/vps/develop/" title="KDDIウェブコミュニケーションズ">KDDIウェブコミュニケーションズ</a>の場所が分からず、麹町の袋小路に迷い込んでちょっと遅刻。
-@shu0115さんとペア組ませていただいて、環境構築からガッチリ教えていただきました。
-以下、やったことをざっくりと。</p>
-
-<ul>
-  <li>
-    <p>RailsInstallerをインストール</p>
-  </li>
-  <li>
-    <p>rvmのパスが行方不明ではまったが、/usr/local/下に居た</p>
-  </li>
-  <li>
-    <p>localで新規にRailsアプリを作成</p>
-  </li>
-  <li>$ rails new hogehoge　でアプリを新規作成</li>
-  <li>$ rails s でlocalサーバーでアプリを起動</li>
-  <li>
-    <p>ブラウザで<a href="http://0.0.0.0:3000/" title="http://0.0.0.0:3000/">http://0.0.0.0:3000/</a>へアクセスしてアプリの動作確認</p>
-  </li>
-  <li>Githubにリポジトリ作成してlocalのアプリをpush</li>
-  <li>
-    <p>localでtwitter loginアプリを作成</p>
-  </li>
-  <li>Gemインストール</li>
-  <li>twitter DevelopersからOAuthのkeyを取得</li>
-  <li>ちょうどいいエディタ入れてなかったので、Sublime Text2もインストール</li>
-  <li>DB作ったり、DB可視化するためにFireFoxのsqlite3のアドオンを入れるなど</li>
-  <li>setting.local.ymlに先に取得したOAthのkeyを入れる</li>
-  <li>
-    <p>ブラウザでアプリの動作確認</p>
-  </li>
-  <li>Heroku Toolbeltをインストール</li>
-  <li>
-    <p>Herokuへlocalのアプリをpush</p>
-  </li>
-  <li>Heroku用にもう一度twitter DevelopersからOAuthのkeyをlocal用とは別に取得</li>
-  <li>
-    <p>ブラウザでHerokuの自分のdashboardでOpen Applocationしてブラウザでチェック</p>
-  </li>
-  <li>
-    <p>@shu0115さんのMarkdown形式でメモを残せるアプリ:Rublioをlocalで作成</p>
-  </li>
-  <li>GitHub上でFork</li>
-  <li>リポジトリをローカルへ作成</li>
-  <li>ブランチ作成</li>
-  <li>
-    <p>Rails起動してページアクセスして確認の流れ</p>
-  </li>
-  <li>どこ触ればデザインテロが出来るのか教えてもらった
-hogehoge/app/assets/以下にimage, javascript, stylesheetがあって
-hogehoge/app/views/layouts/application.html.erbにassets内のjsやstyleが圧縮された状態でリンクされてる
-後はviews/以下でincludeされてるerbファイルを確認したりしながら触れば出来そう
-ちなみにerbはDreamweaverでは開けない</li>
-  <li>viの操作やターミナルでのコマンドを詳しく教えてもらったり</li>
-  <li>bash_profileにいろいろ入れて省略コマンド使えるようにしたり、ターミナルでpwdしなくても現在地等が分かるようにしたり</li>
-</ul>
-
-<p>などなど、盛り沢山やってきました。
-@shu0115さんのおかげで、プログラミング経験の全くないズブの素人の私でもアプリ作ったりpushしちゃったりするところまでたった4時間で！出来るように！
-大変勉強になりました。一人でぐぐりながら一個ずつ試していくのとは比較にならないほど捗りました。
-皆さんがもくもくするのに来てるのか肉を食いにいくために来てるのか分からないゆるさが良かったです。
-あと<a href="http://www.zambetti.com/projects/liveview/" title="LiveView">LiveView</a>見れたのもよかったなぁ</p>
-
-<p>上記の細かいところをRublioにまとめたり、ターミナルで復習したりしてます。
-慣れたらデザインテロの方法をデザイナー向けにまとめられたらいいなぁ。
-稚拙なまとめになるかとは思いますが、そのうち公開します。</p>
 
 </div>
 </section>

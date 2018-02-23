@@ -63,6 +63,61 @@ camuro
 <section class='post'>
 <div class='post-head'>
 <h2>
+<a href="/blog/2013/04/19233343.html">リモートインターン ｜ MIddleman 実践（3）- ブログレイアウトと入れ子レイアウト</a>
+</h2>
+<div class='date'>
+<time>Apr 19 2013</time>
+<ul class='tags'>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>参考 - <a href="http://middleman-guides.e2esound.com/blogging/" title="Middleman:ブログ機能">Middleman:ブログ機能</a>
+今回はブログ機能を付けていたときに躓いたことについて書いていきます。</p>
+
+<p>config.rbにブログ機能のオプションを色々と書くことができる。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># blog</span>
+<span class="n">activate</span> <span class="ss">:blog</span> <span class="k">do</span> <span class="o">|</span><span class="n">blog</span><span class="o">|</span>
+  <span class="c1"># ブログ機能のオプションを設定</span>
+  <span class="no">Time</span><span class="p">.</span><span class="nf">zone</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="no">Tokyo</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span> <span class="c1"># タイムゾーン</span>
+  <span class="n">blog</span><span class="p">.</span><span class="nf">prefix</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">blog</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span> <span class="c1"># カスタムパス</span>
+  <span class="n">blog</span><span class="p">.</span><span class="nf">permalink</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="sr">/:year/</span><span class="ss">:month</span><span class="o">/</span><span class="ss">:day</span><span class="o">/</span><span class="ss">:title</span><span class="p">.</span><span class="nf">html</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span> <span class="c1"># パーマリンク</span>
+  <span class="n">blog</span><span class="p">.</span><span class="nf">per_page</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># ページあたりの記事数</span>
+  <span class="n">blog</span><span class="p">.</span><span class="nf">paginate</span> <span class="o">=</span> <span class="kp">true</span> <span class="c1"># ページネーションを有効化する場合には true を設定</span>
+  <span class="n">blog</span><span class="p">.</span><span class="nf">layout</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">layouts</span><span class="o">/</span><span class="n">blog_layout</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span> <span class="c1"># 全ての記事に使用される特定のレイアウトを設定</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<!--more-->
+<p><strong>ブログレイアウトの指定方法</strong></p>
+
+<p>方法１．ブログ用のレイアウトをlayoutsディレクトリ作ってその配下にarticle_layout.hamlという名前などで作る。(元のerbでもいいけどhamlでやってます。)</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">blog</span><span class="p">.</span><span class="nf">layout</span> <span class="o">=</span> <span class="s2">"layouts/article_layout"</span>
+</code></pre></div></div>
+
+<p>方法２．ブログレイアウトの指定は<a href="http://middleman-guides.e2esound.com/templates/#toc_4" title="入れ子レイアウト">入れ子レイアウト</a>も使えるらしい。
+同様にconfig.rbのブログオプションの箇所でレイアウトの指定を下記のように書き換える。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">page</span> <span class="s2">"blog/*"</span><span class="p">,</span> <span class="ss">:layout</span> <span class="o">=&gt;</span> <span class="ss">:article_layout</span>
+</code></pre></div></div>
+
+<p>ここで問題。
+layoutsディレクトリを作る、ということで私はここで勝手に元のlayout.hamlもlayoutsディレクトリに入れてしまった。
+こうしてしまうとパーシャルを含むブログレイアウトの指定を入れ子レイアウトにした場合、ヘッダーやフッターのパーシャルをうまく読み込んでくれない。
+あくまでsource/layout.hamlが基本で、そこからsource/layouts/article_layout.hamlを入れ子にするという考え方が正しい。</p>
+
+<p>原因が分からず、source/layouts/layout.hamlはブログ以外のページ用のレイアウトとしてそのまま残し、source/layouts/article_layout.hamlにはヘッダーやフッターのパーシャルにしないで直書き…というキモいやり方でとりあえず動かしてしまっていた。</p>
+
+<p>今回この記事書くために改めて検証してみて、原因が分かりました…とほほ。
+<a href="https://github.com/kumanoayumi/middleman-blog" title="今回検証する用に作ったコードをGithubに上げておきます。→">今回検証する用に作ったコードをGithubに上げておきます。→</a></p>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
 <a href="/blog/2013/04/13005809.html">リモートインターン | Amazonギフト券のデザインを作る</a>
 </h2>
 <div class='date'>
@@ -231,189 +286,6 @@ _header.erb、_side.erb、_footer.erbのようにファイルを命名する。
 <p><a href="../../images/2013/03/4dfc72382e6c74ec3a1755a4946fb661.png" target="_blank"><img class="alignnone size-medium wp-image-563" alt="スクリーンショット 2013-03-09 1.46.48" src="../../images/2013/03/4dfc72382e6c74ec3a1755a4946fb661-300x142.png" width="300" /></a></p>
 
 <p>タグの記事一覧はどうやってやろう…。見た目は詰まってる感じがあるので追々微調整する。</p>
-
-</div>
-</section>
-<section class='post'>
-<div class='post-head'>
-<h2>
-<a href="/blog/2013/03/05004013.html">リモートインターン ｜ MIddleman 事始め</a>
-</h2>
-<div class='date'>
-<time>Mar  5 2013</time>
-<ul class='tags'>
-</ul>
-</div>
-</div>
-<div class='post-body'>
-<p>今回はMiddlemanを学習していきました。</p>
-
-<p><strong>Middleman とは</strong>
-モダンな web 開発環境のすべてのショートカットやツールを使用して静的 web サイトを作成するためのコマンドラインツールです。（コピペ）
-詳しくは下記参照
-<a href="http://middlemanapp.com/" title="http://middlemanapp.com/">http://middlemanapp.com/</a>
-<a href="http://middleman-guides.e2esound.com/" title="http://middleman-guides.e2esound.com/">http://middleman-guides.e2esound.com/</a></p>
-
-<p>以下、手順</p>
-
-<p>1.middlemanをインストール</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install middleman
-</code></pre></div></div>
-
-<p>2.プロジェクトのスケルトンを作成</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ middleman init [project-name]
-</code></pre></div></div>
-
-<p>生成されるプロジェクトツリー</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>first-middleman
-├── .bundle/
-│   └── config
-├── .gitignore
-├── Gemfile
-├── Gemfile.lock
-├── config.rb
-└── source/
-    ├── images/
-    │   ├── background.png
-    │   └── middleman.png
-    ├── index.html.erb
-    ├── javascripts/
-    │   └── all.js
-    ├── layouts/
-    │   └── layout.erb
-    └── stylesheets/
-        ├── all.css
-        └── normalize.css
-</code></pre></div></div>
-
-<p>3.サーバーの起動</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd [project-name]
-$ middleman server
-</code></pre></div></div>
-
-<p>middleman単独でもいける。</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ middleman
-</code></pre></div></div>
-
-<p>4.ブラウザで<a href="http://0.0.0.0:4567/" title="http://0.0.0.0:4567">http://0.0.0.0:4567</a>へアクセス
-<a href="../../images/2013/03/middleman.png"><img class="alignnone size-medium wp-image-526" alt="middleman" src="../../images/2013/03/middleman-300x167.png" width="300" /></a>
-こんな感じに表示される。</p>
-
-<p>5.ビルド</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd [project-name]
-$ middleman build
-</code></pre></div></div>
-
-<p>ビルド後のproject-tree</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>first-middleman
-├── .bundle/
-│ └── config
-├── .gitignore
-├── Gemfile
-├── Gemfile.lock
-├── build/
-│ ├── images/
-│ │ ├── background.png
-│ │ └── middleman.png
-│ ├── index.html
-│ ├── javascripts/
-│ │ └── all.js
-│ └── stylesheets/
-│     ├── all.css
-│     └── normalize.css
-├── config.rb
-└── source/
-    ├── images/
-    │ ├── background.png
-    │ └── middleman.png
-    ├── index.html.erb
-    ├── javascripts/
-    │ └── all.js
-    ├── layouts/
-    │ └── layout.erb
-    └── stylesheets/
-        ├── all.css
-        └── normalize.css
-</code></pre></div></div>
-
-<p>一度buildしてserver起動している状態で、source内のファイルの変更は即適用されるようだ。</p>
-
-<p><strong>middlemanでブログを作る方法</strong></p>
-
-<p>1.Gemfileでgemを指定して</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"middleman-blog"</span><span class="p">,</span> <span class="s2">"~&gt;3.1.1"</span>
-</code></pre></div></div>
-
-<p>bundle installする。</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
-</code></pre></div></div>
-
-<p>若しくは、単独でgem install</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install middleman-blog
-</code></pre></div></div>
-
-<p>次に, config.rb で拡張を有効化する。</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">activate</span> <span class="ss">:blog</span> <span class="k">do</span> <span class="o">|</span><span class="n">blog</span><span class="o">|</span>
-  <span class="c1"># ブログ機能のオプションを設定</span>
-<span class="k">end</span>
-</code></pre></div></div>
-
-<p>2.initするときに最初っからブログテンプレートをつけてしまう。</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ middleman init [project-name] --template=blog
-</code></pre></div></div>
-
-<p>生成されるブログはこんな感じ。</p>
-
-<p><a href="../../images/2013/03/0.0.0.04567.png"><img class="alignnone size-medium wp-image-530" alt="" src="../../images/2013/03/0.0.0.04567-300x165.png" width="300" /></a></p>
-
-<p><strong>ブログの記事について</strong>
-source直下に、下記のような名前でマークダウン形式のファイルが生成される。
-/source/2012-01-01-example-article.html.markdown
-ファイルの置き場が気持ち悪い場合は、config.rbの下記の箇所のコメントアウトを外す。</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># blog.prefix = "blog"</span>
-</code></pre></div></div>
-
-<p>/source/blog/のようにsourceの下にblogのディレクトリを作って、先ほどのマークダウンのファイルを格納するだけでいい。</p>
-
-<p><strong>Compass &amp; Sass について</strong>
-middleman initするだけでcompassもsassもインストールされる。
-気をつけるのはsassファイルの置き場と拡張子だけ。
-/source/stylesheets/の下にstyle.css.sassのようなファイル名で配置してあげると良い。
-compass使う場合も、sassファイルの先頭で@import compassを宣言するのみなので、通常通り。</p>
-
-<p><strong>LiveReload</strong>
-LiveReloadは便利なやつ。css編集して保存するとブラウザで変更箇所がオートリロードしてくれるので素敵。（<del>sassで書いた場合はbuildしないと駄目だけど。</del>→リンクヘルパー使えばいけるか？後ほど検証します。<a title="リモートインターン ｜ MIddleman 実践（1）" href="http://camuro.org/wordpress/?p=541">→検証しました。</a>）
-blogの時と同様に、Gemfileでgemを指定してbundle installする。</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"middleman-livereload"</span><span class="p">,</span> <span class="s2">"~&gt;3.0.1"</span>
-</code></pre></div></div>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
-</code></pre></div></div>
-
-<p>config.rbで下記を記述し有効化する。</p>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">activate</span> <span class="ss">:livereload</span>
-</code></pre></div></div>
-
-<p>あとはブラウザにLiveReloadのextentionを入れておけばOK。
-最後に、サーバーを再起動してブラウザを見ながらエディタでcssなどを編集してLiveReloadを体感する。</p>
-
-<p>今日はここまで。長くなったので記事分割した方が良かった気がする。
-一番よくわかってないerb周りのことは後回しにしてしまったので、次回そのあたりを学習します。</p>
 
 </div>
 </section>

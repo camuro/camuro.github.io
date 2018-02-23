@@ -63,6 +63,59 @@ camuro
 <section class='post'>
 <div class='post-head'>
 <h2>
+<a href="/blog/2013/01/30152753.html">リモートインターン ｜ CSS課題に取り組む</a>
+</h2>
+<div class='date'>
+<time>Jan 30 2013</time>
+<ul class='tags'>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>年末年始としばらくインターンの方お休みしていて、いったい何日目なのかわからなくなったので日数のカウント諦めました(´・ω・｀)
+今回はCSS課題に取り組んでいった結果の報告です。</p>
+
+<p><a href="http://camuro.org/fjord/sample/" title="お手本">お手本</a>
+<a href="http://camuro.org/fjord/sample/style.css" title="css">css</a></p>
+
+<p>上のサンプルを見ながらcompass使いながらsass記法でコーディングしていきました。</p>
+
+<p><a href="http://camuro.org/fjord/practice/" title="作ったもの">作ったもの</a>
+<a href="http://camuro.org/fjord/practice/sass/screen.sass" title="sass">sass</a> | <a href="http://camuro.org/fjord/practice/css/screen.css" title="css">css</a></p>
+
+<p>つまづいたこと</p>
+
+<ul>
+  <li>sublime textでの文字コードの変換が分からずしばらく文字化けに苦しんだ。sassで@charset "UTF-8"を宣言してもコンパイルされたcssがUTF-8として認識されない。 
+メニューバーから　File &gt; Set File Encording to &gt; … で変換して解決。超絶初歩なところで躓いてた。
+<a href="../../images/2013/01/73746eb523f28c3e7c3e29f184a8b6ef.png"><img src="../../images/2013/01/73746eb523f28c3e7c3e29f184a8b6ef-300x179.png" alt="スクリーンショット 2013-01-30 15.05.05" width="300" class="aligncenter size-medium wp-image-446" /></a></li>
+  <li>データ定義リスト dl の dt /dd のfloatのやり方で躓いた。display:inline;で解決。</li>
+</ul>
+
+<p>注力したこと</p>
+
+<ul>
+  <li>ズルいデザインのmixinを使う（ボックスシャドウ・テキストシャドウ・ズルい線・角丸・グラデーション…大体使ってみた）</li>
+  <li>変数を使う</li>
+  <li>@mixinを=、@includeを=で記述する</li>
+</ul>
+
+<p>今後の課題</p>
+
+<ul>
+  <li>extendを使いこなす</li>
+  <li>もっと短いコーディングでスタイリングできるようにする</li>
+</ul>
+
+<p>ひと通りやって思うことは、写経は大事だな…ということ。
+業務で併せてsassでコーディングをするようになったので、extendの使い所は少し理解してきた。
+基礎を抑えたら、習うより慣れろ。</p>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
 <a href="/blog/2013/01/14161809.html">東京Ruby会議10に行ってきた</a>
 </h2>
 <div class='date'>
@@ -267,67 +320,6 @@ $ sass-convert style.css style.sass
 自分で怖いと思った内容のものをエントリーしたので、ぜひよろしくお願いします(●ↀωↀ●)✧</p>
 
 <p>残った時間で次の作業に移りましたが、それはまた次回に…！</p>
-
-</div>
-</section>
-<section class='post'>
-<div class='post-head'>
-<h2>
-<a href="/blog/2012/12/03120008.html">ルートパスでローカルサーバーの構築をする場合の手順</a>
-</h2>
-<div class='date'>
-<time>Dec  3 2012</time>
-<ul class='tags'>
-</ul>
-</div>
-</div>
-<div class='post-body'>
-<p>最近仕事でよくやるのに毎回忘れるので自分用にメモ。Windowsでの話。</p>
-
-<p>階層が深いサイトでヘッダーやフッター・リンク等をphp等でテンプレート化してインクルードさせる場合、相対パスだと一段・二段…と深い階層に遷移した際にリンクの起点がズレるのでcssやイメージのリンクが切れてしまうことがあり、これを回避する為にルートパスで記述することがあります。
-しかし、ルートパスでサイト構築する場合、そのままブラウザでローカルプレビューするとcssやjs、imageへのリンクが切れた状態で表示されるかと思います。
-基本php等でローカルプレビューする場合、xampp使ってapache起動して確認したりしていますが、何も考えずにプレビューするならC:\xampp\htdocs\配下にディレクトリ作るかと思うのですが、C:\配下にテスト環境作っていくのってなんか気持ち悪いしディレクトリが肥大化していくので自分には耐え難かったです。
-どのみちルートパス用にサーバー構築するならば、C以外でローカルサーバーを立てた方がwin-winな関係でしょう、ということでapacheのヴァーチャルホストを使ってC以外（今回はD）にローカルサーバーを構築していく方法を書いていきます。</p>
-
-<ul>
-  <li>C:\xampp\apache\conf\extra\httpd-vhosts.confの最後に下記を追記。</li>
-</ul>
-
-<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;<span class="n">VirtualHost</span> *:<span class="m">80</span>&gt;
- <span class="n">DocumentRoot</span> <span class="s2">"D:/hogehoge/test"</span>
- <span class="n">ServerName</span> <span class="n">test</span>-<span class="n">server</span>
-&lt;/<span class="n">VirtualHost</span>&gt;
-</code></pre></div></div>
-
-<ul>
-  <li>C:\xampp\apache\conf\httpd.confの最後に下記を追記。</li>
-</ul>
-
-<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;<span class="n">Directory</span> <span class="s2">"D:/hogehoge/test"</span>&gt;
- <span class="n">Options</span> <span class="n">Indexes</span> <span class="n">FollowSymLinks</span> <span class="n">Includes</span> <span class="n">ExecCGI</span>
- <span class="n">AllowOverride</span> <span class="n">All</span>
- <span class="n">Order</span> <span class="n">allow</span>,<span class="n">deny</span>
- <span class="n">Allow</span> <span class="n">from</span> <span class="n">all</span>
-&lt;/<span class="n">Directory</span>&gt;
-</code></pre></div></div>
-
-<ul>
-  <li>C:\Windows\System32\drivers\etc\hostsの最後に下記を追記。</li>
-</ul>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1 test-server
-</code></pre></div></div>
-
-<p>127.0.0.1の横に、1.でServerName の隣に書いたサーバー名を書けば良いです。
-- xamppのapache起動。
-- ブラウザのURLバーに<code>test-server</code>と入力してアクセスできるか確認</p>
-
-<p>参考にしたサイト</p>
-
-<ul>
-  <li><a href="http://www.skal-design.com/blog/2010/07/%E3%82%B5%E3%82%A4%E3%83%88%E3%83%AB%E3%83%BC%E3%83%88%E3%83%91%E3%82%B9%E3%82%92%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC/" title="サイトルートパスをローカルプレビュー">サイトルートパスをローカルプレビュー</a></li>
-  <li><a href="http://www.adminweb.jp/apache/virtual/index2.html" title="名前ベースの仮想ホスト">名前ベースの仮想ホスト</a></li>
-</ul>
 
 </div>
 </section>

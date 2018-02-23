@@ -63,6 +63,189 @@ camuro
 <section class='post'>
 <div class='post-head'>
 <h2>
+<a href="/blog/2013/03/05004013.html">リモートインターン ｜ MIddleman 事始め</a>
+</h2>
+<div class='date'>
+<time>Mar  5 2013</time>
+<ul class='tags'>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>今回はMiddlemanを学習していきました。</p>
+
+<p><strong>Middleman とは</strong>
+モダンな web 開発環境のすべてのショートカットやツールを使用して静的 web サイトを作成するためのコマンドラインツールです。（コピペ）
+詳しくは下記参照
+<a href="http://middlemanapp.com/" title="http://middlemanapp.com/">http://middlemanapp.com/</a>
+<a href="http://middleman-guides.e2esound.com/" title="http://middleman-guides.e2esound.com/">http://middleman-guides.e2esound.com/</a></p>
+
+<p>以下、手順</p>
+
+<p>1.middlemanをインストール</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install middleman
+</code></pre></div></div>
+
+<p>2.プロジェクトのスケルトンを作成</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ middleman init [project-name]
+</code></pre></div></div>
+
+<p>生成されるプロジェクトツリー</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>first-middleman
+├── .bundle/
+│   └── config
+├── .gitignore
+├── Gemfile
+├── Gemfile.lock
+├── config.rb
+└── source/
+    ├── images/
+    │   ├── background.png
+    │   └── middleman.png
+    ├── index.html.erb
+    ├── javascripts/
+    │   └── all.js
+    ├── layouts/
+    │   └── layout.erb
+    └── stylesheets/
+        ├── all.css
+        └── normalize.css
+</code></pre></div></div>
+
+<p>3.サーバーの起動</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd [project-name]
+$ middleman server
+</code></pre></div></div>
+
+<p>middleman単独でもいける。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ middleman
+</code></pre></div></div>
+
+<p>4.ブラウザで<a href="http://0.0.0.0:4567/" title="http://0.0.0.0:4567">http://0.0.0.0:4567</a>へアクセス
+<a href="../../images/2013/03/middleman.png"><img class="alignnone size-medium wp-image-526" alt="middleman" src="../../images/2013/03/middleman-300x167.png" width="300" /></a>
+こんな感じに表示される。</p>
+
+<p>5.ビルド</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd [project-name]
+$ middleman build
+</code></pre></div></div>
+
+<p>ビルド後のproject-tree</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>first-middleman
+├── .bundle/
+│ └── config
+├── .gitignore
+├── Gemfile
+├── Gemfile.lock
+├── build/
+│ ├── images/
+│ │ ├── background.png
+│ │ └── middleman.png
+│ ├── index.html
+│ ├── javascripts/
+│ │ └── all.js
+│ └── stylesheets/
+│     ├── all.css
+│     └── normalize.css
+├── config.rb
+└── source/
+    ├── images/
+    │ ├── background.png
+    │ └── middleman.png
+    ├── index.html.erb
+    ├── javascripts/
+    │ └── all.js
+    ├── layouts/
+    │ └── layout.erb
+    └── stylesheets/
+        ├── all.css
+        └── normalize.css
+</code></pre></div></div>
+
+<p>一度buildしてserver起動している状態で、source内のファイルの変更は即適用されるようだ。</p>
+
+<p><strong>middlemanでブログを作る方法</strong></p>
+
+<p>1.Gemfileでgemを指定して</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"middleman-blog"</span><span class="p">,</span> <span class="s2">"~&gt;3.1.1"</span>
+</code></pre></div></div>
+
+<p>bundle installする。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
+</code></pre></div></div>
+
+<p>若しくは、単独でgem install</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem install middleman-blog
+</code></pre></div></div>
+
+<p>次に, config.rb で拡張を有効化する。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">activate</span> <span class="ss">:blog</span> <span class="k">do</span> <span class="o">|</span><span class="n">blog</span><span class="o">|</span>
+  <span class="c1"># ブログ機能のオプションを設定</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>2.initするときに最初っからブログテンプレートをつけてしまう。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ middleman init [project-name] --template=blog
+</code></pre></div></div>
+
+<p>生成されるブログはこんな感じ。</p>
+
+<p><a href="../../images/2013/03/0.0.0.04567.png"><img class="alignnone size-medium wp-image-530" alt="" src="../../images/2013/03/0.0.0.04567-300x165.png" width="300" /></a></p>
+
+<p><strong>ブログの記事について</strong>
+source直下に、下記のような名前でマークダウン形式のファイルが生成される。
+/source/2012-01-01-example-article.html.markdown
+ファイルの置き場が気持ち悪い場合は、config.rbの下記の箇所のコメントアウトを外す。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># blog.prefix = "blog"</span>
+</code></pre></div></div>
+
+<p>/source/blog/のようにsourceの下にblogのディレクトリを作って、先ほどのマークダウンのファイルを格納するだけでいい。</p>
+
+<p><strong>Compass &amp; Sass について</strong>
+middleman initするだけでcompassもsassもインストールされる。
+気をつけるのはsassファイルの置き場と拡張子だけ。
+/source/stylesheets/の下にstyle.css.sassのようなファイル名で配置してあげると良い。
+compass使う場合も、sassファイルの先頭で@import compassを宣言するのみなので、通常通り。</p>
+
+<p><strong>LiveReload</strong>
+LiveReloadは便利なやつ。css編集して保存するとブラウザで変更箇所がオートリロードしてくれるので素敵。（<del>sassで書いた場合はbuildしないと駄目だけど。</del>→リンクヘルパー使えばいけるか？後ほど検証します。<a title="リモートインターン ｜ MIddleman 実践（1）" href="http://camuro.org/wordpress/?p=541">→検証しました。</a>）
+blogの時と同様に、Gemfileでgemを指定してbundle installする。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"middleman-livereload"</span><span class="p">,</span> <span class="s2">"~&gt;3.0.1"</span>
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
+</code></pre></div></div>
+
+<p>config.rbで下記を記述し有効化する。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">activate</span> <span class="ss">:livereload</span>
+</code></pre></div></div>
+
+<p>あとはブラウザにLiveReloadのextentionを入れておけばOK。
+最後に、サーバーを再起動してブラウザを見ながらエディタでcssなどを編集してLiveReloadを体感する。</p>
+
+<p>今日はここまで。長くなったので記事分割した方が良かった気がする。
+一番よくわかってないerb周りのことは後回しにしてしまったので、次回そのあたりを学習します。</p>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
 <a href="/blog/2013/02/27224334.html">リモートインターン ｜ 怖話コミックのバナーを作る</a>
 </h2>
 <div class='date'>
@@ -416,59 +599,6 @@ $ gem install nokogiri -- --with-xml2-include=/usr/local/Cellar/li
   <li>bundleでこけたとき：<a href="http://blog.mirakui.com/entry/20100703/1278165723" title="http://blog.mirakui.com/entry/20100703/1278165723">http://blog.mirakui.com/entry/20100703/1278165723</a></li>
   <li>nokogiriでこけたとき：<a href="http://takkii.hatenablog.com/entry/20120720/1342760568" title="http://takkii.hatenablog.com/entry/20120720/1342760568">http://takkii.hatenablog.com/entry/20120720/1342760568</a></li>
 </ul>
-
-</div>
-</section>
-<section class='post'>
-<div class='post-head'>
-<h2>
-<a href="/blog/2013/01/30152753.html">リモートインターン ｜ CSS課題に取り組む</a>
-</h2>
-<div class='date'>
-<time>Jan 30 2013</time>
-<ul class='tags'>
-</ul>
-</div>
-</div>
-<div class='post-body'>
-<p>年末年始としばらくインターンの方お休みしていて、いったい何日目なのかわからなくなったので日数のカウント諦めました(´・ω・｀)
-今回はCSS課題に取り組んでいった結果の報告です。</p>
-
-<p><a href="http://camuro.org/fjord/sample/" title="お手本">お手本</a>
-<a href="http://camuro.org/fjord/sample/style.css" title="css">css</a></p>
-
-<p>上のサンプルを見ながらcompass使いながらsass記法でコーディングしていきました。</p>
-
-<p><a href="http://camuro.org/fjord/practice/" title="作ったもの">作ったもの</a>
-<a href="http://camuro.org/fjord/practice/sass/screen.sass" title="sass">sass</a> | <a href="http://camuro.org/fjord/practice/css/screen.css" title="css">css</a></p>
-
-<p>つまづいたこと</p>
-
-<ul>
-  <li>sublime textでの文字コードの変換が分からずしばらく文字化けに苦しんだ。sassで@charset "UTF-8"を宣言してもコンパイルされたcssがUTF-8として認識されない。 
-メニューバーから　File &gt; Set File Encording to &gt; … で変換して解決。超絶初歩なところで躓いてた。
-<a href="../../images/2013/01/73746eb523f28c3e7c3e29f184a8b6ef.png"><img src="../../images/2013/01/73746eb523f28c3e7c3e29f184a8b6ef-300x179.png" alt="スクリーンショット 2013-01-30 15.05.05" width="300" class="aligncenter size-medium wp-image-446" /></a></li>
-  <li>データ定義リスト dl の dt /dd のfloatのやり方で躓いた。display:inline;で解決。</li>
-</ul>
-
-<p>注力したこと</p>
-
-<ul>
-  <li>ズルいデザインのmixinを使う（ボックスシャドウ・テキストシャドウ・ズルい線・角丸・グラデーション…大体使ってみた）</li>
-  <li>変数を使う</li>
-  <li>@mixinを=、@includeを=で記述する</li>
-</ul>
-
-<p>今後の課題</p>
-
-<ul>
-  <li>extendを使いこなす</li>
-  <li>もっと短いコーディングでスタイリングできるようにする</li>
-</ul>
-
-<p>ひと通りやって思うことは、写経は大事だな…ということ。
-業務で併せてsassでコーディングをするようになったので、extendの使い所は少し理解してきた。
-基礎を抑えたら、習うより慣れろ。</p>
 
 </div>
 </section>

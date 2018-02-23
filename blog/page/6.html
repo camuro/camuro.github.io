@@ -63,6 +63,67 @@ camuro
 <section class='post'>
 <div class='post-head'>
 <h2>
+<a href="/blog/2012/12/03120008.html">ルートパスでローカルサーバーの構築をする場合の手順</a>
+</h2>
+<div class='date'>
+<time>Dec  3 2012</time>
+<ul class='tags'>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>最近仕事でよくやるのに毎回忘れるので自分用にメモ。Windowsでの話。</p>
+
+<p>階層が深いサイトでヘッダーやフッター・リンク等をphp等でテンプレート化してインクルードさせる場合、相対パスだと一段・二段…と深い階層に遷移した際にリンクの起点がズレるのでcssやイメージのリンクが切れてしまうことがあり、これを回避する為にルートパスで記述することがあります。
+しかし、ルートパスでサイト構築する場合、そのままブラウザでローカルプレビューするとcssやjs、imageへのリンクが切れた状態で表示されるかと思います。
+基本php等でローカルプレビューする場合、xampp使ってapache起動して確認したりしていますが、何も考えずにプレビューするならC:\xampp\htdocs\配下にディレクトリ作るかと思うのですが、C:\配下にテスト環境作っていくのってなんか気持ち悪いしディレクトリが肥大化していくので自分には耐え難かったです。
+どのみちルートパス用にサーバー構築するならば、C以外でローカルサーバーを立てた方がwin-winな関係でしょう、ということでapacheのヴァーチャルホストを使ってC以外（今回はD）にローカルサーバーを構築していく方法を書いていきます。</p>
+
+<ul>
+  <li>C:\xampp\apache\conf\extra\httpd-vhosts.confの最後に下記を追記。</li>
+</ul>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;<span class="n">VirtualHost</span> *:<span class="m">80</span>&gt;
+ <span class="n">DocumentRoot</span> <span class="s2">"D:/hogehoge/test"</span>
+ <span class="n">ServerName</span> <span class="n">test</span>-<span class="n">server</span>
+&lt;/<span class="n">VirtualHost</span>&gt;
+</code></pre></div></div>
+
+<ul>
+  <li>C:\xampp\apache\conf\httpd.confの最後に下記を追記。</li>
+</ul>
+
+<div class="language-conf highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;<span class="n">Directory</span> <span class="s2">"D:/hogehoge/test"</span>&gt;
+ <span class="n">Options</span> <span class="n">Indexes</span> <span class="n">FollowSymLinks</span> <span class="n">Includes</span> <span class="n">ExecCGI</span>
+ <span class="n">AllowOverride</span> <span class="n">All</span>
+ <span class="n">Order</span> <span class="n">allow</span>,<span class="n">deny</span>
+ <span class="n">Allow</span> <span class="n">from</span> <span class="n">all</span>
+&lt;/<span class="n">Directory</span>&gt;
+</code></pre></div></div>
+
+<ul>
+  <li>C:\Windows\System32\drivers\etc\hostsの最後に下記を追記。</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>127.0.0.1 test-server
+</code></pre></div></div>
+
+<p>127.0.0.1の横に、1.でServerName の隣に書いたサーバー名を書けば良いです。
+- xamppのapache起動。
+- ブラウザのURLバーに<code>test-server</code>と入力してアクセスできるか確認</p>
+
+<p>参考にしたサイト</p>
+
+<ul>
+  <li><a href="http://www.skal-design.com/blog/2010/07/%E3%82%B5%E3%82%A4%E3%83%88%E3%83%AB%E3%83%BC%E3%83%88%E3%83%91%E3%82%B9%E3%82%92%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%97%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC/" title="サイトルートパスをローカルプレビュー">サイトルートパスをローカルプレビュー</a></li>
+  <li><a href="http://www.adminweb.jp/apache/virtual/index2.html" title="名前ベースの仮想ホスト">名前ベースの仮想ホスト</a></li>
+</ul>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
 <a href="/blog/2012/11/30235317.html">リモートインターン11日目 ｜ Webの基本 – HTML課題 / CSSの基礎</a>
 </h2>
 <div class='date'>
@@ -186,49 +247,6 @@ li/p//dt/ddも閉じタグ省略可らしいです。
 </ul>
 
 <p>1・3は自分はプログラミングできないので貢献できませんが、2ならできるかもしれません。あと貢献できそうな作業って、怖い漫画描くくらいですかね…。</p>
-
-</div>
-</section>
-<section class='post'>
-<div class='post-head'>
-<h2>
-<a href="/blog/2012/11/14230547.html">リモートインターン6日目 ｜ Webの基本 – 組み込みコンテンツ系</a>
-</h2>
-<div class='date'>
-<time>Nov 14 2012</time>
-<ul class='tags'>
-</ul>
-</div>
-</div>
-<div class='post-body'>
-<p>引き続きHTMLの学習です。</p>
-
-<p>今日は<a href="http://www.html5.jp/tag/elements/" title="HTML要素のリファレンス">HTML要素のリファレンス</a>の主に組み込みコンテンツ系に目を通していきました。
-# 気になったタグ</p>
-
-<ul>
-  <li><a href="http://www.html5.jp/tag/elements/embed.html" title="embed要素">embed要素</a>と<a href="http://www.html5.jp/tag/elements/object.html#the-object-element" target="_blank">object要素
-</a>リファレンス読んだだけではflashのswfファイルの扱いがいまいちピンとこず、Lingerで質問投げて下記の記事ご紹介いただきました。</li>
-  <li><a href="http://blog.cgfm.jp/garyu/appendix/flash_html/p1-2.html" title="1-2. &amp;lt;object&amp;gt;タグと&amp;gt;embed&amp;lt;タグ ｜ Flashとブラウザ">1-2. &lt;object&gt;タグと&gt;embed&lt;タグ ｜ Flashとブラウザ</a></li>
-  <li><a href="http://www.adworks24.co.jp/archives/1217.html" title="embed要素［HTML5］">embed要素［HTML5］</a></li>
-  <li><a href="http://www.adworks24.co.jp/archives/1220.html" title="object要素［HTML5］">object要素［HTML5］</a></li>
-</ul>
-
-<p>3.の記事の文頭にあった”&lt;object&gt;タグは、文書に外部リソースを埋め込む際に使用します。&lt;embed&gt;がプラグインを必要とするデータを埋め込むのに対して、&lt;object&gt;には外部リソース全般を指定することができます。”の文章が一番しっくりきた。
-おまけで時間軸上でJSのアニメ作れる<a href="http://tumult.com/hype/download/" title="hype">hype</a>を教えてもらった。adobe edgeの簡易版…とのことなんですが、そもそもadobe edge触ったことなかった。flashだとユーザーエージェント依存があるのでjsに切り替えるとき用にツールの扱い慣らしておきたい。キリングタイムになりそうだったので、また後日。
-- <a href="http://www.html5.jp/tag/elements/video.html" title="video要素">video要素</a> poster属性 : "ユーザーエージェントが利用可能なビデオ・データがないときに表示できる画像ファイルのアドレスを与えます。"
-- <a href="http://www.html5.jp/tag/elements/track.html" title="track要素">track要素</a> : "ウェブ制作者が<a href="http://www.html5.jp/tag/elements/media_elements.html#media-element" title="メディア要素">メディア要素</a>に対して明示的な同期<a title="text track" href="http://www.html5.jp/tag/elements/media_elements.html#text-track" target="_blank">テキスト・トラック</a>を指定できるようにします。"
-テキスト・トラック・データについて、下記の記事が参考になりました。 デモの動画がR2D2…。
-- <a href="http://d.hatena.ne.jp/sparkgene/20111216/1323988362" title="WebVTT ファイルフォーマット">WebVTT ファイルフォーマット</a></p>
-
-<ul>
-  <li>
-    <p><a href="http://www.html5.jp/tag/elements/canvas.html" title="cavas要素">cavas要素</a>のセキュリティー : 具体的な危険性が想像できなかったので、下記の記事を拝読。同記事中のフィルタの実装のところ面白そう。</p>
-  </li>
-  <li>
-    <p><a href="http://www.h2.dion.ne.jp/~defghi/canvasMemo/canvasMemo.htm#h13" title="canvas要素におけるセキュリティ : origin-cleanフラグによるセキュリティ制御">canvas要素におけるセキュリティ : origin-cleanフラグによるセキュリティ制御</a></p>
-  </li>
-</ul>
 
 </div>
 </section>

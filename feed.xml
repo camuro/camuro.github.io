@@ -5,10 +5,56 @@
   <id>http://blog.url.com/</id>
   <link href="http://blog.url.com/"/>
   <link href="http://blog.url.com/feed.xml" rel="self"/>
-  <updated>2018-02-12T09:00:00+09:00</updated>
+  <updated>2018-02-13T09:00:00+09:00</updated>
   <author>
     <name>Blog Author</name>
   </author>
+  <entry>
+    <title>Railsアプリのjsのテストをしたい</title>
+    <link rel="alternate" href="/blog/2018/02/rails-js-test.html"/>
+    <id>/blog/2018/02/rails-js-test.html</id>
+    <published>2018-02-13T09:00:00+09:00</published>
+    <updated>2018-02-13T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Railsアプリでフロント側にカンタンなvue.jsの実装を追加した為、jsもテストすることに。
+feature specを書く時に &lt;code&gt;js: true&lt;/code&gt; を追加が必要になる。&lt;/p&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="n"&gt;feature&lt;/span&gt; &lt;span class="s2"&gt;"sample"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;js: &lt;/span&gt;&lt;span class="kp"&gt;true&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;background&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;visit&lt;/span&gt; &lt;span class="s2"&gt;"/sample"&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;scenario&lt;/span&gt; &lt;span class="s2"&gt;"アクセスできる"&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;to&lt;/span&gt; &lt;span class="n"&gt;have_content&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"ページタイトル"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ローカルでrakeも通るようになり、いざPRを出したとことCIでテストが失敗する。&lt;/p&gt;
+
+&lt;p&gt;CIはCircle CIを使っていたが、CI上でphantom.jsのエラーが発生していた。&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;Cliver::Dependency::VersionMismatch:
+       Could not find an executable 'phantomjs' that matched the requirements '~&amp;gt; 1.8', '&amp;gt;= 1.8.1'. Found versions were {"/usr/local/bin/phantomjs"=&amp;gt;"2.1.1"}.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;circleci.ymlに記載されているdocer imageが &lt;code&gt;circleci/ruby:2.3.6-node&lt;/code&gt; だった為、jsのテストが出来る状態でなかった。&lt;/p&gt;
+
+&lt;p&gt;ここを &lt;code&gt;circleci/ruby:2.3.6-node-browsers&lt;/code&gt; に変更した。&lt;/p&gt;
+
+&lt;div class="language-yaml highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="na"&gt;jobs&lt;/span&gt;&lt;span class="pi"&gt;:&lt;/span&gt;
+  &lt;span class="na"&gt;test&lt;/span&gt;&lt;span class="pi"&gt;:&lt;/span&gt;
+    &lt;span class="na"&gt;docker&lt;/span&gt;&lt;span class="pi"&gt;:&lt;/span&gt;
+      &lt;span class="pi"&gt;-&lt;/span&gt; &lt;span class="na"&gt;image&lt;/span&gt;&lt;span class="pi"&gt;:&lt;/span&gt; &lt;span class="s"&gt;circleci/ruby:2.3.6-node-browsers&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;circleci/ruby:2.4.1-nodeだとchromeとかxvfb入ってない&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;参照: &lt;a href="https://qiita.com/inuscript/items/09d15ee52b1657872f80"&gt;circleci/ruby:2.4.1-node-browsersって何入ってるのか知りたかった&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
   <entry>
     <title>middlemanをv4にupdateした。</title>
     <link rel="alternate" href="/blog/2018/02/update-middleman-to-v4.html"/>
@@ -214,47 +260,6 @@
 開催にまつわる関係者の皆様、大変ありがとうございました！&lt;/p&gt;
 
 &lt;p&gt;以上です！&lt;/p&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Adventarのリニューアルデザインをお手伝いしたお話</title>
-    <link rel="alternate" href="/blog/2013/11/adventar.html"/>
-    <id>/blog/2013/11/adventar.html</id>
-    <published>2013-11-01T09:00:00+09:00</published>
-    <updated>2013-11-01T09:00:00+09:00</updated>
-    <author>
-      <name>Article Author</name>
-    </author>
-    <content type="html">&lt;p&gt;&lt;a href="http://www.adventar.org/" target="_blank"&gt;&lt;img src="/images/2013/11/20131101_cover.png" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;2013年11月1日、本年度の&lt;a href="http://www.adventar.org/"&gt;Adventar&lt;/a&gt;(Advent Calendar)のリニューアル版がリリースされました。&lt;br /&gt;
-Advent Calendarは本来、12月1日から24日までクリスマスを待つまでに1日に1つ、穴が空けられるようになっているカレンダーです。
-Adventarでは、その風習に習い、12月1日から25日まで1日づつみんなで記事を投稿して、web上でAdvent Calendarを体験できます。&lt;/p&gt;
-
-&lt;p&gt;今回、自分はデザイン面でお手伝いさせていただきました。&lt;br /&gt;
-もともとAdventarは2012年11月1日に&lt;a href="https://twitter.com/hokaccha"&gt;@hokaccha&lt;/a&gt;さんがお一人でリリースされたサービスです。&lt;br /&gt;
-今年は&lt;a href="http://bla.bo/"&gt;Blabo!&lt;/a&gt;のお仕事でもご一緒している&lt;a href="https://twitter.com/june29"&gt;@june29&lt;/a&gt;さんに「You、Adventarのデザインやってみない？」とお声をかけていただいたことがきかっけでした（若干脚色有り）。&lt;/p&gt;
-
-&lt;p&gt;2012版との大きな変更点は、今年らしくフラットデザインに。&lt;br /&gt;
-各カレンダーに固有の色を持たせて賑やかな感じに。&lt;br /&gt;
-カレンダーページには参加が登録しやすいようなUIに。&lt;/p&gt;
-
-&lt;p&gt;トップページ BEFORE&lt;br /&gt;
-&lt;a href="/images/2013/11/20131101_02.png"&gt;&lt;img src="/images/2013/11/20131101_02.png" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;トップページ　AFTER&lt;br /&gt;
-&lt;a href="/images/2013/11/20131101_01.png"&gt;&lt;img src="/images/2013/11/20131101_01.png" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;カレンダーページ BEFORE&lt;br /&gt;
-&lt;a href="/images/2013/11/20131101_04.png"&gt;&lt;img src="/images/2013/11/20131101_04.png" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;カレンダーページ AFTER&lt;br /&gt;
-&lt;a href="/images/2013/11/20131101_03.png"&gt;&lt;img src="/images/2013/11/20131101_03.png" /&gt;&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href="https://twitter.com/adventar"&gt;@adventar&lt;/a&gt;&lt;br /&gt;
-twitterの公式アカウントもあります。&lt;/p&gt;
-
-&lt;p&gt;興味をお持ちになった方、ぜひ参加してみてださいね！&lt;/p&gt;
 </content>
   </entry>
 </feed>
