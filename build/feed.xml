@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Blog Name</title>
+  <subtitle>Blog subtitle</subtitle>
+  <id>http://blog.url.com/</id>
+  <link href="http://blog.url.com/"/>
+  <link href="http://blog.url.com/feed.xml" rel="self"/>
+  <updated>2018-02-13T09:00:00+09:00</updated>
+  <author>
+    <name>Blog Author</name>
+  </author>
+  <entry>
+    <title>Railsアプリのjsのテストをしたい</title>
+    <link rel="alternate" href="/blog/2018/02/rails-js-test.html"/>
+    <id>/blog/2018/02/rails-js-test.html</id>
+    <published>2018-02-13T09:00:00+09:00</published>
+    <updated>2018-02-13T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Railsアプリでフロント側にカンタンなvue.jsの実装を追加した為、jsもテストすることに。
+feature specを書く時に &lt;code&gt;js: true&lt;/code&gt; を追加が必要になる。&lt;/p&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="n"&gt;feature&lt;/span&gt; &lt;span class="s2"&gt;"sample"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;js: &lt;/span&gt;&lt;span class="kp"&gt;true&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;background&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;visit&lt;/span&gt; &lt;span class="s2"&gt;"/sample"&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+
+  &lt;span class="n"&gt;scenario&lt;/span&gt; &lt;span class="s2"&gt;"アクセスできる"&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="n"&gt;expect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;page&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="nf"&gt;to&lt;/span&gt; &lt;span class="n"&gt;have_content&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"ページタイトル"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ローカルでrakeも通るようになり、いざPRを出したとことCIでテストが失敗する。&lt;/p&gt;
+
+&lt;p&gt;CIはCircle CIを使っていたが、CI上でphantom.jsのエラーが発生していた。&lt;/p&gt;
+
+&lt;div class="highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;Cliver::Dependency::VersionMismatch:
+       Could not find an executable 'phantomjs' that matched the requirements '~&amp;gt; 1.8', '&amp;gt;= 1.8.1'. Found versions were {"/usr/local/bin/phantomjs"=&amp;gt;"2.1.1"}.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;circleci.ymlに記載されているdocer imageが &lt;code&gt;circleci/ruby:2.3.6-node&lt;/code&gt; だった為、jsのテストが出来る状態でなかった。&lt;/p&gt;
+
+&lt;p&gt;ここを &lt;code&gt;circleci/ruby:2.3.6-node-browsers&lt;/code&gt; に変更した。&lt;/p&gt;
+
+&lt;div class="language-yaml highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="na"&gt;jobs&lt;/span&gt;&lt;span class="pi"&gt;:&lt;/span&gt;
+  &lt;span class="na"&gt;test&lt;/span&gt;&lt;span class="pi"&gt;:&lt;/span&gt;
+    &lt;span class="na"&gt;docker&lt;/span&gt;&lt;span class="pi"&gt;:&lt;/span&gt;
+      &lt;span class="pi"&gt;-&lt;/span&gt; &lt;span class="na"&gt;image&lt;/span&gt;&lt;span class="pi"&gt;:&lt;/span&gt; &lt;span class="s"&gt;circleci/ruby:2.3.6-node-browsers&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;circleci/ruby:2.4.1-nodeだとchromeとかxvfb入ってない&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;参照: &lt;a href="https://qiita.com/inuscript/items/09d15ee52b1657872f80"&gt;circleci/ruby:2.4.1-node-browsersって何入ってるのか知りたかった&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>middlemanをv4にupdateした。</title>
+    <link rel="alternate" href="/blog/2018/02/update-middleman-to-v4.html"/>
+    <id>/blog/2018/02/update-middleman-to-v4.html</id>
+    <published>2018-02-12T09:00:00+09:00</published>
+    <updated>2018-02-12T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;久しぶりにブログ書こうとして手元でまずmiddlemanが動かせなかったので諸々改修した。&lt;/p&gt;
+
+&lt;p&gt;その際にぶつかった問題について記録しておく。&lt;/p&gt;
+
+&lt;p&gt;今回のこのブログに使用しているmiddlemanのupdateのversionは &lt;code&gt;3.1.4&lt;/code&gt; から &lt;code&gt;4.0.0&lt;/code&gt; へのupdate。&lt;/p&gt;
+
+&lt;h3 id="section"&gt;主な改修範囲&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;middlemanは現時点で4.2.1まで出ているがとりあえず手元で安定して動かせるところまでversionを指定し直して、&lt;code&gt;$ bundle update&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s2"&gt;"middleman"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"~&amp;gt; 4.0.0"&lt;/span&gt;
+&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s2"&gt;"middleman-blog"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"~&amp;gt; 4.0.2"&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;html5に対応する&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="c1"&gt;#cofig.rb&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="ss"&gt;:haml&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="ss"&gt;:format&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="ss"&gt;:html5&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;各ブログ記事の拡張子は &lt;code&gt;.markdown&lt;/code&gt; だったのを &lt;code&gt;.html.markdown&lt;/code&gt; に変更&lt;/li&gt;
+  &lt;li&gt;middleman-syntaxがv4に対応してなかったようなので、markdown engineを &lt;code&gt;redcarpet&lt;/code&gt; から &lt;code&gt;kramdown&lt;/code&gt; に変更。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="c1"&gt;#cofig.rb&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="ss"&gt;:markdown_engine&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;:kramdown&lt;/span&gt;
+&lt;span class="n"&gt;set&lt;/span&gt; &lt;span class="ss"&gt;:markdown&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'syntax_highlighter'&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s1"&gt;'rouge'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="s1"&gt;'syntax_highlighter_opts'&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s1"&gt;'span'&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;'disable'&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="kp"&gt;true&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;code blockの記述について、Redcarpetのfenced_code_blocksからチルダ３つ &lt;code&gt;~~~&lt;/code&gt; のLanguage of Code Blocks に変更&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;middleman-deployを &lt;code&gt;1.0.0&lt;/code&gt; から &lt;code&gt;2.0.0.pre.alpha&lt;/code&gt; へupdate&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="n"&gt;gem&lt;/span&gt; &lt;span class="s1"&gt;'middleman-deploy'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;'~&amp;gt; 2.0.0.pre.alpha'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;middleman-deployのdeploy methodの指定について、 &lt;code&gt;deploy&lt;/code&gt; から &lt;code&gt;deploy_method&lt;/code&gt; に変更&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class="language-ruby highlighter-rouge"&gt;&lt;div class="highlight"&gt;&lt;pre class="highlight"&gt;&lt;code&gt;&lt;span class="c1"&gt;#cofig.rb&lt;/span&gt;
+&lt;span class="n"&gt;activate&lt;/span&gt; &lt;span class="ss"&gt;:deploy&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
+  &lt;span class="n"&gt;deploy&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;deploy_method&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;:git&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id="url"&gt;参考にしたURL:&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://3100.github.io/blog/2013/10/31/monokai-theme-to-middleman-blog.html"&gt;middleman-blogのハイライトにMonokaiテーマを使う&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://diary.kitaitimakoto.net/2015/11/07.html"&gt;Middleman v4でシンタックスハイライト&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="https://github.com/middleman-contrib/middleman-deploy/issues/93"&gt;Support for Middleman v4?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <title>石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。</title>
+    <link rel="alternate" href="/blog/2014/11/whitebox.html"/>
+    <id>/blog/2014/11/whitebox.html</id>
+    <published>2014-11-07T09:00:00+09:00</published>
+    <updated>2014-11-07T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;img src="/images/2014/11/whitebox.png" alt="石橋秀美の解剖図展「しろいはこ」" /&gt;&lt;/p&gt;
+
+&lt;p&gt;既にtwitterやfacebookではご紹介していたのですが、まもなく開催ということで改めてご報告です。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="http://ringomushi.jimdo.com/"&gt;石橋秀美&lt;/a&gt;さんの個展が11/10（月）より東京・銀座のspan art galleryにて開催されます。
+このたび展示会のサイト制作に携わらせていただきました。
+石橋さんは現在大阪を拠点にイラストレーター、写真のディレクターとして活動されています。
+ストイックでエロティックでグロテスクな素晴らしい絵を描いておられます。&lt;/p&gt;
+
+&lt;p&gt;個展の情報はサイトの他、10/27発売のアトリエサードの雑誌にて掲載されています（11/7現在、amazon在庫切れしてる…）。&lt;/p&gt;
+
+&lt;iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;amp;bc1=FFFFFF&amp;amp;IS2=1&amp;amp;bg1=FFFFFF&amp;amp;fc1=000000&amp;amp;lc1=CDAD63&amp;amp;t=ayumiko-22&amp;amp;o=9&amp;amp;p=8&amp;amp;l=as1&amp;amp;m=amazon&amp;amp;f=ifr&amp;amp;ref=qf_sp_asin_til&amp;amp;asins=4883751813" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="http://demilpibot.github.io/"&gt;石橋秀美の解剖図展「しろいはこ」&lt;/a&gt;にご興味のある方、ぜひ展示会へ足をお運びくださると嬉しいです。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>MakersHubの名刺をデザインしました。</title>
+    <link rel="alternate" href="/blog/2014/10/makershub.html"/>
+    <id>/blog/2014/10/makershub.html</id>
+    <published>2014-10-24T09:00:00+09:00</published>
+    <updated>2014-10-24T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;&lt;img src="/images/works/makershub-card/wide-angle.jpg" alt="Wide Angle" /&gt;&lt;/p&gt;
+
+&lt;p&gt;ご縁があって &lt;a href="https://makershub.jp/"&gt;MakersHub&lt;/a&gt;さんの名刺デザインを制作させていただきました。&lt;br /&gt;
+&lt;a href="https://makershub.jp/"&gt;MakersHub&lt;/a&gt;は、電子工作好きな方におすすめしたいニッチな面白いサービスです。&lt;br /&gt;
+登録すると個人のページ（ユニークURL）が生成され、作品を投稿することで、
+自然と自分のものづくりポートフォリオができていきます。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/works/makershub-card/close-up-front.jpg" alt="Close Up Front" /&gt;&lt;/p&gt;
+
+&lt;p&gt;表面はサービスのロゴ等の他、電子工作をイメージできるよう、背景にサービスのツールアイコンをモチーフにしたモノグラムのパターンを配置しました。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/images/works/makershub-card/close-up-back.jpg" alt="Close Up Back" /&gt;&lt;/p&gt;
+
+&lt;p&gt;ユニークURLをプライベート名刺などに書いてもらえるようになりたいという夢があるということで、&lt;br /&gt;
+裏面にはメールアドレス欄や電話番号と共に、&lt;br /&gt;
+サービスのメインモチーフであるひらめきアイコンとともにURLの欄を設けています。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://makershub.jp/"&gt;MakersHub&lt;/a&gt;に興味が出た方、ぜひ&lt;a href="https://makershub.jp/"&gt;'https://makershub.jp/'&lt;/a&gt;にアクセスしてみてくださいね！&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>pplogのAlfred Workflowを作った</title>
+    <link rel="alternate" href="/blog/2014/01/pplog.html"/>
+    <id>/blog/2014/01/pplog.html</id>
+    <published>2014-01-09T09:00:00+09:00</published>
+    <updated>2014-01-09T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;Alfredからpplogに飛ぶWorkflowを作ってみた。&lt;/p&gt;
+
+&lt;p&gt;お昼休みを使ってサクっと作ってみた。
+ただのOpen URLだから大したもんではないけど自分の為に。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/kumanoayumi/open-pplog/blob/master/open-pplog-v2.alfredworkflow?raw=true"&gt;↓ ダウンロードはこちらから。&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/kumanoayumi/open-pplog/blob/master/open-pplog-v2.alfredworkflow?raw=true"&gt;&lt;img src="/images/2014/01/alfred-workflow.png" /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;アイコン使わせていただいたのですが事後報告ですみません…。&lt;/p&gt;
+
+&lt;p&gt;追記：簡単に動かす為に、ホットキーを割り当ててv2になりました。option+command+pでいけます。&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Tokyo Middleman Meetup #1でSusyのお話をしてきた</title>
+    <link rel="alternate" href="/blog/2013/11/tmm.html"/>
+    <id>/blog/2013/11/tmm.html</id>
+    <published>2013-11-25T09:00:00+09:00</published>
+    <updated>2013-11-25T09:00:00+09:00</updated>
+    <author>
+      <name>Article Author</name>
+    </author>
+    <content type="html">&lt;p&gt;2013年11月22日、今をときめく静的サイトジェネレータ "Middleman" について語る会こと&lt;a href="http://connpass.com/event/3851/"&gt;Tokyo Middleman Meetup #1&lt;/a&gt;が&lt;a href="http://www.genuineblue.jp/"&gt;株式会社ジェニュインブルー様&lt;/a&gt;で開催されました。&lt;/p&gt;
+
+&lt;p&gt;せっかくの機会だったので、自分もお気に入りのcss frameworkであるところの&lt;a href="http://susy.oddbird.net/"&gt;Susy&lt;/a&gt;についてお話させていただきました。&lt;/p&gt;
+
+&lt;div style="width: 60%;"&gt;&lt;script async="" class="speakerdeck-embed" data-id="9eab1810366601313c751aaf8e3c2217" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"&gt;&lt;/script&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href="https://speakerdeck.com/kumanoayumi/middleman-meets-susy"&gt;MIDDLEMAN MEETS SUSY by kumano ayumi&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;スライドに出ているgridのサンプルはこちら。
+&lt;a href="http://kumanoayumi.github.io/mms/"&gt;Middleman Meets Susy - DEMO&lt;/a&gt;
+&lt;a href="https://github.com/kumanoayumi/mms"&gt;(Source on github)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;当日の様子はこんな感じでした。(&lt;a href="https://twitter.com/machida"&gt;@machida&lt;/a&gt;さんのtweet引用しまくります)&lt;/p&gt;
+
+&lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;ayumikoさんの発表。 (at SonicGarden Inc.) [pic] — &lt;a href="https://t.co/awdzESOV68"&gt;https://t.co/awdzESOV68&lt;/a&gt;&lt;/p&gt;&amp;mdash; machida (@machida) &lt;a href="https://twitter.com/machida/statuses/403847288759394304"&gt;2013, 11月 22&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;middlemanでhamlとsassに慣れてたからrailsの仕事で役に立った、という話 (at SonicGarden Inc.) [pic] — &lt;a href="https://t.co/zLGYs3cTll"&gt;https://t.co/zLGYs3cTll&lt;/a&gt;&lt;/p&gt;&amp;mdash; machida (@machida) &lt;a href="https://twitter.com/machida/statuses/403847935076483072"&gt;2013, 11月 22&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;middlemanとsusyの話。susyはcompassを使ったグリッドシステムを簡単に実装できるプラグイン。ブレイクポイントの指定をmixinをimportするだけで出来るので便利。 &lt;a href="http://t.co/5XIWObV6IB"&gt;pic.twitter.com/5XIWObV6IB&lt;/a&gt;&lt;/p&gt;&amp;mdash; machida (@machida) &lt;a href="https://twitter.com/machida/statuses/403848914291286016"&gt;2013, 11月 22&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;blockquote class="twitter-tweet" lang="ja"&gt;&lt;p&gt;susy、英語で説明読むの面倒だなぁ、と思ってたので、細かく説明してくれて得した。 &lt;a href="http://t.co/n2F3IMqFBH"&gt;pic.twitter.com/n2F3IMqFBH&lt;/a&gt;&lt;/p&gt;&amp;mdash; machida (@machida) &lt;a href="https://twitter.com/machida/statuses/403849474297982976"&gt;2013, 11月 22&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async="" src="//platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+&lt;p&gt;興味が湧いた方は、&lt;a href="http://susy.oddbird.net/"&gt;Susy&lt;/a&gt;公式のReferenceを見ながら試されると良いと思います。
+日本語のリファレンスが少ないので、本番ではお話しきれなかった他のmixinなんかについても（PaddingやMarginのmixinなどなど）いずれどこかでまとめる予定です。
+併せてBurbon x Burbon NEATもやりたいなーとも思っているところ。&lt;/p&gt;
+
+&lt;p&gt;Middleman エヴェンジェリスト(?)であるところの&lt;a href="https://twitter.com/yterajima"&gt;@yterajima&lt;/a&gt;さんによる&lt;a href="http://www.slideshare.net/e2esound.com/middleman-guideshowtolean"&gt;Middleman Guides &amp;amp; How to Lean&lt;/a&gt;、
+&lt;a href="https://twitter.com/kkotaro0111"&gt;@kkotaro0111&lt;/a&gt;さんの&lt;a href="http://www.slideshare.net/kkotaro0111/tokyoumiddlemanmeetup1"&gt;Middleman Usecase&lt;/a&gt;、
+&lt;a href="https://twitter.com/hokaccha"&gt;@hokaccha&lt;/a&gt;さんの middleman + rack-reverse-proxy でフロントエンドのアプリ開発などなど、
+皆さんのお話から更にmiddlemanに関する知見を得ることが出来たの、本当に良かったです。&lt;/p&gt;
+
+&lt;p&gt;自分の発表に関しては、LTもやったことなくていきなり30分も喋られるのか自信ないままお話して、終わった後の敗北感が凄かったですが、
+これに懲りずまた機会があったら挑戦したいなと思っています。
+開催にまつわる関係者の皆様、大変ありがとうございました！&lt;/p&gt;
+
+&lt;p&gt;以上です！&lt;/p&gt;
+</content>
+  </entry>
+</feed>

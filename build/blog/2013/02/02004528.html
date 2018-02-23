@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' name='viewport'>
+<title>リモートインターン ｜ ローカルに怖話を構築</title>
+<link href="../../../stylesheets/normalize.css" rel="stylesheet" /><link href="../../../stylesheets/all.css" rel="stylesheet" /><link href="http://yui.yahooapis.com/pure/0.2.1/menu-min.css" rel="stylesheet" />
+<script src="../../../javascripts/all.js"></script>
+</head>
+<body class='blog blog_2013 blog_2013_02 blog_2013_02_02004528'>
+<div class='pure-g-r' id='layout'>
+<div class='sidebar pure-u'>
+<div class='menu-box'>
+<a class='heading' href='/'>
+camuro
+</a>
+<nav>
+<ul class='menu cl-effect-5'>
+<li class='menu-item'>
+<a href='/'>
+<span data-hover='Home'>Home</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/about.html'>
+<span data-hover='About'>About</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/works.html'>
+<span data-hover='Works'>Works</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/blog.html'>
+<span data-hover='Blog'>Blog</span>
+</a>
+</li>
+</ul>
+</nav>
+<form>
+<input class='st-search-input' id='st-search-input' type='text'>
+</form>
+<script>
+  var Swiftype = window.Swiftype || {};
+    (function() {
+      Swiftype.key = 'gGZQLNj5d36eyibDuysX';
+  
+      /** DO NOT EDIT BELOW THIS LINE **/
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = "//s.swiftypecdn.com/embed.js";
+      var entry = document.getElementsByTagName('script')[0];
+      entry.parentNode.insertBefore(script, entry);
+    }());
+</script>
+</div>
+
+</div>
+<div class='pure-u-1'>
+<div class='main' id='blog'>
+<article class='post'>
+<div class='post-head'>
+<h2>
+リモートインターン ｜ ローカルに怖話を構築
+</h2>
+<div class='date'>
+<time>Feb  2 2013</time>
+<ul class='tags'>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>今週は作業週だったので作業の記録です。
+自分のMacで怖話を立ち上げてる作業をしていきました。
+github上の怖話のREADME.mdとインターンの@hrysdさん、@kumamidoriさん、@satokoさんの下記のブログ記事を参考に進めていきました。</p>
+
+<ul>
+  <li><a href="http://hrysd.hatenablog.com/entry/2012/11/13/012153" title="Mountain Lion に rbenv を導入">Mountain Lion に rbenv を導入</a></li>
+  <li><a href="http://satoko87.wordpress.com/2013/01/31/%E4%BD%9C%E6%A5%AD%E9%80%B1%EF%BC%9A%E6%80%96%E8%A9%B1%E3%82%92%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%81%A7%E7%AB%8B%E3%81%A1%E4%B8%8A%E3%81%92%E3%82%8B/" title="作業週：怖話をローカルで立ち上げる">作業週：怖話をローカルで立ち上げる</a></li>
+  <li><a href="http://d.hatena.ne.jp/kumamidori/20130105" title="「怖話」開発環境構築">「怖話」開発環境構築</a></li>
+</ul>
+
+<p>構築前に、homebrewが入っている環境でrbenvでruby-1.9.3-p194とruby-1.9.3-p327をインストールだけしている状態からスタートしました。以下、手順です。</p>
+
+<p>githubから怖話のリポジトリをローカルにcloneする
+ターミナルからvimで.bashrcを開く</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ vim .bashrc
+</code></pre></div></div>
+
+<p>.bashrcに下記コード追記</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eval "$(rbenv init -)
+</code></pre></div></div>
+
+<p>ターミナルから.bashrc再読み込み</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ source ~/.bashrc
+</code></pre></div></div>
+
+<p>rbenvで指定しているrubyのバージョンを確認</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rbenv version
+</code></pre></div></div>
+
+<p>怖話の構築に必要なのはruby-1.9.3-p327なのでp327に指定する</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rbenv local 1.9.3-p327
+</code></pre></div></div>
+
+<p>homebrewでimagemagick/mysql/qtをインストール</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install imagemagick mysql qt
+</code></pre></div></div>
+
+<p>mySQLでDB作成</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unset TMPDIR
+mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp
+</code></pre></div></div>
+
+<p>bundleインストール（bundle install コマンドを使うと、 Gemfile に書かれたgemは $GEM_HOME 以下にインストールされます）</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle
+</code></pre></div></div>
+
+<p>ここでこけた。先にrbenvでruby-1.9.3-p327にバージョン指定していたけどエラー。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rbenv exec bundle
+</code></pre></div></div>
+
+<p>上記でやってもエラー。エラーメッセージのコピーし忘れた・・・。
+rbenv versionではp327になってるがruby -vで確認するとp194の表示。
+$ source ~/.bashrcで再読み込みすればruby -vでもp327になるけど、bundleが通らない。
+ようわからんと思ってrvmでruby-1.9.3-p327をインストールした。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rvm install ruby-1.9.3-p327
+</code></pre></div></div>
+
+<p>再度bundlインストールして通る。
+rakeする。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rake kowabana:setup
+</code></pre></div></div>
+
+<p>こけた。下記のエラーメッセージ。
+<span style="color: #008000;">rake aborted!</span>
+<span style="color: #008000;"> You have already activated rake 10.0.3, but your Gemfile requires rake 0.9.2.2. Using bundle exec may solve this.</span>
+rakeのバージョンが違うのでbundle execでrakeをやれと。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec rake kowabana:setup
+</code></pre></div></div>
+
+<p>今度はNokogiriでエラー。
+<span style="color: #008000;">WARNING: Nokogiri was built against LibXML version 2.7.3, but has dynamically loaded 2.7.8</span>
+というエラーメッセージが出る。
+libxml2のバージョンは2.7.3だけど、nokogiriが読み込むのは2.7.8・・・。
+libXMLとNokogiriを入れ直す。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ brew install libxml2
+$ gem install nokogiri -- --with-xml2-include=/usr/local/Cellar/li
+</code></pre></div></div>
+
+<p>再度bundleしようとしてmySQL起動するの忘れててエラー出てしまったので起動。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mysql.server start
+</code></pre></div></div>
+
+<p>改めて$ bundle exec rake kowabana:setupを実行して、めでたくrakeされた。
+最後にサーバー起動。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails s
+</code></pre></div></div>
+
+<p>ブラウザでhttp://localhost:3000/にアクセスして、ローカルで起動しているのを確認。</p>
+
+<p style="text-align: center;"><a href="../../../images/2013/02/kowabana_local.png"><img class="aligncenter  wp-image-463" alt="kowabana_local" src="../../../images/2013/02/kowabana_local-1024x730.png" width="614" /></a></p>
+<p>できた！
+以上です。</p>
+
+<p>この辺の記事も参考にしながらやっていきました。</p>
+
+<ul>
+  <li>bundleでこけたとき：<a href="http://blog.mirakui.com/entry/20100703/1278165723" title="http://blog.mirakui.com/entry/20100703/1278165723">http://blog.mirakui.com/entry/20100703/1278165723</a></li>
+  <li>nokogiriでこけたとき：<a href="http://takkii.hatenablog.com/entry/20120720/1342760568" title="http://takkii.hatenablog.com/entry/20120720/1342760568">http://takkii.hatenablog.com/entry/20120720/1342760568</a></li>
+</ul>
+
+</div>
+<div class='post-comment'>
+<div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'camuro';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+
+</div>
+</article>
+<ul class='post-list'>
+<li>
+<h3>2018</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2018/02/rails-js-test.html'>Railsアプリのjsのテストをしたい</a>
+</li>
+<li>
+<a href='/blog/2018/02/update-middleman-to-v4.html'>middlemanをv4にupdateした。</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2014</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2014/11/whitebox.html'>石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。</a>
+</li>
+<li>
+<a href='/blog/2014/10/makershub.html'>MakersHubの名刺をデザインしました。</a>
+</li>
+<li>
+<a href='/blog/2014/01/pplog.html'>pplogのAlfred Workflowを作った</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2013</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2013/11/tmm.html'>Tokyo Middleman Meetup #1でSusyのお話をしてきた</a>
+</li>
+<li>
+<a href='/blog/2013/11/adventar.html'>Adventarのリニューアルデザインをお手伝いしたお話</a>
+</li>
+<li>
+<a href='/blog/2013/09/renewal.html'>WordPressからmiddlemanに移行してGithub Pagesで運用する方法</a>
+</li>
+<li>
+<a href='/blog/2013/05/14011654.html'>RubyHiroba 2013 のサイトデザインしました</a>
+</li>
+<li>
+<a href='/blog/2013/04/20021938.html'>リモートインターン ｜ Middleman 実践（4）- Githubページへデプロイする方法</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2012</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2012/12/21004721.html'>リモートインターン15-17日目 ｜ CSS & Sass & Compass ( &SCOUT )の学習</a>
+</li>
+<li>
+<a href='/blog/2012/12/08010025.html'>リモートインターン13-14日目 ｜ 怖話コミックの漫画を依頼する人を探す</a>
+</li>
+<li>
+<a href='/blog/2012/12/04000102.html'>リモートインターン12日目 ｜ Bufferにポストを予約</a>
+</li>
+<li>
+<a href='/blog/2012/12/03120008.html'>ルートパスでローカルサーバーの構築をする場合の手順</a>
+</li>
+<li>
+<a href='/blog/2012/11/30235317.html'>リモートインターン11日目 ｜ Webの基本 – HTML課題 / CSSの基礎</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<script src="../../../javascripts/mylibs/google.js"></script>
+</body>
+</html>

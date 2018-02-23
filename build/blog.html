@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' name='viewport'>
+<title>BLOG | CAMURO</title>
+<link href="stylesheets/normalize.css" rel="stylesheet" /><link href="stylesheets/all.css" rel="stylesheet" /><link href="stylesheets/highlight.css" rel="stylesheet" /><link href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css" rel="stylesheet" />
+<script src="javascripts/all.js"></script>
+<script src="javascripts/libs/modernizr-2.6.1.min.js"></script><script src="javascripts/mylibs/html5.js"></script><script src="javascripts/mylibs/selectivizr-min.js"></script><script src="javascripts/mylibs/smoothScroll.js"></script>
+</head>
+<body class='blog'>
+<div class='pure-g-r' id='layout'>
+<div class='sidebar pure-u'>
+<div class='menu-box'>
+<a class='heading' href='/'>
+camuro
+</a>
+<nav>
+<ul class='menu cl-effect-5'>
+<li class='menu-item'>
+<a href='/'>
+<span data-hover='Home'>Home</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/about.html'>
+<span data-hover='About'>About</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/works.html'>
+<span data-hover='Works'>Works</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/blog.html'>
+<span data-hover='Blog'>Blog</span>
+</a>
+</li>
+</ul>
+</nav>
+<form>
+<input class='st-search-input' id='st-search-input' type='text'>
+</form>
+<script>
+  var Swiftype = window.Swiftype || {};
+    (function() {
+      Swiftype.key = 'gGZQLNj5d36eyibDuysX';
+  
+      /** DO NOT EDIT BELOW THIS LINE **/
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = "//s.swiftypecdn.com/embed.js";
+      var entry = document.getElementsByTagName('script')[0];
+      entry.parentNode.insertBefore(script, entry);
+    }());
+</script>
+</div>
+
+</div>
+<div class='pure-u-1'>
+<div class='main'>
+<section class='post'>
+<div class='post-head'>
+<h2>
+<a href="/blog/2018/02/rails-js-test.html">Railsアプリのjsのテストをしたい</a>
+</h2>
+<div class='date'>
+<time>Feb 13 2018</time>
+<ul class='tags'>
+<li>
+<a href="/blog/tags/circle%20ci.html">Circle CI</a>
+</li>
+<li>
+<a href="/blog/tags/rails.html">Rails</a>
+</li>
+<li>
+<a href="/blog/tags/js.html">js</a>
+</li>
+<li>
+<a href="/blog/tags/node.html">node</a>
+</li>
+<li>
+<a href="/blog/tags/rake.html">Rake</a>
+</li>
+<li>
+<a href="/blog/tags/poltergeist.html">poltergeist</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>Railsアプリでフロント側にカンタンなvue.jsの実装を追加した為、jsもテストすることに。
+feature specを書く時に <code>js: true</code> を追加が必要になる。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">feature</span> <span class="s2">"sample"</span><span class="p">,</span> <span class="ss">js: </span><span class="kp">true</span> <span class="k">do</span>
+  <span class="n">background</span> <span class="p">{</span> <span class="n">visit</span> <span class="s2">"/sample"</span> <span class="p">}</span>
+
+  <span class="n">scenario</span> <span class="s2">"アクセスできる"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">page</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_content</span><span class="p">(</span><span class="s2">"ページタイトル"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<p>ローカルでrakeも通るようになり、いざPRを出したとことCIでテストが失敗する。</p>
+
+<p>CIはCircle CIを使っていたが、CI上でphantom.jsのエラーが発生していた。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cliver::Dependency::VersionMismatch:
+       Could not find an executable 'phantomjs' that matched the requirements '~&gt; 1.8', '&gt;= 1.8.1'. Found versions were {"/usr/local/bin/phantomjs"=&gt;"2.1.1"}.
+</code></pre></div></div>
+
+<p>circleci.ymlに記載されているdocer imageが <code>circleci/ruby:2.3.6-node</code> だった為、jsのテストが出来る状態でなかった。</p>
+
+<p>ここを <code>circleci/ruby:2.3.6-node-browsers</code> に変更した。</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">jobs</span><span class="pi">:</span>
+  <span class="na">test</span><span class="pi">:</span>
+    <span class="na">docker</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">circleci/ruby:2.3.6-node-browsers</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>circleci/ruby:2.4.1-nodeだとchromeとかxvfb入ってない</p>
+</blockquote>
+
+<p>参照: <a href="https://qiita.com/inuscript/items/09d15ee52b1657872f80">circleci/ruby:2.4.1-node-browsersって何入ってるのか知りたかった</a></p>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
+<a href="/blog/2018/02/update-middleman-to-v4.html">middlemanをv4にupdateした。</a>
+</h2>
+<div class='date'>
+<time>Feb 12 2018</time>
+<ul class='tags'>
+<li>
+<a href="/blog/tags/middleman.html">Middleman</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>久しぶりにブログ書こうとして手元でまずmiddlemanが動かせなかったので諸々改修した。</p>
+
+<p>その際にぶつかった問題について記録しておく。</p>
+
+<p>今回のこのブログに使用しているmiddlemanのupdateのversionは <code>3.1.4</code> から <code>4.0.0</code> へのupdate。</p>
+
+<h3 id="section">主な改修範囲</h3>
+
+<ul>
+  <li>middlemanは現時点で4.2.1まで出ているがとりあえず手元で安定して動かせるところまでversionを指定し直して、<code>$ bundle update</code></li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s2">"middleman"</span><span class="p">,</span> <span class="s2">"~&gt; 4.0.0"</span>
+<span class="n">gem</span> <span class="s2">"middleman-blog"</span><span class="p">,</span> <span class="s2">"~&gt; 4.0.2"</span>
+</code></pre></div></div>
+
+<ul>
+  <li>html5に対応する</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#cofig.rb</span>
+<span class="n">set</span> <span class="ss">:haml</span><span class="p">,</span> <span class="p">{</span> <span class="ss">:format</span> <span class="o">=&gt;</span> <span class="ss">:html5</span> <span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>各ブログ記事の拡張子は <code>.markdown</code> だったのを <code>.html.markdown</code> に変更</li>
+  <li>middleman-syntaxがv4に対応してなかったようなので、markdown engineを <code>redcarpet</code> から <code>kramdown</code> に変更。</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#cofig.rb</span>
+<span class="n">set</span> <span class="ss">:markdown_engine</span><span class="p">,</span> <span class="ss">:kramdown</span>
+<span class="n">set</span> <span class="ss">:markdown</span><span class="p">,</span> <span class="s1">'syntax_highlighter'</span> <span class="o">=&gt;</span> <span class="s1">'rouge'</span><span class="p">,</span>
+    <span class="s1">'syntax_highlighter_opts'</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="s1">'span'</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="s1">'disable'</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">}</span>
+    <span class="p">}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>code blockの記述について、Redcarpetのfenced_code_blocksからチルダ３つ <code>~~~</code> のLanguage of Code Blocks に変更</p>
+  </li>
+  <li>
+    <p>middleman-deployを <code>1.0.0</code> から <code>2.0.0.pre.alpha</code> へupdate</p>
+  </li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">gem</span> <span class="s1">'middleman-deploy'</span><span class="p">,</span> <span class="s1">'~&gt; 2.0.0.pre.alpha'</span>
+</code></pre></div></div>
+
+<ul>
+  <li>middleman-deployのdeploy methodの指定について、 <code>deploy</code> から <code>deploy_method</code> に変更</li>
+</ul>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#cofig.rb</span>
+<span class="n">activate</span> <span class="ss">:deploy</span> <span class="k">do</span> <span class="o">|</span><span class="n">deploy</span><span class="o">|</span>
+  <span class="n">deploy</span><span class="p">.</span><span class="nf">deploy_method</span> <span class="o">=</span> <span class="ss">:git</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<hr />
+
+<h4 id="url">参考にしたURL:</h4>
+
+<ul>
+  <li><a href="http://3100.github.io/blog/2013/10/31/monokai-theme-to-middleman-blog.html">middleman-blogのハイライトにMonokaiテーマを使う</a></li>
+  <li><a href="https://diary.kitaitimakoto.net/2015/11/07.html">Middleman v4でシンタックスハイライト</a></li>
+  <li><a href="https://github.com/middleman-contrib/middleman-deploy/issues/93">Support for Middleman v4?</a></li>
+</ul>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
+<a href="/blog/2014/11/whitebox.html">石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。</a>
+</h2>
+<div class='date'>
+<time>Nov  7 2014</time>
+<ul class='tags'>
+<li>
+<a href="/blog/tags/design.html">Design</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p><img src="images/2014/11/whitebox.png" alt="石橋秀美の解剖図展「しろいはこ」" /></p>
+
+<p>既にtwitterやfacebookではご紹介していたのですが、まもなく開催ということで改めてご報告です。</p>
+
+<p><a href="http://ringomushi.jimdo.com/">石橋秀美</a>さんの個展が11/10（月）より東京・銀座のspan art galleryにて開催されます。
+このたび展示会のサイト制作に携わらせていただきました。
+石橋さんは現在大阪を拠点にイラストレーター、写真のディレクターとして活動されています。
+ストイックでエロティックでグロテスクな素晴らしい絵を描いておられます。</p>
+
+<p>個展の情報はサイトの他、10/27発売のアトリエサードの雑誌にて掲載されています（11/7現在、amazon在庫切れしてる…）。</p>
+
+<iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=FFFFFF&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=CDAD63&amp;t=ayumiko-22&amp;o=9&amp;p=8&amp;l=as1&amp;m=amazon&amp;f=ifr&amp;ref=qf_sp_asin_til&amp;asins=4883751813" style="width:120px;height:240px;" scrolling="no" marginwidth="0" marginheight="0" frameborder="0"></iframe>
+
+<p><a href="http://demilpibot.github.io/">石橋秀美の解剖図展「しろいはこ」</a>にご興味のある方、ぜひ展示会へ足をお運びくださると嬉しいです。</p>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
+<a href="/blog/2014/10/makershub.html">MakersHubの名刺をデザインしました。</a>
+</h2>
+<div class='date'>
+<time>Oct 24 2014</time>
+<ul class='tags'>
+<li>
+<a href="/blog/tags/design.html">Design</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p><img src="images/works/makershub-card/wide-angle.jpg" alt="Wide Angle" /></p>
+
+<p>ご縁があって <a href="https://makershub.jp/">MakersHub</a>さんの名刺デザインを制作させていただきました。<br />
+<a href="https://makershub.jp/">MakersHub</a>は、電子工作好きな方におすすめしたいニッチな面白いサービスです。<br />
+登録すると個人のページ（ユニークURL）が生成され、作品を投稿することで、
+自然と自分のものづくりポートフォリオができていきます。</p>
+
+<p><img src="images/works/makershub-card/close-up-front.jpg" alt="Close Up Front" /></p>
+
+<p>表面はサービスのロゴ等の他、電子工作をイメージできるよう、背景にサービスのツールアイコンをモチーフにしたモノグラムのパターンを配置しました。</p>
+
+<p><img src="images/works/makershub-card/close-up-back.jpg" alt="Close Up Back" /></p>
+
+<p>ユニークURLをプライベート名刺などに書いてもらえるようになりたいという夢があるということで、<br />
+裏面にはメールアドレス欄や電話番号と共に、<br />
+サービスのメインモチーフであるひらめきアイコンとともにURLの欄を設けています。</p>
+
+<p><a href="https://makershub.jp/">MakersHub</a>に興味が出た方、ぜひ<a href="https://makershub.jp/">'https://makershub.jp/'</a>にアクセスしてみてくださいね！</p>
+
+</div>
+</section>
+<section class='post'>
+<div class='post-head'>
+<h2>
+<a href="/blog/2014/01/pplog.html">pplogのAlfred Workflowを作った</a>
+</h2>
+<div class='date'>
+<time>Jan  9 2014</time>
+<ul class='tags'>
+<li>
+<a href="/blog/tags/alfred.html">Alfred</a>
+</li>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>Alfredからpplogに飛ぶWorkflowを作ってみた。</p>
+
+<p>お昼休みを使ってサクっと作ってみた。
+ただのOpen URLだから大したもんではないけど自分の為に。</p>
+
+<p><a href="https://github.com/kumanoayumi/open-pplog/blob/master/open-pplog-v2.alfredworkflow?raw=true">↓ ダウンロードはこちらから。</a></p>
+
+<p><a href="https://github.com/kumanoayumi/open-pplog/blob/master/open-pplog-v2.alfredworkflow?raw=true"><img src="images/2014/01/alfred-workflow.png" /></a></p>
+
+<p>アイコン使わせていただいたのですが事後報告ですみません…。</p>
+
+<p>追記：簡単に動かす為に、ホットキーを割り当ててv2になりました。option+command+pでいけます。</p>
+
+</div>
+</section>
+<div class='paging-module'>
+<ul class='pure-paginator'>
+<li>
+</li>
+<li>
+<a href="/blog/page/2.html"><div class='paging pure-button next'>
+&gt;
+<!-- %i.icon-chevron-right -->
+</div>
+</a></li>
+</ul>
+</div>
+
+</div>
+</div>
+</div>
+<script src="javascripts/mylibs/google.js"></script>
+</body>
+</html>

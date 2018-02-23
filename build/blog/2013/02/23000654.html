@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' name='viewport'>
+<title>リモートインターン ｜ バージョン管理（Git & GitHub）</title>
+<link href="../../../stylesheets/normalize.css" rel="stylesheet" /><link href="../../../stylesheets/all.css" rel="stylesheet" /><link href="http://yui.yahooapis.com/pure/0.2.1/menu-min.css" rel="stylesheet" />
+<script src="../../../javascripts/all.js"></script>
+</head>
+<body class='blog blog_2013 blog_2013_02 blog_2013_02_23000654'>
+<div class='pure-g-r' id='layout'>
+<div class='sidebar pure-u'>
+<div class='menu-box'>
+<a class='heading' href='/'>
+camuro
+</a>
+<nav>
+<ul class='menu cl-effect-5'>
+<li class='menu-item'>
+<a href='/'>
+<span data-hover='Home'>Home</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/about.html'>
+<span data-hover='About'>About</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/works.html'>
+<span data-hover='Works'>Works</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/blog.html'>
+<span data-hover='Blog'>Blog</span>
+</a>
+</li>
+</ul>
+</nav>
+<form>
+<input class='st-search-input' id='st-search-input' type='text'>
+</form>
+<script>
+  var Swiftype = window.Swiftype || {};
+    (function() {
+      Swiftype.key = 'gGZQLNj5d36eyibDuysX';
+  
+      /** DO NOT EDIT BELOW THIS LINE **/
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = "//s.swiftypecdn.com/embed.js";
+      var entry = document.getElementsByTagName('script')[0];
+      entry.parentNode.insertBefore(script, entry);
+    }());
+</script>
+</div>
+
+</div>
+<div class='pure-u-1'>
+<div class='main' id='blog'>
+<article class='post'>
+<div class='post-head'>
+<h2>
+リモートインターン ｜ バージョン管理（Git & GitHub）
+</h2>
+<div class='date'>
+<time>Feb 23 2013</time>
+<ul class='tags'>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>今回はGitやGitHubなどのバージョン管理について学習していきました。</p>
+
+<h2 id="git">Git</h2>
+<p>ゴール：Gitの基本を理解する。
+やること：<a href="http://try.github.com/levels/1/challenges/1" title="tryGit">tryGit</a>をやる。
+参照：<a href="http://www.backlog.jp/git-guide/" title="サルでもわかるgit入門">サルでもわかるgit入門</a>、<a href="http://git-scm.com/book/ja" title="Pro Git">Pro Git</a></p>
+
+<h2 id="github">GitHub</h2>
+<p>ゴール：Githubに自分のリポジトリを作る。clone、pushができる。remote branchが作れる。pull –rebase、 stash、stash popに挑戦する。
+提出課題：HTMLの項目でマークアップしたHTMLファイルを自分のリポジトリにアップロードする。</p>
+
+<h2 id="git-order">git order</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ mkdir hoge
+$ cd hoge
+$ git init
+$ git commit -m 'first commit'
+$ git remote add origin git@github.com:username/hoge.git
+$ git push origin master&lt;
+</code></pre></div></div>
+
+<h2 id="git-command">git command</h2>
+<table class="pure-table pure-table-bordered">
+<tbody>
+<tr>
+<th style="text-align: left;">git init</th>
+<td>ワーキングディレクトリをGitリポジトリにする。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git status</th>
+<td>ワーキングディレクトリのワークツリーとインデックスの状態を確認する。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git log</th>
+<td>リポジトリの変更履歴を確認する。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git add <em>files</em></th>
+<td>filesをステージングする。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git add .</th>
+<td>全てのファイルをステージングする。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git reset -- <em>files</em></th>
+<td>filesのステージングを取り消す。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git reset</th>
+<td>全てのファイルのステージングを取り消す。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git checkout -- <em>files</em></th>
+<td>filesをステージからワーキングディレクトリへコピーする。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git commit -m "&lt;コメント&gt;"</th>
+<td>メッセージ付きでコミットする。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git diff</th>
+<td>変更されたファイルの差分を確認する。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git remote add <em>url</em>/<em>hoge</em>.git</th>
+<td>リモートリポジトリを追加する。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git push -u origin master</th>
+<td>リモートリポジトリにファイルを追加する。-uオプションを付けておくと、今後pushする時に、origin masterと打つ必要がなくなる。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git clone &lt;url&gt;</th>
+<td>リモートリポジトリをローカルに複製する。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git pull&lt;repository&gt; &lt;refspec&gt;</th>
+<td>リモートリポジトリのブランチの変更内容を取り込む。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git remote -v</th>
+<td>登録されているリモートリポジトリの名前とURLを確認する。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git remote rm&lt;repository&gt;</th>
+<td>登録されているリモートリポジトリを削除する。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git branch&lt;branchname&gt;</th>
+<td>ブランチを作成する。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git checkout</th>
+<td>履歴(またはステージ)から作業ディレクトリへファイルをコピーするために使う。条件によっては、ブランチを切り替える。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git merge&lt;branchname&gt;</th>
+<td>他のコミットから変更を受け入れるための新しいコミットを作成する。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git cherry-pick</th>
+<td>あるコミットからメッセージとパッチをコピーし、現在のブランチに新しいコミットを作る。</td>
+</tr>
+<tr>
+<th style="text-align: left;">git rebase</th>
+<td>merge の代替コマンド。複数のブランチを接ぎ木する。</td>
+</tr>
+</tbody>
+</table>
+<p>「remote branchが作れる。pull –rebase、 stash、stash popに挑戦する。 」→このへんがまだ出来てないので、Web designer tutorialに移ってデザイン修行と並行してコードをGitHubにあげながら経験値をあげようと思ってます。
+とりあえず、今回の学習でプログラマー・デザイナー共通チュートリアルでの学習が完了しました。
+いざ、デザイン修行！</p>
+
+</div>
+<div class='post-comment'>
+<div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'camuro';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+
+</div>
+</article>
+<ul class='post-list'>
+<li>
+<h3>2018</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2018/02/rails-js-test.html'>Railsアプリのjsのテストをしたい</a>
+</li>
+<li>
+<a href='/blog/2018/02/update-middleman-to-v4.html'>middlemanをv4にupdateした。</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2014</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2014/11/whitebox.html'>石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。</a>
+</li>
+<li>
+<a href='/blog/2014/10/makershub.html'>MakersHubの名刺をデザインしました。</a>
+</li>
+<li>
+<a href='/blog/2014/01/pplog.html'>pplogのAlfred Workflowを作った</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2013</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2013/11/tmm.html'>Tokyo Middleman Meetup #1でSusyのお話をしてきた</a>
+</li>
+<li>
+<a href='/blog/2013/11/adventar.html'>Adventarのリニューアルデザインをお手伝いしたお話</a>
+</li>
+<li>
+<a href='/blog/2013/09/renewal.html'>WordPressからmiddlemanに移行してGithub Pagesで運用する方法</a>
+</li>
+<li>
+<a href='/blog/2013/05/14011654.html'>RubyHiroba 2013 のサイトデザインしました</a>
+</li>
+<li>
+<a href='/blog/2013/04/20021938.html'>リモートインターン ｜ Middleman 実践（4）- Githubページへデプロイする方法</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2012</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2012/12/21004721.html'>リモートインターン15-17日目 ｜ CSS & Sass & Compass ( &SCOUT )の学習</a>
+</li>
+<li>
+<a href='/blog/2012/12/08010025.html'>リモートインターン13-14日目 ｜ 怖話コミックの漫画を依頼する人を探す</a>
+</li>
+<li>
+<a href='/blog/2012/12/04000102.html'>リモートインターン12日目 ｜ Bufferにポストを予約</a>
+</li>
+<li>
+<a href='/blog/2012/12/03120008.html'>ルートパスでローカルサーバーの構築をする場合の手順</a>
+</li>
+<li>
+<a href='/blog/2012/11/30235317.html'>リモートインターン11日目 ｜ Webの基本 – HTML課題 / CSSの基礎</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<script src="../../../javascripts/mylibs/google.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<meta content='IE=edge;chrome=1' http-equiv='X-UA-Compatible'>
+<meta content='width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0' name='viewport'>
+<title>リモートインターン ｜ MIddleman 実践（3）- ブログレイアウトと入れ子レイアウト</title>
+<link href="../../../stylesheets/normalize.css" rel="stylesheet" /><link href="../../../stylesheets/all.css" rel="stylesheet" /><link href="http://yui.yahooapis.com/pure/0.2.1/menu-min.css" rel="stylesheet" />
+<script src="../../../javascripts/all.js"></script>
+</head>
+<body class='blog blog_2013 blog_2013_04 blog_2013_04_19233343'>
+<div class='pure-g-r' id='layout'>
+<div class='sidebar pure-u'>
+<div class='menu-box'>
+<a class='heading' href='/'>
+camuro
+</a>
+<nav>
+<ul class='menu cl-effect-5'>
+<li class='menu-item'>
+<a href='/'>
+<span data-hover='Home'>Home</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/about.html'>
+<span data-hover='About'>About</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/works.html'>
+<span data-hover='Works'>Works</span>
+</a>
+</li>
+<li class='menu-item'>
+<a href='/blog.html'>
+<span data-hover='Blog'>Blog</span>
+</a>
+</li>
+</ul>
+</nav>
+<form>
+<input class='st-search-input' id='st-search-input' type='text'>
+</form>
+<script>
+  var Swiftype = window.Swiftype || {};
+    (function() {
+      Swiftype.key = 'gGZQLNj5d36eyibDuysX';
+  
+      /** DO NOT EDIT BELOW THIS LINE **/
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = "//s.swiftypecdn.com/embed.js";
+      var entry = document.getElementsByTagName('script')[0];
+      entry.parentNode.insertBefore(script, entry);
+    }());
+</script>
+</div>
+
+</div>
+<div class='pure-u-1'>
+<div class='main' id='blog'>
+<article class='post'>
+<div class='post-head'>
+<h2>
+リモートインターン ｜ MIddleman 実践（3）- ブログレイアウトと入れ子レイアウト
+</h2>
+<div class='date'>
+<time>Apr 19 2013</time>
+<ul class='tags'>
+</ul>
+</div>
+</div>
+<div class='post-body'>
+<p>参考 - <a href="http://middleman-guides.e2esound.com/blogging/" title="Middleman:ブログ機能">Middleman:ブログ機能</a>
+今回はブログ機能を付けていたときに躓いたことについて書いていきます。</p>
+
+<p>config.rbにブログ機能のオプションを色々と書くことができる。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># blog</span>
+<span class="n">activate</span> <span class="ss">:blog</span> <span class="k">do</span> <span class="o">|</span><span class="n">blog</span><span class="o">|</span>
+  <span class="c1"># ブログ機能のオプションを設定</span>
+  <span class="no">Time</span><span class="p">.</span><span class="nf">zone</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="no">Tokyo</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span> <span class="c1"># タイムゾーン</span>
+  <span class="n">blog</span><span class="p">.</span><span class="nf">prefix</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">blog</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span> <span class="c1"># カスタムパス</span>
+  <span class="n">blog</span><span class="p">.</span><span class="nf">permalink</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="sr">/:year/</span><span class="ss">:month</span><span class="o">/</span><span class="ss">:day</span><span class="o">/</span><span class="ss">:title</span><span class="p">.</span><span class="nf">html</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span> <span class="c1"># パーマリンク</span>
+  <span class="n">blog</span><span class="p">.</span><span class="nf">per_page</span> <span class="o">=</span> <span class="mi">5</span> <span class="c1"># ページあたりの記事数</span>
+  <span class="n">blog</span><span class="p">.</span><span class="nf">paginate</span> <span class="o">=</span> <span class="kp">true</span> <span class="c1"># ページネーションを有効化する場合には true を設定</span>
+  <span class="n">blog</span><span class="p">.</span><span class="nf">layout</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span><span class="n">layouts</span><span class="o">/</span><span class="n">blog_layout</span><span class="o">&amp;</span><span class="n">quot</span><span class="p">;</span> <span class="c1"># 全ての記事に使用される特定のレイアウトを設定</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<!--more-->
+<p><strong>ブログレイアウトの指定方法</strong></p>
+
+<p>方法１．ブログ用のレイアウトをlayoutsディレクトリ作ってその配下にarticle_layout.hamlという名前などで作る。(元のerbでもいいけどhamlでやってます。)</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">blog</span><span class="p">.</span><span class="nf">layout</span> <span class="o">=</span> <span class="s2">"layouts/article_layout"</span>
+</code></pre></div></div>
+
+<p>方法２．ブログレイアウトの指定は<a href="http://middleman-guides.e2esound.com/templates/#toc_4" title="入れ子レイアウト">入れ子レイアウト</a>も使えるらしい。
+同様にconfig.rbのブログオプションの箇所でレイアウトの指定を下記のように書き換える。</p>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">page</span> <span class="s2">"blog/*"</span><span class="p">,</span> <span class="ss">:layout</span> <span class="o">=&gt;</span> <span class="ss">:article_layout</span>
+</code></pre></div></div>
+
+<p>ここで問題。
+layoutsディレクトリを作る、ということで私はここで勝手に元のlayout.hamlもlayoutsディレクトリに入れてしまった。
+こうしてしまうとパーシャルを含むブログレイアウトの指定を入れ子レイアウトにした場合、ヘッダーやフッターのパーシャルをうまく読み込んでくれない。
+あくまでsource/layout.hamlが基本で、そこからsource/layouts/article_layout.hamlを入れ子にするという考え方が正しい。</p>
+
+<p>原因が分からず、source/layouts/layout.hamlはブログ以外のページ用のレイアウトとしてそのまま残し、source/layouts/article_layout.hamlにはヘッダーやフッターのパーシャルにしないで直書き…というキモいやり方でとりあえず動かしてしまっていた。</p>
+
+<p>今回この記事書くために改めて検証してみて、原因が分かりました…とほほ。
+<a href="https://github.com/kumanoayumi/middleman-blog" title="今回検証する用に作ったコードをGithubに上げておきます。→">今回検証する用に作ったコードをGithubに上げておきます。→</a></p>
+
+</div>
+<div class='post-comment'>
+<div id='disqus_thread'></div>
+<script type='text/javascript'>
+//<![CDATA[
+                  var disqus_shortname = 'camuro';
+          
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+//]]>
+</script>
+<noscript>Please enable JavaScript to view the <a href='http://disqus.com/?ref_noscript'>comments powered by Disqus.</a></noscript>
+<a href='http://disqus.com' class='dsq-brlink'>comments powered by <span class='logo-disqus'>Disqus</span></a>
+
+</div>
+</article>
+<ul class='post-list'>
+<li>
+<h3>2018</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2018/02/rails-js-test.html'>Railsアプリのjsのテストをしたい</a>
+</li>
+<li>
+<a href='/blog/2018/02/update-middleman-to-v4.html'>middlemanをv4にupdateした。</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2014</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2014/11/whitebox.html'>石橋秀美の解剖図展「しろいはこ」がまもなく開催されます。</a>
+</li>
+<li>
+<a href='/blog/2014/10/makershub.html'>MakersHubの名刺をデザインしました。</a>
+</li>
+<li>
+<a href='/blog/2014/01/pplog.html'>pplogのAlfred Workflowを作った</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2013</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2013/11/tmm.html'>Tokyo Middleman Meetup #1でSusyのお話をしてきた</a>
+</li>
+<li>
+<a href='/blog/2013/11/adventar.html'>Adventarのリニューアルデザインをお手伝いしたお話</a>
+</li>
+<li>
+<a href='/blog/2013/09/renewal.html'>WordPressからmiddlemanに移行してGithub Pagesで運用する方法</a>
+</li>
+<li>
+<a href='/blog/2013/05/14011654.html'>RubyHiroba 2013 のサイトデザインしました</a>
+</li>
+<li>
+<a href='/blog/2013/04/20021938.html'>リモートインターン ｜ Middleman 実践（4）- Githubページへデプロイする方法</a>
+</li>
+</ul>
+</li>
+<li>
+<h3>2012</h3>
+<ul class='post-list-item'>
+<li>
+<a href='/blog/2012/12/21004721.html'>リモートインターン15-17日目 ｜ CSS & Sass & Compass ( &SCOUT )の学習</a>
+</li>
+<li>
+<a href='/blog/2012/12/08010025.html'>リモートインターン13-14日目 ｜ 怖話コミックの漫画を依頼する人を探す</a>
+</li>
+<li>
+<a href='/blog/2012/12/04000102.html'>リモートインターン12日目 ｜ Bufferにポストを予約</a>
+</li>
+<li>
+<a href='/blog/2012/12/03120008.html'>ルートパスでローカルサーバーの構築をする場合の手順</a>
+</li>
+<li>
+<a href='/blog/2012/11/30235317.html'>リモートインターン11日目 ｜ Webの基本 – HTML課題 / CSSの基礎</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<script src="../../../javascripts/mylibs/google.js"></script>
+</body>
+</html>
